@@ -1,1 +1,9 @@
-
+name: prcheck
+on: [pull_request]
+jobs:
+  prcheck:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: test
+        run: |
+          echo test
