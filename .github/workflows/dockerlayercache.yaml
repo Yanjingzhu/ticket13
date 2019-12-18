@@ -1,1 +1,12 @@
-
+name: docker layer cache
+on: [push]
+jobs:
+  docker layer:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: docker layer cache
+        uses: whoan/docker-build-with-cache-action@v2
+        with:
+          username: weidez
+          password: "${{ secrets.DOCKER_PASSWORD }}"
+          image_name: whoan/node
