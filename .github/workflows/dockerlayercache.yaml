@@ -4,7 +4,7 @@ jobs:
   docker layer:
     runs-on: [ubuntu-latest]
     steps:
-      - name: docker layer cache
+      - name: dockerlayercache
         uses: whoan/docker-build-with-cache-action@v2
         with:
           username: weidez
