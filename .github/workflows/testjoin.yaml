@@ -10,7 +10,5 @@ jobs:
         run: |
           echo "$JOINTEXT"
       - name: customer use
-        env:
-          JOINTEXT2: ${{ join(['Hello', 'World']) }}
         run: |
-          echo "$JOINTEXT2"
+          echo ${{ join(['Hello', 'World']) }}
