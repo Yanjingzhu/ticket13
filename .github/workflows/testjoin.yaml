@@ -16,8 +16,8 @@ jobs:
         run: |
           echo "$JOINTEXT"
 
-      - name: customer use
-        continue-on-error: true
-        run: |
-          echo ${{ join(['Hello', 'Mona', 'the'], 'Octocat') }}
+   #   - name: customer use
+   #    continue-on-error: true
+   #     run: |
+   #       echo ${{ join(['Hello', 'Mona', 'the'], 'Octocat') }}
           
