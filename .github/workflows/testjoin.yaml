@@ -5,5 +5,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: testjoin
+        env:
+          JOINTEXT: ${{ join('Hello', 'world!') }}
         run: |
-          echo ${{ join('Hello', 'world!') }}
+          echo $JOINTEXT 
