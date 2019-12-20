@@ -11,4 +11,4 @@ jobs:
           echo "$JOINTEXT"
       - name: customer use
         run: |
-          echo ${{ join(['Hello', 'World']) }}
+          echo ${{ join(['Hello', 'World'], 'test') }}
