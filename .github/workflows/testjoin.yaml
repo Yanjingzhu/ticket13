@@ -8,4 +8,4 @@ jobs:
         env:
           JOINTEXT: ${{ join('Hello', 'world!') }}
         run: |
-          echo $JOINTEXT 
+          echo "$JOINTEXT"
