@@ -10,11 +10,12 @@ jobs:
         run: |
           echo "$JOINTEXT"
 
-      - name: testjoin2
+      - name: contain
         env:
-          JOINTEXT: join('Hello', 'world!')
+          CONTAINTEST: ${{ contains('Hello world', 'llo') }}
         run: |
-          echo "$JOINTEXT"
+          echo "$CONTAINTEST"
+
 
    #   - name: customer use
    #    continue-on-error: true
