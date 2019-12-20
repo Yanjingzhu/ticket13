@@ -9,7 +9,15 @@ jobs:
           JOINTEXT: ${{ join('Hello', 'world!') }}
         run: |
           echo "$JOINTEXT"
+
+      - name: testjoin2
+        env:
+          JOINTEXT: join('Hello', 'world!')
+        run: |
+          echo "$JOINTEXT"
+
       - name: customer use
+        continue-on-error: true
         run: |
           echo ${{ join(['Hello', 'Mona', 'the'], 'Octocat') }}
           
