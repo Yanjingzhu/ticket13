@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: testjoin
         env:
-          JOINTEXT: ${{ join('Hello', 'world!') }}
+          JOINTEXT: ${{ join('Hello','world!') }}
         run: |
           echo "$JOINTEXT"
 
