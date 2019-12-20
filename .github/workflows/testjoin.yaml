@@ -1,1 +1,9 @@
-
+name: testjoin
+on: [push]
+jobs:
+  testjoin:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: testjoin
+        run: |
+          echo ${{ join('Hello', 'world!') }}
