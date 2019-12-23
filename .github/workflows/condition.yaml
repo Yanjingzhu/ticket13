@@ -5,6 +5,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: step1
+        continue-on-error: true
         run: |
           exit 1
           
