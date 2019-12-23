@@ -11,8 +11,8 @@ jobs:
           echo step1
       - name: Simple commit
         run: |
-          git remote -v
+          git remote set-url origin https://test:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git checkout B7
-          git tag v1.1.1
-          git push --tags
+          cat .> file1
+          git push origin B7:B7
           
