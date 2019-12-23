@@ -8,7 +8,9 @@ jobs:
         run: |
           echo step1
       - name: new commit
-        uses: zwaldowski/git-commit-action@v1
+        uses: EndBug/add-and-commit@v2
         with:
-          commit_message: new commit
+          message: new commit
           author_name: weide
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
