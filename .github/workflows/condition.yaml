@@ -9,6 +9,7 @@ jobs:
         run: |
           fail
       - name: Dump job context
+        if: always()
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
