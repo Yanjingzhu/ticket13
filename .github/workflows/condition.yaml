@@ -16,6 +16,7 @@ jobs:
           echo "::set-output name=status::fail"
 
       - name: step2
+        if: always()
         run: |
           fail
           
