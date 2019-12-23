@@ -6,14 +6,27 @@ jobs:
     steps:
       - name: step1
         continue-on-error: true
-        id: step1
         run: |
           echo step1
-          echo ${{ toJson(steps) }}
+          
+      - name: getstatus
+        if: failure()
+        id: step1
+        run: |
+          echo "::set-output name=status::failure"
 
       - name: step2
+        continue-on-error: true
         run: |
           echo step2
+          
+      - name: getstatus
+        if: failure()
+        id: step2
+        run: |
+          echo "::set-output name=status::failure"
+      
       - name: step3
+        if: steps.step1.outputs.status == failure || steps.step2.outputs.status == failure
         run: |
           echo step3
