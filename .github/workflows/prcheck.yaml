@@ -7,9 +7,11 @@ jobs:
       - name: step1
         run: |
           echo step1
-      - name: new commit
-        uses: EndBug/add-and-commit@v2
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v2 
         with:
-          message: new commit
+          author_name: Your Name
+          author_email: mail@example.com
+          message: "Your commit message"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
