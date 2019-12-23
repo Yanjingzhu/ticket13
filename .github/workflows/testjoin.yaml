@@ -6,15 +6,9 @@ jobs:
     steps:
       - name: testjoin
         env:
-          JOINTEXT: ${{ join('Hello','world!') }}
+          JOINTEXT: ${{ join(['Hello','world!']) }}
         run: |
           echo "$JOINTEXT"
-
-      - name: contain
-        env:
-          CONTAINTEST: ${{ contains('Hello world', 'llo') }}
-        run: |
-          echo "$CONTAINTEST"
 
 
    #   - name: customer use
