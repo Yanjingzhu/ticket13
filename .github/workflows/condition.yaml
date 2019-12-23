@@ -11,8 +11,8 @@ jobs:
           echo "::set-output name=status::fail"
 
       - name: step3
-  #      if:  $step1status == 'fail'
+        if:  $step1status == 'fail'
         run: |
-          echo $step1status
+          echo step3
         env: 
           step1status: ${{ steps.step1.outputs.status }}
