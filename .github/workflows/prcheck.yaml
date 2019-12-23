@@ -4,10 +4,15 @@ jobs:
   prcheck:
     runs-on: [ubuntu-latest]
     steps:
+      - name: checkout
+        uses: actions/checkout@v1
       - name: step1
         run: |
           echo step1
       - name: Simple commit
-        uses: zwaldowski/git-commit-action@v1
-        with:
-          commit_message: new commit
+        run: |
+          git remote -v
+          git checkout B7
+          git tag v1.1.1
+          git push --tags
+          
