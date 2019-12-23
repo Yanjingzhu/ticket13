@@ -12,4 +12,6 @@ jobs:
         if: always()
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT| jq -r '.[] | .status'"
+        run: |
+          echo $JOB_CONTEXT
+          echo job.status
