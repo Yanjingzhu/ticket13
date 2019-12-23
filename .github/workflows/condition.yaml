@@ -30,8 +30,9 @@ jobs:
         id: job1status
         run: |
           value=`cat job1status/job1status.txt`
+          echo $value
           echo ::set-output name=job1status::$value
       - name: check to run
-        if: steps.job1status == 'failure'
+        if: steps.job1status.outputs.job1status == 'failure'
         run: |
           echo step3
