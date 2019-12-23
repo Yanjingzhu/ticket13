@@ -15,7 +15,7 @@ jobs:
           git config --global user.name weide
           git config --global user.email weide-zhou@outlook.com
           git checkout B7
-          cat > file1
+          cat 1> file1
           git add .
           git commit -m 'version1'
           git push origin B7:B7
