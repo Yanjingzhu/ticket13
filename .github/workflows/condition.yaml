@@ -14,4 +14,4 @@ jobs:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: |
           echo $JOB_CONTEXT
-          echo job.status
+          echo ${{ job.status }}
