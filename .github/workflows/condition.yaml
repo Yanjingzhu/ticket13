@@ -12,9 +12,4 @@ jobs:
         if: always()
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump GitHub context
-        if: always()
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: echo "$JOB_CONTEXT| jq -r '.[] | .status'"
