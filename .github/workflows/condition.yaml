@@ -6,11 +6,13 @@ jobs:
     steps:
           
       - name: getstatus
+        continue-on-error: true
         run: |
           fail
       - name: Dump job context
         if: always()
         run: |
+          echo ${{ job.status }}
           echo ${{ job.status }} > job1status.txt
       - name: Save job1 status
         if: always()
