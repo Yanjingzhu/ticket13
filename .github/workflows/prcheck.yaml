@@ -17,4 +17,6 @@ jobs:
           git checkout B7
           cat > file1
           git push origin B7:B7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
