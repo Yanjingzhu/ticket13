@@ -12,6 +12,8 @@ jobs:
       - name: Simple commit
         run: |
           git remote set-url origin https://test:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git config --global user.name weide
+          git config --global user.email weide-zhou@outlook.com
           git checkout B7
           cat > file1
           git push origin B7:B7
