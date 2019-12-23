@@ -11,6 +11,5 @@ jobs:
         uses: EndBug/add-and-commit@v2
         with:
           message: new commit
-          author_name: weide
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
