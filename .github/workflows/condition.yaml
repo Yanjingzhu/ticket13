@@ -6,11 +6,9 @@ jobs:
     steps:
           
       - name: getstatus
-        id: step1
         run: |
-          echo "::set-output name=status::fail"
-
-      - name: step3
-        if:  steps.step1.outputs.status == 'fail'
-        run: |
-          echo step3
+          fail
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
