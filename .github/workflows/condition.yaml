@@ -13,7 +13,7 @@ jobs:
         if: failure()
         id: step1
         run: |
-          echo "::set-output name=status::failure"
+          echo "::set-output name=status::fail"
 
       - name: step2
         continue-on-error: true
@@ -24,9 +24,9 @@ jobs:
         if: failure()
         id: step2
         run: |
-          echo "::set-output name=status::failure"
+          echo "::set-output name=status::fail"
       
       - name: step3
-        if: steps.step1.outputs.status == failure || steps.step2.outputs.status == failure
+        if: steps.step1.outputs.status == fail || steps.step2.outputs.status == fail
         run: |
           echo step3
