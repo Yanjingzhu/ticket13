@@ -15,8 +15,8 @@ jobs:
           git config --global user.name weide
           git config --global user.email weide-zhou@outlook.com
           git checkout B7
-          cat > file1
-          git push origin B7:B7
+          git tag v1.1.1
+          git push --tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
