@@ -9,9 +9,10 @@ jobs:
         id: step1
         run: |
           echo step1
-      - name: step1status
-        run: |
-          echo ${{ steps.step1.status }}
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
       - name: step2
         run: |
           echo step2
