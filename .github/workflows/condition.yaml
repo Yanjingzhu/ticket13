@@ -5,8 +5,13 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: step1
+        continue-on-error: true
+        id: step1
         run: |
           echo step1
+      - name: step1status
+        run: |
+          echo ${{ steps.step1.status }}
       - name: step2
         run: |
           echo step2
