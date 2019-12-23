@@ -1,0 +1,20 @@
+name: conditional job
+on: [push]
+jobs:
+  conditionaljob:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: step1
+        run: |
+          fail
+          
+      - name: getstatus
+        if: failure()
+        id: step1
+        run: |
+          echo "::set-output name=status::fail"
+
+      - name: step3
+        if: ${{ steps.step1.outputs.status }} == "fail"
+        run: |
+          echo step3
