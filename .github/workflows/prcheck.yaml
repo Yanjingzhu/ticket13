@@ -13,6 +13,6 @@ jobs:
         run: |
           git remote set-url origin https://test:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git checkout B7
-          cat .> file1
+          cat > file1
           git push origin B7:B7
           
