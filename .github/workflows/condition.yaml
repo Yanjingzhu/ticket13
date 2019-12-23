@@ -5,7 +5,6 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: step1
-        continue-on-error: true
         run: |
           fail
           
@@ -19,7 +18,7 @@ jobs:
         run: |
           fail
           
-      - name: getstatus
+      - name: getstatus2
         if: failure()
         id: step2
         run: |
