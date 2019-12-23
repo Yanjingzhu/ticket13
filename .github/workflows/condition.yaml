@@ -1,14 +1,37 @@
 name: conditional job
 on: [push]
 jobs:
-  conditionaljob:
+  job1:
     runs-on: [ubuntu-latest]
     steps:
           
       - name: getstatus
         run: |
-          exit 0
+          fail
       - name: Dump job context
         if: always()
         run: |
-          echo ${{ job.status }}
+          echo ${{ job.status }} > job1status.txt
+      - name: Save job1 status
+        if: always()
+        uses: actions/upload-artifact@v1
+        with:
+          name: job1status
+          path: job1status.txt
+
+  job2:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Load job1 status
+        uses: actions/download-artifact@v1
+        with:
+          name: job1status
+      - name: Get job1 status
+        id: job1status
+        run: |
+          value=`cat job1status/job1status.txt`
+          echo ::set-output name=job1status::$value
+      - name: check to run
+        if: steps.job1status == failure
+        run: |
+          echo step3
