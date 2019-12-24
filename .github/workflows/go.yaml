@@ -19,7 +19,7 @@ jobs:
           mkdir -p ~/go/bin
           mkdir -p ~/go/pkg
           mkdir -p ~/go/src
-          GOPATH="$HOME/go"
+          export GOPATH="$HOME/go"
 
         
 #      - run: go get -v -u github.com/sirupsen/logrus
