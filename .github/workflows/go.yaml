@@ -15,7 +15,10 @@ jobs:
           go version
       - name: setup go path
         run: |
-          export GOROOT=/usr/local/go
+          mkdir -p ~/go
+          echo "export GOPATH=$HOME/go" >> ~/.bashrc
+          echo "export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin" >> ~/.bashrc
+          source ~/.bashrc
         
 #      - run: go get -v -u github.com/sirupsen/logrus
       - run: go get -v -u ./...
