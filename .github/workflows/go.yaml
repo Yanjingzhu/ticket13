@@ -7,22 +7,12 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@master
-        with:
-          ref: B8
       - uses: actions/setup-go@v1
         with:
           go-version: 1.13.x
       - name: go version
         run : | 
           go version
-      - name: setup go path
-        run: |
-          mkdir -p ~/go
-          mkdir -p ~/go/bin
-          mkdir -p ~/go/pkg
-          mkdir -p ~/go/src
-          export GOPATH="$HOME/go"
-
         
 #      - run: go get -v -u github.com/sirupsen/logrus
       - run: go get -v -u github.com/${GITHUB_REPOSITORY}
