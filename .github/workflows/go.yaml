@@ -15,7 +15,7 @@ jobs:
           go version
         
 #      - run: go get -v -u github.com/sirupsen/logrus
-      - run: go get -v -u gopkg.in/${GITHUB_REPOSITORY}.B8
+      - run: go get -v -u github.com/${GITHUB_REPOSITORY}@B8
 #        working-directory: $GOPATH
 
       
