@@ -15,14 +15,12 @@ jobs:
           go version
       - name: setup go path
         run: |
-          mkdir -p ~/go
-          export GOROOT=/usr/local/go
-          echo $GOPATH
+          unset GOROOT
 
         
 #      - run: go get -v -u github.com/sirupsen/logrus
       - run: go get -v -u ./...
-        working-directory: $GOPATH
+#        working-directory: $GOPATH
         
 
       - run: go build -ldflags "-X main._buildDate=testDate -X main._buildVersion=testVersion" -o main *.go
