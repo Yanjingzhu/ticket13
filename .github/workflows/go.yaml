@@ -13,13 +13,15 @@ jobs:
       - name: go version
         run : | 
           go version
-      - name: setup go path
-        run: |
-          unset GOROOT
+#      - name: setup go path
+#        run: |
+#          unset GOROOT
 
         
 #      - run: go get -v -u github.com/sirupsen/logrus
-      - run: go get -v -u ./...
+      - run: |
+          unset GOROOT
+          go get -v -u ./...
 #        working-directory: $GOPATH
         
 
