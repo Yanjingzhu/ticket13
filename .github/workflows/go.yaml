@@ -15,12 +15,7 @@ jobs:
           go version
       - name: setup go path
         run: |
-          mkdir -p ~/go
-          mkdir -p ~/go/bin
-          mkdir -p ~/go/pkg
-          mkdir -p ~/go/src
-          GOPATH="$HOME/go"
-          PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"  
+          export GOROOT=/usr/local/go
         
 #      - run: go get -v -u github.com/sirupsen/logrus
       - run: go get -v -u ./...
