@@ -23,7 +23,7 @@ jobs:
 
         
 #      - run: go get -v -u github.com/sirupsen/logrus
-      - run: go get -v -u ${GITHUB_REPOSITORY}
+      - run: go get -v -u github.com/${GITHUB_REPOSITORY}
 #        working-directory: $GOPATH
 
       
