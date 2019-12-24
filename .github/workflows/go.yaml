@@ -16,6 +16,7 @@ jobs:
       - name: setup go path
         run: |
           mkdir -p ~/go
+          export GOROOT=/usr/local/go
           echo "export GOPATH=$HOME/go" >> ~/.bashrc
           echo "export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin" >> ~/.bashrc
           source ~/.bashrc
