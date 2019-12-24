@@ -23,6 +23,8 @@ jobs:
         
 #      - run: go get -v -u github.com/sirupsen/logrus
       - run: go get -v -u ./...
+        working-directory: $GOPATH
+        
 
       - run: go build -ldflags "-X main._buildDate=testDate -X main._buildVersion=testVersion" -o main *.go
       
