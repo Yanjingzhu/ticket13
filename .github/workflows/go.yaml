@@ -14,8 +14,8 @@ jobs:
         run : | 
           go version
         
-      - run: go get -v -u github.com/sirupsen/logrus
-#      - run: go get -v -u ./...
+#      - run: go get -v -u github.com/sirupsen/logrus
+      - run: go get -v -u ./...
 
       - run: go build -ldflags "-X main._buildDate=testDate -X main._buildVersion=testVersion" -o main *.go
       
