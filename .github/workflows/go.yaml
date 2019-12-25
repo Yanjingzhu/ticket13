@@ -13,9 +13,19 @@ jobs:
       - name: go version
         run : | 
           go version
+          echo $HOME
+          cat $HOME/.profile
+    #  - name: set env
+   #     run: |
+  #        export GOROOT=/usr/local/go
+ #         export GOPATH=$HOME/go
+ #         export PATH=$PATH:$GOROOT/bin
+ #         echo "::set-env name=action_state::yellow"          
         
 #      - run: go get -v -u github.com/sirupsen/logrus
-      - run: go get -v -u github.com/${GITHUB_REPOSITORY}@B8
+      - name: go get
+        run: go get -v -u github.com/${GITHUB_REPOSITORY}@B8
+
 #        working-directory: $GOPATH
 
       
