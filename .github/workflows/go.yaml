@@ -31,7 +31,7 @@ jobs:
         
 #      - run: go get -v -u github.com/sirupsen/logrus
       - name: go get
-        run: go get -v -u github.com/${GITHUB_REPOSITORY}@B8
+        run: go get -v -u ./...
 
 #        working-directory: $GOPATH
 
