@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v1
         with:
           ref: B8
- #         path: src/github.com/${{ github.repository }}
+          path: src/github.com/${{ github.repository }}
       - name: echo env
         run: |
           echo $(go env GOPATH)
