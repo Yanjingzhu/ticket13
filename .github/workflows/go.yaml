@@ -22,6 +22,7 @@ jobs:
         run: |
           echo $(go env GOPATH)
           echo $(go env GOROOT)
+          echo $PATH
           ls -al
 #      - run: go get -v -u github.com/sirupsen/logrus
       - name: go get
