@@ -9,11 +9,11 @@ jobs:
       - uses: actions/setup-go@v1
         with:
           go-version: 1.13.x
-   #   - name: setup env
-   #     run: |
-   #       echo "##[set-env name=GOPATH;]$(dirname $GITHUB_WORKSPACE)"
-   #       echo "##[add-path]$(dirname $GITHUB_WORKSPACE)/bin"
-   #     shell: bash
+      - name: setup env
+        run: |
+          echo "##[set-env name=GOPATH;]$(dirname $GITHUB_WORKSPACE)"
+          echo "##[add-path]$(dirname $GITHUB_WORKSPACE)/bin"
+        shell: bash
       - uses: actions/checkout@v1
         with:
           ref: B8
