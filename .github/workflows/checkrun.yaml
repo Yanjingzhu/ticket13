@@ -1,1 +1,9 @@
-
+name: check run update
+on: [push]
+jobs:
+  checkrunupdate:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: update
+        run: |
+          curl --user "weide-zhou" -d '{"owner":"weide-zhou", "repo": "ticket13", "check_run_id":"362909122", "name": "Samuel Updated"}' --header "authorization: token ${{ secrets.PAT }}" --header "accept:application/vnd.github.antiope-preview+json" -X PATCH https://api.github.com/repos/weide-zhou/ticket13/check-runs/362909122
