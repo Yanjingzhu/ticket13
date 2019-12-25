@@ -6,18 +6,20 @@ jobs:
   build:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@master
-        with:
-          path: ../../../go/src
-      - run: echo $GITHUB_WORKSPACE
-      - uses: actions/setup-go@v1
+      - name: setup go
+        uses: actions/setup-go@v1
         with:
           go-version: 1.13.x
-      - name: go version
-        run : | 
-          go version
-          echo $HOME
-          cat $HOME/.profile
+      - name: setup env
+        run: |
+          echo "::set-env name=GOPATH::$(go env GOPATH)"
+          echo "::add-path::$(go env GOPATH)/bin"
+        shell: bash
+      - name: checkout
+        uses: actions/checkout@v1
+        with:
+          ref: B8
+          path: src/github.com/${{ github.repository }}
     #  - name: Set GOPATH
         # temporary fix
         # see https://github.com/actions/setup-go/issues/14
