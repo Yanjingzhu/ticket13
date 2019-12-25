@@ -7,6 +7,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@master
+        with:
+          path: /home/runner/go/src
       - uses: actions/setup-go@v1
         with:
           go-version: 1.13.x
@@ -15,13 +17,13 @@ jobs:
           go version
           echo $HOME
           cat $HOME/.profile
-      - name: Set GOPATH
+    #  - name: Set GOPATH
         # temporary fix
         # see https://github.com/actions/setup-go/issues/14
-        run: |
-          echo "##[set-env name=GOPATH;]$(dirname $GITHUB_WORKSPACE)"
-          echo "##[add-path]$(dirname $GITHUB_WORKSPACE)/bin"
-        shell: bash
+   #     run: |
+   #       echo "##[set-env name=GOPATH;]$(dirname $GITHUB_WORKSPACE)"
+   #       echo "##[add-path]$(dirname $GITHUB_WORKSPACE)/bin"
+   #     shell: bash
     #  - name: set env
    #     run: |
   #        export GOROOT=/usr/local/go
