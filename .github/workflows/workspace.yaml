@@ -25,3 +25,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - run: echo $npm_config_cache
+        env:
+          npm_config_cache: ${{ github.workspace }}/frontend_cache 
