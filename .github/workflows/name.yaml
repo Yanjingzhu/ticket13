@@ -1,1 +1,13 @@
-
+name: hostcheck
+on: [push]
+jobs:
+  hostcheck:
+    runs-on: [windows-latest]
+    steps:
+      - name: hostcheck
+        run: |
+          hostname
+        shell: cmd
+      - name: setcheck
+        run: |
+          set
