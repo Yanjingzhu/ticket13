@@ -2,9 +2,7 @@ name: hostcheck
 on: [push]
 jobs:
   hostcheck:
-    runs-on: 
-      - ubuntu-latest
-      - windows-latest
+    runs-on: [ubuntu-latest]
     steps:
       # wait for it to start up
       - name: timewait
