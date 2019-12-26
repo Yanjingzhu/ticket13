@@ -14,3 +14,6 @@ jobs:
       - run: echo $npm_config_cache
         env:
           npm_config_cache: ${{ steps.setoutput.outputs.workspace }}/frontend_cache
+      - run: echo $npm_config_cache
+        env:
+          npm_config_cache: $GITHUB_WORKSPACE/frontend_cache
