@@ -5,6 +5,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - run: echo $GITHUB_WORKSPACE
+      - run: env
       - run: echo ${{ env.GITHUB_WORKSPACE }}
       - run: echo $npm_config_cache
         env:
