@@ -9,4 +9,4 @@ jobs:
       - run: echo ${{ env.GITHUB_WORKSPACE }}
       - run: echo $npm_config_cache
         env:
-          npm_config_cache: ${{GITHUB_WORKSPACE}}/frontend_cache
+          npm_config_cache: $(dirname $GITHUB_WORKSPACE)/frontend_cache
