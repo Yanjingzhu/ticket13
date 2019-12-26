@@ -4,6 +4,10 @@ jobs:
   hostcheck:
     runs-on: [windows-latest]
     steps:
+      # wait for it to start up
+      - name: timewait
+        run: |
+          timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:9000/ready)" != "200" ]]; do sleep 5; done' || false
       - name: hostcheck
         run: |
           hostname
