@@ -8,6 +8,7 @@ jobs:
       - name: timewait
         run: |
           timeout 300 >nul
+        shell: cmd
       - name: hostcheck
         run: |
           hostname
