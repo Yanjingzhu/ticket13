@@ -26,3 +26,7 @@ jobs:
       - run: echo $npm_config_cache
         env:
           npm_config_cache: ${{ env.GITHUB_TEST }}/frontend_cache
+      - run: echo $npm_config_cache
+        env:
+          GITHUB_WORKSPACE: check
+          npm_config_cache: ${{ env.GITHUB_WORKSPACE }}/frontend_cache
