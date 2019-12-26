@@ -21,3 +21,7 @@ jobs:
       - run: echo $npm_config_cache
         env:
           npm_config_cache: ${{ env.workspace }}/frontend_cache
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
