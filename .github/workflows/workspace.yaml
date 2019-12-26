@@ -7,6 +7,7 @@ jobs:
       - run: echo $GITHUB_WORKSPACE
       - run: env
       - run: echo ${{ env.GITHUB_WORKSPACE }}
+      - run: ehco env.GITHUB_WORKSPACE
       - run: echo $(dirname $GITHUB_WORKSPACE)
       - name: setoutput
         id: setoutput  
