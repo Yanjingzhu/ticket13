@@ -7,7 +7,7 @@ jobs:
       # wait for it to start up
       - name: timewait
         run: |
-          timeout 300 >nul
+          timeout 5 >nul
         shell: cmd
       - name: hostcheck
         run: |
