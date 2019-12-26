@@ -6,6 +6,10 @@ jobs:
     steps:
       - run: echo $GITHUB_WORKSPACE
       - run: env
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(env) }}
+        run: echo "$GITHUB_CONTEXT"
       - run: echo ${{ env.GITHUB_WORKSPACE }}
       - run: echo $(dirname $GITHUB_WORKSPACE)
       - name: setoutput
