@@ -8,6 +8,9 @@ jobs:
       - run: env
       - run: echo ${{ env.GITHUB_WORKSPACE }}
       - run: echo $(dirname $GITHUB_WORKSPACE)
+      - name: setoutput
+        id: setoutput  
+        run: echo "::set-output name=workspace::$GITHUB_WORKSPACE"
       - run: echo $npm_config_cache
         env:
-          npm_config_cache: $(dirname $GITHUB_WORKSPACE)/frontend_cache
+          npm_config_cache: ${{ steps.setoutput.outputs.workspace }}/frontend_cache
