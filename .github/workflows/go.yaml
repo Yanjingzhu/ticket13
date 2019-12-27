@@ -28,13 +28,4 @@ jobs:
       - name: go get
         run: go get -v -u ./...
 
-#        working-directory: $GOPATH
 
-      
-      - run: go build -ldflags "-X main._buildDate=testDate -X main._buildVersion=testVersion" -o main *.go
-      
-      - run: docker build . --tag <removed>
-
-      - run: docker login -u <removed> -p ${{ secrets.DockerHubPassword }}
-
-      - run: docker push <removed>
