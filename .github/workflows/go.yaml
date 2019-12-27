@@ -26,6 +26,8 @@ jobs:
           ls -al
 #      - run: go get -v -u github.com/sirupsen/logrus
       - name: go get
-        run: go get -v -u ./...
-
+        run: |
+          go get -v -u ./...
+        env:
+          GOPRIVATE: github.com/${{ github.repository }}
 
