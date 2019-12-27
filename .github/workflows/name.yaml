@@ -1,14 +1,14 @@
-name: hostcheck
-on: [push]
+name: issuelabel
+on:
+  issues:
+    types: [labeled]
+    
 jobs:
-  hostcheck:
+  issuelabel:
     runs-on: [ubuntu-latest]
     steps:
-      # wait for it to start up
-      - name: timewait
-        run: |
-          sleep 20
-      - name: hostcheck
-        run: |
-          hostname
-
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      
