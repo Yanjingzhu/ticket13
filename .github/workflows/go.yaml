@@ -27,6 +27,6 @@ jobs:
 #      - run: go get -v -u github.com/sirupsen/logrus
       - name: go get
         run: |
-          git config --global url.git@github.com:.insteadOf https://github.com/
+          git config --global url."https://${{ secrets.PAT }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
           go get -v -u ./...
 
