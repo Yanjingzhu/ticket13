@@ -1,13 +1,13 @@
 name: hostcheck
-on: [push]
+on: 
+  push:
+    paths: 
+      - '.github/**'
+      - '!**.md'
 jobs:
   hostcheck:
     runs-on: [ubuntu-latest]
     steps:
-      # wait for it to start up
-      - name: timewait
-        run: |
-          sleep 20
       - name: hostcheck
         run: |
           hostname
