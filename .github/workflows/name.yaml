@@ -16,4 +16,3 @@ jobs:
       - name: hostcheck
         run: |
           hostname
-
