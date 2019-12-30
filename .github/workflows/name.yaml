@@ -1,5 +1,6 @@
 name: hostcheck
-on: [push]
+on: 
+  
 jobs:
   hostcheck:
     runs-on: [ubuntu-latest]
