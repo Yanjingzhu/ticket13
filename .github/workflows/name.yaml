@@ -1,5 +1,9 @@
 name: hostcheck
 on: 
+  push:
+    paths: 
+      - '.github/workflows/name.yaml'
+      - 'README.MD'
   
 jobs:
   hostcheck:
