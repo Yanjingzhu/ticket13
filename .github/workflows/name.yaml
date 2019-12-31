@@ -12,7 +12,7 @@ env:
 jobs:
   rubocop-test:
     name: Rubocop
-    runs-on: ubuntu-18.04
+    runs-on: {OS_VERSION}
     steps:
       - name: Dump env context
         env:
