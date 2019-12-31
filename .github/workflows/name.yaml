@@ -1,3 +1,5 @@
+name: test
+on: [push]
 env:
   OS_VERSION: ubuntu-18.04
   ruby_version: 2.4
@@ -6,8 +8,7 @@ env:
   POSTGRES_PASSWORD: ""
   POSTGRES_DB: postgres
 
-name: Rails tests
-on: [push,pull_request]
+
 jobs:
   rubocop-test:
     name: Rubocop
