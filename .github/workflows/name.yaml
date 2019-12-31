@@ -11,7 +11,7 @@ on: [push,pull_request]
 jobs:
   rubocop-test:
     name: Rubocop
-    runs-on: ubuntu-18.04 # ${{ env.OS_VERSION }}
+    runs-on: ${{ env.OS_VERSION }}
     steps:
       - name: Dump env context
         env:
