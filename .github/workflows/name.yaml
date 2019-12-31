@@ -1,15 +1,19 @@
-name: hostcheck
-on: 
-  
-jobs:
-  hostcheck:
-    runs-on: [ubuntu-latest]
-    steps:
-      # wait for it to start up
-      - name: timewait
-        run: |
-          sleep 20
-      - name: hostcheck
-        run: |
-          hostname
+env:
+  OS_VERSION: 
+  ruby_version: 2.4
+  postgres_image: postgres:latest 
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ""
+  POSTGRES_DB: postgres
 
+name: Rails tests
+on: [push,pull_request]
+jobs:
+  rubocop-test:
+    name: Rubocop
+    runs-on: ubuntu-18.04 # ${{ env.OS_VERSION }}
+    steps:
+      - name: Dump env context
+        env:
+          ENV_CONTEXT: ${{ toJson(env) }}
+        run: echo "$ENV_CONTEXT"
