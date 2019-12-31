@@ -1,5 +1,5 @@
 env:
-  OS_VERSION: 
+  OS_VERSION: ubuntu-18.04
   ruby_version: 2.4
   postgres_image: postgres:latest 
   POSTGRES_USER: postgres
