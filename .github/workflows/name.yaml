@@ -12,7 +12,7 @@ env:
 jobs:
   rubocop-test:
     name: Rubocop
-    runs-on: {OS_VERSION}
+    runs-on: ${{ env.OS_VERSION }}
     steps:
       - name: Dump env context
         env:
