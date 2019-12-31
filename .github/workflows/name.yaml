@@ -12,9 +12,11 @@ env:
 jobs:
   rubocop-test:
     name: Rubocop
-    runs-on: ${{ env.OS_VERSION }}
+    runs-on: ubuntu-18.04
     steps:
       - name: Dump env context
         env:
           ENV_CONTEXT: ${{ toJson(env) }}
         run: echo "$ENV_CONTEXT"
+      - run: |
+          echo ${{ env.OS_VERSION }}
