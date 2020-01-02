@@ -14,6 +14,6 @@ jobs:
       - name: 'deployment success'
         if: always()
         uses: 'deliverybot/deployment-status@v1'
-       with:
+        with:
           state: 'success'
           token: ${{ secrets.GITHUB_TOKEN }}
