@@ -1,13 +1,13 @@
-name: test
-on: [push]
-env:
-  OS_VERSION: ubuntu-18.04
+name: deployment
+on: [deployment]
 
 jobs:
   test:
-    runs-on: ${{ env.OS_VERSION }}
+    runs-on: [ubuntu-latest]
     steps:
-      - name: Dump env context
-        env:
-          ENV_CONTEXT: ${{ toJson(env) }}
-        run: echo "$ENV_CONTEXT"
+      - name: update deploy status
+        if: always()
+        uses: unacast/actions-github-deployment-status@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
