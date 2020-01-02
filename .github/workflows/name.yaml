@@ -10,4 +10,10 @@ jobs:
         uses: unacast/actions-github-deployment-status@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          status: ${{ job.status }}
+          status: failure
+#      - name: 'deployment success'
+#        if: always()
+#        uses: 'deliverybot/deployment-status@v1'
+#       with:
+#          state: 'success'
+#          token: ${{ secrets.GITHUB_TOKEN }}
