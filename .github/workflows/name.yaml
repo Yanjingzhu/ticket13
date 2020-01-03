@@ -9,6 +9,7 @@ jobs:
         if: endsWith(github.ref, '/prod')
         run: |
           echo "::set-env name=ENVIRONMENT::prod"
+          echo "::set-env name=db_name::${{ secrets.prod_db_name }}"
       - name: Dump env context
         env:
           ENV_CONTEXT: ${{ toJson(env) }}
