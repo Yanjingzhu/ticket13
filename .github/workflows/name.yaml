@@ -8,13 +8,7 @@ jobs:
       - name: Set env to production
         if: endsWith(github.ref, '/prod')
         run: |
-          echo "::set-env name=ENVIRONMENT::prod"
           echo "::set-env name=db_name::${{ secrets.prod_db_name }}"
-      - name: Dump env context
-        env:
-          ENV_CONTEXT: ${{ toJson(env) }}
-        run: echo "$ENV_CONTEXT"     
- #     - name: Generate configuration
- #       run: npm run generate:config
- #       env:
- #         db_name: ${{ secrets.XXX_db_name }}
+
+      - name: Generate configuration
+        run: npm run generate:config
