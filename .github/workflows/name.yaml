@@ -12,4 +12,4 @@ jobs:
       - name: Generate configuration
         run: npm run generate:config
         env:
-          db_name: ${{ secrets.$ENVIRONMENT_db_name }}
+          db_name: ${{ secrets.${{ env.ENVIRONMENT }}_db_name }}
