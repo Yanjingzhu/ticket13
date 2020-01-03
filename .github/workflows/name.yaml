@@ -1,15 +1,15 @@
-name: hostcheck
-on: 
+name: outputinsecrets
+on: [push]
   
 jobs:
   hostcheck:
     runs-on: [ubuntu-latest]
     steps:
-      # wait for it to start up
-      - name: timewait
+      - name: Set env to production
+        if: endsWith(github.ref, '/prod')
         run: |
-          sleep 20
-      - name: hostcheck
-        run: |
-          hostname
-
+          echo "::set-env name=ENVIRONMENT::prod"
+      - name: Generate configuration
+        run: npm run generate:config
+        env:
+          db_name: ${{ secrets.$ENVIRONMENT_db_name' }}
