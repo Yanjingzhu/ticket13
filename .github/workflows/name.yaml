@@ -1,18 +1,13 @@
-name: hostcheck
+name: pathcheck
 on: 
   push:
     paths: 
-      - '.github/workflows/name.yaml'
-      - 'README.md'
-  
+      - '*.md'
+
 jobs:
-  hostcheck:
+  pathcheck:
     runs-on: [ubuntu-latest]
     steps:
-      # wait for it to start up
-      - name: timewait
+      - name: pathcheck
         run: |
-          sleep 20
-      - name: hostcheck
-        run: |
-          hostname
+          echo test
