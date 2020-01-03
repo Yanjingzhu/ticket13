@@ -1,15 +1,12 @@
 name: hostcheck
-on: 
+on: push
+env:
+  test: test1
   
 jobs:
   hostcheck:
     runs-on: [ubuntu-latest]
     steps:
-      # wait for it to start up
-      - name: timewait
+      - name: echo env
         run: |
-          sleep 20
-      - name: hostcheck
-        run: |
-          hostname
-
+          echo ${{ env.test }}
