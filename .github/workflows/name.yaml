@@ -9,6 +9,5 @@ jobs:
         if: endsWith(github.ref, '/prod')
         run: |
           echo "::set-env name=db_name::${{ secrets.prod_db_name }}"
-
       - name: Generate configuration
         run: npm run generate:config
