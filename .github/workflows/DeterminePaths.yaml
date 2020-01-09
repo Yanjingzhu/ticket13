@@ -15,4 +15,5 @@ jobs:
         while read directory; do
           cd "$GITHUB_WORKSPACE/$directory"
           pwd
+          echo 'execution complete, check path?'
         done <diffs
