@@ -7,13 +7,22 @@ jobs:
     container: alpine/terragrunt
     steps:
     - uses: actions/checkout@v1
-    - run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' > diffs
-      name: git-diff
-    - run: |
-        cat diffs
-    - run: |
-        while read directory; do
-          cd "$GITHUB_WORKSPACE/$directory"
-          pwd
-          echo 'execution complete, check path?'
-        done <diffs
+    - name: get directory
+      id: getdir
+      run: |
+        echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' | xargs)"
+    - name: test
+      working-directory: ${{ steps.getdir.outputs.files }}
+      run: |
+        echo 'execution complete'
+        
+ #   - run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' > diffs
+ #     name: git-diff
+ #   - run: |
+ #       cat diffs
+ #   - run: |
+ #       while read directory; do
+ #         cd "$GITHUB_WORKSPACE/$directory"
+ #         pwd
+ #         echo 'execution complete, check path?'
+ #        done <diffs
