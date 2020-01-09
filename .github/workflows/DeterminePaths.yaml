@@ -10,6 +10,8 @@ jobs:
     - run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' > diffs
       name: git-diff
     - run: |
+        cat diffs
+    - run: |
         while read directory; do
           cd "$GITHUB_WORKSPACE/$directory"
           terragrunt plan
