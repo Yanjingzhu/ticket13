@@ -14,5 +14,5 @@ jobs:
     - run: |
         while read directory; do
           cd "$GITHUB_WORKSPACE/$directory"
-          terragrunt plan
+          pwd
         done <diffs
