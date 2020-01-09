@@ -1,0 +1,16 @@
+name: DeterminePaths
+on: push
+  
+jobs:
+  DeterminePaths:
+    runs-on: ubuntu-latest
+    container: alpine/terragrunt
+    steps:
+    - uses: actions/checkout@v1
+    - run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' > diffs
+      name: git-diff
+    - run: |
+        while read directory; do
+          cd "$GITHUB_WORKSPACE/$directory"
+          terragrunt plan
+        done <diffs
