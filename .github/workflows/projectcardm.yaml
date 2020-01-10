@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: create-deployment
 
       - name: set up nodejs
         uses: actions/setup-node@v1
