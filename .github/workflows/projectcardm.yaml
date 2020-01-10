@@ -1,11 +1,29 @@
-name: projectcardm
-on: [project_card]
-  
+on: [push]
+name: Deploy Nextjs dev
+
 jobs:
-  projectcard:
-    runs-on: [ubuntu-latest]
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
+      - uses: actions/checkout@v2
+        with:
+          ref: create-deployment
+
+      - name: set up nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: install nextjs dependencies
+        working-directory: ./
+        run: npm install && npm run build
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          ENVIRONMENT: dev
+
+      - name: install lambda layer dependencies
+        working-directory: ./deployment/libs/nodejs
+        run: npm install
+
+      - name: copy serverless bundles from nextjs
+        working-directory: ./
+        run: cp -r build/serverless deployment/src/
