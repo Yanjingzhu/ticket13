@@ -18,7 +18,7 @@ jobs:
             echo ${{ runner.os }}
 
         - name: Build binaries and upload to GitHub
-          if: runner.os == 'Linux'
+          if: matrix.os == 'ubuntu-latest'
           run: echo linux step
         - name: Build binaries and upload to GitHub
           if: runner.os == 'Windows'
