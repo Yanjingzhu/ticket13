@@ -3,19 +3,23 @@ on: push
   
 jobs:
   DeterminePaths:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest]
+    strategy:
+      matrix:
+        dir: $(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl/,/g' | xargs)
     container: alpine/terragrunt
     steps:
     - uses: actions/checkout@v1
-    - name: get directory
-      id: getdir
-      run: |
-        echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' | xargs)"
+#    - name: get directory
+#      id: getdir
+#      run: |
+#        echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' | xargs)"
     - name: test
-      working-directory: ${{ steps.getdir.outputs.files }}
+#      working-directory: ${{ steps.getdir.outputs.files }}
+      working-directory: ${{ matrix.dir }}
       run: |
         pwd
-        echo 'execution complete'
+        echo ${{ matrix.dir }}
         
  #   - run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep terragrunt.hcl | sed 's/terragrunt.hcl//g' > diffs
  #     name: git-diff
