@@ -11,19 +11,10 @@ jobs:
 
       steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Install dependencies
-        run: yarn install --dev
 
       - name: Build binaries and upload to GitHub
-        if: shell == 'bash'
-        run: yarn prebuild --all -u $PREBUILD_TOKEN
-        env:
-          PREBUILD_TOKEN: ${{ secrets.PREBUILD_TOKEN }}
+        if: runner.os == linux
+        run: echo linux step
       - name: Build binaries and upload to GitHub
-        if: shell == 'powershell'
-        run: yarn prebuild --all -u ${env:PREBUILD_TOKEN}
-        env:
-          PREBUILD_TOKEN: ${{ secrets.PREBUILD_TOKEN }}
+        if: runner.os == windows
+        run: echo windows step
