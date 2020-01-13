@@ -17,9 +17,9 @@ jobs:
         - run: |
             echo ${{ runner.os }}
 
-  #    - name: Build binaries and upload to GitHub
-  #      if: runner.os == linux
-  #      run: echo linux step
-  #    - name: Build binaries and upload to GitHub
-  #      if: runner.os == windows
-  #      run: echo windows step
+        - name: Build binaries and upload to GitHub
+          if: runner.os == 'Linux'
+          run: echo linux step
+        - name: Build binaries and upload to GitHub
+          if: runner.os == 'Windows'
+          run: echo windows step
