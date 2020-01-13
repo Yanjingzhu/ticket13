@@ -1,0 +1,15 @@
+name: Module-ABC Release
+
+on:
+  release:
+    types:
+      - published
+    tags:
+      # If this tag is used, a release is created
+      - '*module-abc*'
+jobs:
+  jobcontent:
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: |
+          echo test
