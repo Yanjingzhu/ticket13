@@ -10,8 +10,10 @@ jobs:
             - windows-latest
 
       steps:
-      - run: |
-          echo runner.os
+        - name: Dump runner context
+          env:
+            RUNNER_CONTEXT: ${{ toJson(runner) }}
+          run: echo "$RUNNER_CONTEXT"
 
   #    - name: Build binaries and upload to GitHub
   #      if: runner.os == linux
