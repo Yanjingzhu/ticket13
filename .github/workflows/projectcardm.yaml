@@ -8,3 +8,17 @@ jobs:
       - name: get mac ip
         run: |
           ifconfig
+          
+          
+  windowsip:
+    runs-on: [windows-latest]
+    steps:
+      - run: |
+          ipconfig
+          
+          
+  ubuntuip:
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: |
+          ifconfig
