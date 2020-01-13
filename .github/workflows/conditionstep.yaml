@@ -14,6 +14,8 @@ jobs:
           env:
             RUNNER_CONTEXT: ${{ toJson(runner) }}
           run: echo "$RUNNER_CONTEXT"
+        - run: |
+            echo $runner.os
 
   #    - name: Build binaries and upload to GitHub
   #      if: runner.os == linux
