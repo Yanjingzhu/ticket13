@@ -1,0 +1,29 @@
+name: conditionstep
+on: [push]
+jobs:
+  build:
+      runs-on: ${{ matrix.os }}
+      strategy:
+        matrix:
+          os:
+            - ubuntu-latest
+            - windows-latest
+
+      steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn install --dev
+
+      - name: Build binaries and upload to GitHub
+        if: shell == 'bash'
+        run: yarn prebuild --all -u $PREBUILD_TOKEN
+        env:
+          PREBUILD_TOKEN: ${{ secrets.PREBUILD_TOKEN }}
+      - name: Build binaries and upload to GitHub
+        if: shell == 'powershell'
+        run: yarn prebuild --all -u ${env:PREBUILD_TOKEN}
+        env:
+          PREBUILD_TOKEN: ${{ secrets.PREBUILD_TOKEN }}
