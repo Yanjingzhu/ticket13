@@ -5,8 +5,9 @@ on:
     types:
       - published
     tags:
-      # If this tag is used, a release is created
       - '*module-abc*'
+    # If this tag is used, a release is created
+
 jobs:
   jobcontent:
     runs-on: [ubuntu-latest]
