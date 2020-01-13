@@ -1,11 +1,10 @@
-name: projectcardm
-on: [project_card]
+name: macIPrange
+on: push
   
 jobs:
-  projectcard:
-    runs-on: [ubuntu-latest]
+  macip:
+    runs-on: [macos-latest]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+      - name: get mac ip
+        run: |
+          ifconfig
