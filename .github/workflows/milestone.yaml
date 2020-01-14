@@ -1,5 +1,7 @@
 name: milestone
-on: [project_card]
+on: 
+  issues:
+    types: demilestoned
   
 jobs:
   projectcard:
