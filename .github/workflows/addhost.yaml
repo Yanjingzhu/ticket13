@@ -11,7 +11,8 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: add host
         run: |
-          sudo echo "172.16.18.16  www.example.com example" >> /etc/hosts
+           sudo echo "172.16.18.16  www.example.com example" | sudo tee -a /etc/hosts
+     #     sudo echo "172.16.18.16  www.example.com example" >> /etc/hosts
       - name: check host
         run: |
           sudo cat /etc/hosts
