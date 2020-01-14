@@ -1,13 +1,15 @@
-name: milestone
-on: 
-  issues:
-    types: demilestoned
+name: addhost
+on: [push]
   
 jobs:
-  projectcard:
+  addhost:
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: add host
+        run: |
+          sudo echo "172.16.18.16  www.example.com example" >> /etc/hosts
+          vi /etc/hosts
