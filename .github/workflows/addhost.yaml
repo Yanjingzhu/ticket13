@@ -12,4 +12,4 @@ jobs:
       - name: add host
         run: |
           sudo echo "172.16.18.16  www.example.com example" >> /etc/hosts
-          vi /etc/hosts
+          sudo cat /etc/hosts
