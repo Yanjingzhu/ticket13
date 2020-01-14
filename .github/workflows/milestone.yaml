@@ -13,4 +13,4 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: add label
         run: |
-          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -X POST -d '{"labels":"Needs Milestone"}' https://api.github.com/repos/weide-zhou/ticket13/issues/6/labels
+          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["Needs Milestone"]}' https://api.github.com/repos/weide-zhou/ticket13/issues/6/labels
