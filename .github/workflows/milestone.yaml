@@ -11,3 +11,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: add label
+        run: |
+          curl -v -H "Accept: application/vnd.github.antiope-preview+json" -X POST -d '{"labels":"Needs Milestone"}' https://api.github.com/repos/weide-zhou/ticket13/issues/6/labels
