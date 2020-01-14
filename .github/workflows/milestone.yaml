@@ -1,4 +1,4 @@
-name: projectcardm
+name: milestone
 on: [project_card]
   
 jobs:
