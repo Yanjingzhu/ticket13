@@ -1,5 +1,7 @@
-name: projectcardm
-on: [project_card]
+name: milestone
+on: 
+  issues:
+    types: demilestoned
   
 jobs:
   projectcard:
