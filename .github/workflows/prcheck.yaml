@@ -1,0 +1,28 @@
+name: prcheck
+on:
+  pull_request:
+    types: 
+      - closed
+
+jobs:
+  prcheck:
+    if: github.event.pull_request.merged == true
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: step1
+        run: |
+          echo merged
+ #     - name: Simple commit
+ #       run: |
+ #         git remote set-url origin https://test:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+ #         git config --global user.name weide
+ #         git config --global user.email weide-zhou@outlook.com
+ #         git checkout B7
+ #         cat 1> file1
+ #         git add .
+ #         git commit -m 'version1'
+ #         git push origin B7:B7
+ #       env:
+ #         GITHUB_TOKEN: ${{ secrets.PAT }}
