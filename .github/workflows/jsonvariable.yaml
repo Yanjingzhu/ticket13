@@ -13,7 +13,10 @@ jobs:
         uses: actions/checkout@v1
       - name: getjsonvar
         run: |
-          echo "$JSON | jq -r '.[] | .employee.name'"
+          if ["$JSON | jq -r '.[] | .employee.name'" == sonoo];
+          then
+            echo name is sonoo
+          fi
         #  sh script.sh $(jq -r '.employee.name' $JSON)
         #  sh script.sh "${{ secrets.json }} | jq -r '.[] | .name'"
         #  sh script.sh "${{ secrets.json }}"
