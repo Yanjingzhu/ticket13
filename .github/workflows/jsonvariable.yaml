@@ -1,6 +1,5 @@
 name: jsonvariable
 on: push
-  
 jobs:
   jsonvariable:
     runs-on: [ubuntu-latest]
