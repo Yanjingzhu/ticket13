@@ -1,7 +1,5 @@
 name: jsonvariable
-on: 
-  issues:
-    types: demilestoned
+on: push
   
 jobs:
   jsonvariable:
