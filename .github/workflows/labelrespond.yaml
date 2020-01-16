@@ -1,0 +1,18 @@
+name: labelrespond
+on:
+    issues:
+        types: labeled
+    
+jobs:
+  issuelabel:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: get label
+        run: |
+          URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${{ github.event.issue.number }}/labels"
+          LABEL=$(curl -s -X GET -G $URL | jq -r '.[] | .name')
+          echo $LABEL
+      - name: Auto respond
+        if: contains($LABEL, Bug)
+        run: |
+          echo "there is a bug!"
