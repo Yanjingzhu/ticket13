@@ -1,1 +1,1 @@
-cat
+echo "json varibale is  $1"
