@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v1
       - name: getjsonvar
         run: |
-          jq -r '.employee.name' $JSON
+          $JSON | jq -r '.[] | .employee.name'
         #  sh script.sh $(jq -r '.employee.name' $JSON)
         #  sh script.sh "${{ secrets.json }} | jq -r '.[] | .name'"
         #  sh script.sh "${{ secrets.json }}"
