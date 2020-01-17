@@ -8,6 +8,7 @@ env:
     COMPOSER_ALLOW_SUPERUSER: '1' # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 
     # Database
+    MYSQL_USER: tester
     MYSQL_ROOT_PASSWORD: symfony
     MYSQL_DATABASE: symfony
 
