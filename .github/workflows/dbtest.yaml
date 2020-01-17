@@ -7,9 +7,6 @@ env:
     NODE_VERSION: 10.x
     COMPOSER_ALLOW_SUPERUSER: '1' # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 
-    # Database
-
-
 
 jobs:
     php:
@@ -22,8 +19,7 @@ jobs:
                   MYSQL_DATABASE: symfony
                 ports:
                   - 3306/tcp
-                options: --health-cmd="mysqladmin ping"
-      #          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=10s --health-retries=10 
+                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=10s --health-retries=10 
         steps:
           - name: test
             run: |
