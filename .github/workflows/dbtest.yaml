@@ -8,9 +8,7 @@ env:
     COMPOSER_ALLOW_SUPERUSER: '1' # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 
     # Database
-    MYSQL_USER: tester
-    MYSQL_ROOT_PASSWORD: symfony
-    MYSQL_DATABASE: symfony
+
 
 
 jobs:
@@ -19,6 +17,9 @@ jobs:
         services:
             mysql:
                 image: mariadb:10.4
+                env:
+                  MYSQL_ROOT_PASSWORD: symfony
+                  MYSQL_DATABASE: symfony
                 ports:
                   - 3306/tcp
                 options: --health-cmd="mysqladmin ping"
