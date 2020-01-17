@@ -1,0 +1,21 @@
+name: dbtest2
+on: push
+
+jobs:
+  dbtest:
+    runs-on: [ubuntu-latest]
+    services:
+      mariadb:
+        image: mariadb:10.4
+        env:
+          MYSQL_RANDOM_ROOT_PASSWORD: yes
+          MYSQL_USER: tester
+          MYSQL_PASSWORD: password
+          MYSQL_DATABASE: testdb
+        ports:
+          - 3306/tcp
+        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 5
+            steps:
+              - name: test
+                run: |
+                  echo test
