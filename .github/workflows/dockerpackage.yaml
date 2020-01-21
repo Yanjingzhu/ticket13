@@ -1,9 +1,19 @@
 name: dockerpackage
 on: [push]
 jobs:
+#  build-linux:
+#    runs-on: ubuntu-latest
+#    name: Linux
+#    steps:
+#    - name: Build
+#      uses: sot/skare3/actions/build@gh-actions
   build-linux:
-    runs-on: ubuntu-latest
-    name: Linux
-    steps:
-    - name: Build
-      uses: sot/skare3/actions/build@gh-actions
+      runs-on: ubuntu-latest
+      name: Linux
+      steps:
+      - name: Login to GitHub Package Registry
+        run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Pull Docker image
+        run: docker pull docker.pkg.github.com/sot/skare3/centos5-conda:1.0
+      - name: Build
+        run: docker run --name builder -v $GITHUB_WORKSPACE:/github/workspace -w /github/workspacedocker.pkg.github.com/sot/skare3/centos5-conda:1.0
