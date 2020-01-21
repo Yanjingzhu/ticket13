@@ -16,4 +16,4 @@ jobs:
       - name: Pull Docker image
         run: docker pull docker.pkg.github.com/sot/skare3/centos5-builder:v1
       - name: Build
-        run: docker run --name builder -v $GITHUB_WORKSPACE:/github/workspace -w /github/workspacedocker.pkg.github.com/sot/skare3/entos5-builder:v1
+        run: docker run --name builder -v $GITHUB_WORKSPACE:/github/workspace -w /github/workspacedocker.pkg.github.com/sot/skare3/centos5-builder:v1
