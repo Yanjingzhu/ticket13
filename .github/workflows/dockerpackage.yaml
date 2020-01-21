@@ -14,6 +14,6 @@ jobs:
       - name: Login to GitHub Package Registry
         run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }}
       - name: Pull Docker image
-        run: docker pull docker.pkg.github.com/sot/skare3/centos5-conda:1.0
+        run: docker pull docker.pkg.github.com/sot/skare3/centos5-builder:v1
       - name: Build
-        run: docker run --name builder -v $GITHUB_WORKSPACE:/github/workspace -w /github/workspacedocker.pkg.github.com/sot/skare3/centos5-conda:1.0
+        run: docker run --name builder -v $GITHUB_WORKSPACE:/github/workspace -w /github/workspacedocker.pkg.github.com/sot/skare3/entos5-builder:v1
