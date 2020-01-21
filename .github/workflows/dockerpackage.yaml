@@ -1,0 +1,9 @@
+name: dockerpackage
+on: [push]
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    name: Linux
+    steps:
+    - name: Build
+      uses: sot/skare3/actions/build@gh-actions
