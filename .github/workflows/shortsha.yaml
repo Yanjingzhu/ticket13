@@ -14,3 +14,8 @@ jobs:
       - name: get sha
         run: |
           echo $SHORTSHA
+      - name: get sha2
+        run: |
+          echo $SHORTSHA2
+        env:
+          SHORTSHA2: $(git rev-parse --short=4 ${{ github.sha }})
