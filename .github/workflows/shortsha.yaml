@@ -1,7 +1,7 @@
 name: shortsha
 on: [push]
 env: 
-  SHORTSHA: ${{ github.sha }}
+  SHORTSHA: $(git rev-parse --short=4 ${{ github.sha }})
   
 jobs:
   shortsha:
