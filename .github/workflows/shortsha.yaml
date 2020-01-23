@@ -1,7 +1,5 @@
 name: shortsha
 on: [push]
-env: 
-  SHORTSHA: $(git rev-parse --short=4 ${{ github.sha }})
   
 jobs:
   shortsha:
@@ -13,9 +11,6 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: checkout
         uses: actions/checkout@v1
-      - name: get sha
-        run: |
-          echo $SHORTSHA
       - name: get sha2
         run: |
           echo $SHORTSHA2
