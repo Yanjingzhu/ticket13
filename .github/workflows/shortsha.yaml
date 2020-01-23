@@ -24,3 +24,15 @@ jobs:
           echo $SHORTSHA3
         env:
           SHORTSHA3: echo test
+      - name: get shortsha
+        id: vars
+        run: |
+         echo ::set-output name=sha_short::$(git rev-parse --short HEAD)
+      - name: use env
+        run: |
+          echo $SHORTSHATEST
+        env: 
+          SHORTSHATEST: ${{ steps.vars.outputs.sha_short }}
+
+
+        
