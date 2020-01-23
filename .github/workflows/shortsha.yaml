@@ -3,6 +3,8 @@ on: [push]
   
 jobs:
   shortsha:
+    env:
+      SHORTSHATEST2: ${{ steps.vars.outputs.sha_short }}
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
@@ -28,6 +30,9 @@ jobs:
           echo $SHORTSHATEST
         env: 
           SHORTSHATEST: ${{ steps.vars.outputs.sha_short }}
+      - name: use env
+        run: |
+          echo $SHORTSHATEST2
 
 
         
