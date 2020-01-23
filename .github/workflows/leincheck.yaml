@@ -1,0 +1,12 @@
+name: leincheck
+on: [push]
+  
+jobs:
+  leincheck:
+    runs-on: [ubuntu-latest]
+    steps: 
+      - name: Deploy clojars
+        run: |
+          mkdir ~/.lein
+          echo '{:user {} :auth {:repository-auth{#"clojars" {:username "${{ secrets.CLOJARS_USERNAME }}" :password "${{ secrets.CLOJARS_PASSWORD }}" :sign-releases false }}}}' > ~/.lein/profiles.clj
+          lein deploy clojars
