@@ -19,3 +19,8 @@ jobs:
           echo $SHORTSHA2
         env:
           SHORTSHA2: exec $(git rev-parse --short=4 ${{ github.sha }})
+      - name: get sha3
+        run: |
+          echo $SHORTSHA3
+        env:
+          SHORTSHA2: echo test
