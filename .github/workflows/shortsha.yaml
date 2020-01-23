@@ -23,4 +23,4 @@ jobs:
         run: |
           echo $SHORTSHA3
         env:
-          SHORTSHA2: echo test
+          SHORTSHA3: echo test
