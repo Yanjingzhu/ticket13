@@ -1,0 +1,16 @@
+name: shortsha
+on: [push]
+env: 
+  SHORTSHA: ${{ github.sha }}
+  
+jobs:
+  shortsha:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: get sha
+        run: |
+          echo $SHORTSHA
