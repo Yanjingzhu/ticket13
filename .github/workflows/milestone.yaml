@@ -9,4 +9,5 @@ jobs:
         shell: bash
         run: |
           which ls
+          path
           
