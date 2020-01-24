@@ -11,7 +11,8 @@ jobs:
     services:
       etcd:
         image: microbox/etcd:2.1.1
-        options: --entrypoint 'etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379'
+        options: --entrypoint 'etcd
+#        options: --entrypoint 'etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379'
     steps:
       - name: test
         run: echo test
