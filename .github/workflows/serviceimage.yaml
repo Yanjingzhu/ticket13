@@ -14,9 +14,10 @@ jobs:
 #        options: --entrypoint 'etcd'
 #        options: --entrypoint 'etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379'
     steps:
-      - name: test
-        run: echo test
-      - name: dockerimage
-        uses: docker://microbox/etcd:2.1.1
-        with:
-          entrypoint: 'etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379'
+#      - name: dockerimage
+#        uses: docker://microbox/etcd:2.1.1
+ #       with:
+  #        entrypoint: 'etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379'
+       - name: docker
+         run: |
+           /usr/bin/docker create --name 1062a703242743a29bbcfda9fc19c823_microboxetcd211_3767cc --label 488dfb --network github_network_244f1c7676b8488e99c66694d06a21f2 --network-alias etcd --entrypoint etcd -e GITHUB_ACTIONS=true microbox/etcd:2.1.1 --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379
