@@ -1,19 +1,12 @@
-name: milestone
-on: 
-  issues:
-    types: demilestoned
+name: bashcheck
+on: [push]
   
 jobs:
-  projectcard:
-    runs-on: [ubuntu-latest]
+  bashcheck:
+    runs-on: [windows-latest]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: get issue
+      - name: bash check
+        shell: bash
         run: |
-          echo ${{ github.event.issue.url }}
-      - name: add label
-        run: |
-          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["Needs Milestone"]}' ${{ github.event.issue.url }}/labels
+          which ls
+          
