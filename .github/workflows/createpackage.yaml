@@ -1,1 +1,13 @@
-
+name: create package
+on: [push]
+jobs:
+  createpackage:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: create package step1
+        run: |
+          dotnet pack --configuration Release
+      - name: create package step2
+        run: |
+          dotnet nuget push "bin/Release/ticket13.1.0.0.nupkg" --source "github"
+          
