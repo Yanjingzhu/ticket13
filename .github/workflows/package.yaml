@@ -1,0 +1,10 @@
+name: Trigger - new package uploaded
+
+on: registry_package
+
+jobs:
+  createRepositoryDispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo ${{ github.event.action }}
