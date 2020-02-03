@@ -5,6 +5,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Login to the GitHub Docker Registry
+        # language=BASH
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login --username ${GITHUB_REPOSITORY%/*} --password-stdin docker.pkg.github.com
+      - uses: actions/checkout@v1
       - name: dockerpull
         run: |
           docker pull docker.pkg.github.com/insurgency/dockerfiles/insurgency:latest
