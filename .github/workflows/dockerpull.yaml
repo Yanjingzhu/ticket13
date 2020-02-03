@@ -12,6 +12,7 @@ jobs:
       - name: dockerpull
         run: |
           df -lh
+          docker images insurgency
           docker pull docker.pkg.github.com/insurgency/dockerfiles/insurgency:37eae22afa3ef43d2e6564841fb4492ba72bcb7f
       #    docker pull docker.pkg.github.com/insurgency/dockerfiles/insurgency:latest
       #    docker pull docker.pkg.github.com/insurgency/dockerfiles/steamcmd:latest
