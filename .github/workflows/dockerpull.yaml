@@ -1,0 +1,10 @@
+name: dockerpull
+on: push
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dockerpull
+        run: |
+          docker pull docker.pkg.github.com/insurgency/dockerfiles/insurgency:latest
