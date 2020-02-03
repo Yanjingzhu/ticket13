@@ -11,4 +11,5 @@ jobs:
       - uses: actions/checkout@v1
       - name: dockerpull
         run: |
-          docker pull docker.pkg.github.com/insurgency/dockerfiles/insurgency:latest
+          docker pull docker.pkg.github.com/insurgency/dockerfiles/steamcmd:latest
+      #    docker pull docker.pkg.github.com/insurgency/dockerfiles/insurgency:latest
