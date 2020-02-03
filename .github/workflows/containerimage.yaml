@@ -1,0 +1,16 @@
+name: containerimage
+on: push
+  
+jobs:
+  build:
+    strategy:
+      matrix:
+        container:
+          - 'debian:buster'
+          - 'fedora:31'
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    name: ${{ matrix.container }}
+    steps:
+      - name: test1
+        run: echo test1
