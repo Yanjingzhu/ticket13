@@ -21,7 +21,7 @@ jobs:
 
       - name: Docker Pull
         run: |
-          docker pull me/my-image:latest
+          docker pull gciatto/my-images:latest
 
       - name: Checkout
         uses: actions/checkout@v2
