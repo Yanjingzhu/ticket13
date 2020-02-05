@@ -5,14 +5,18 @@ on: pull_request
   
 jobs:
   conditional1:
-    if: startsWith(github.head_ref, 'B4')
+    env:
+      CONTAINER: org/acct:special
     runs-on: [ubuntu-latest]
     steps:
       - name: conditional
+        if: startsWith(github.head_ref, 'B4')
         run: |
           echo "::set-env name=CONTAINER::org/acct:latest"
-      - name: test
-        run: echo test
+      - name: check env1
+        run: echo env1
+      - name: check env2
+        run: echo env2
   conditional2:
     if: startsWith(github.head_ref, 'B5')
     runs-on: [ubuntu-latest]
