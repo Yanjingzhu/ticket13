@@ -1,0 +1,38 @@
+name: PHP Workflow
+on:
+  push:
+
+
+jobs:
+  tests-and-lint:
+    name: PHP tests and lints
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        args:
+          - '-d memory_limit=-1 ./vendor/bin/phpstan analyse --no-progress --level=7 src'
+          - '-d display_errors=On -d memory_limit=512M vendor/bin/phpcs -p --encoding=utf-8 --standard=tests/phpcs-ruleset.xml --error-severity=1 src'
+    steps:
+      - name: Dockerhub login
+        uses: azure/docker-login@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Docker Pull
+        run: |
+          docker pull me/my-image:latest
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Composer install
+        uses: ./.github/actions/php
+        with:
+          args: |
+            composer.phar install --prefer-dist
+
+      - name: PHPStan
+        uses: ./.github/actions/php
+        with:
+          args: ${{ matrix.args }}
