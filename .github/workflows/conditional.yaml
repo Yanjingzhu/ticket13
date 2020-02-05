@@ -4,16 +4,11 @@ on: pull_request
 #  CONTAINER: ${{ if(!startsWith(github.head_ref, "B44/"), "org/acct:latest", "org/acct:special") }}
   
 jobs:
-  conditional:
+  conditional1:
     if: startsWith(github.head_ref, 'B4')
     runs-on: [ubuntu-latest]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - name: conditional
-        if: startsWith(github.head_ref, 'B4')
         run: |
           echo "::set-env name=CONTAINER::org/acct:latest"
       - name: test
@@ -22,13 +17,8 @@ jobs:
     if: startsWith(github.head_ref, 'B5')
     runs-on: [ubuntu-latest]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - name: conditional
-        if: startsWith(github.head_ref, 'B4')
         run: |
-          echo "::set-env name=CONTAINER::org/acct:latest"
+          echo "::set-env name=CONTAINER::org/acct:special"
       - name: test
         run: echo test
