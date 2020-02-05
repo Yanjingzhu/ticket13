@@ -1,0 +1,15 @@
+name: conditional
+on: push
+env:
+  CONTAINER: ${{ if(!startsWith(github.head_ref, "B44/"), "org/acct:latest", "org/acct:special") }}
+  
+jobs:
+  conditional:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: echo headref
+        run: echo github.head_ref
