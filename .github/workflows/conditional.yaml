@@ -1,7 +1,7 @@
 name: conditional
-on: push
-env:
-  CONTAINER: ${{ if(!startsWith(github.head_ref, "B44/"), "org/acct:latest", "org/acct:special") }}
+on: pull_request
+#env:
+#  CONTAINER: ${{ if(!startsWith(github.head_ref, "B44/"), "org/acct:latest", "org/acct:special") }}
   
 jobs:
   conditional:
@@ -11,5 +11,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: echo headref
-        run: echo github.head_ref
+      - name: conditional
+        if: startsWith(github.head_ref, 'B4')
+        run: |
+          echo "::set-env name=CONTAINER::org/acct:latest"
+      - name: test
+        run: echo test
