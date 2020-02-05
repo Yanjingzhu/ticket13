@@ -25,14 +25,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Composer install
-        uses: ./.github/actions/php
-        with:
-          args: |
-            composer.phar install --prefer-dist
-
-      - name: PHPStan
-        uses: ./.github/actions/php
-        with:
-          args: ${{ matrix.args }}
+      
+      - name: echo test
+        run: echo ${{ matrix.args }}
