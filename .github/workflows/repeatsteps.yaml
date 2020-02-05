@@ -21,7 +21,7 @@ jobs:
 
       - name: Docker Pull
         run: |
-          docker pull gciatto/my-images:latest
+          docker pull phpdockerio/php74-swoole:latest
 
       - name: Checkout
         uses: actions/checkout@v2
