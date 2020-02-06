@@ -3,9 +3,12 @@ on: push
   
 jobs:
   loopcheck:
+    strategy:
+      matrix:
+        scssfiles: [fileone.scss,file2.sass]
     runs-on: [ubuntu-latest]
     steps:
-      - name: run loop
-        env:
-          FILES: a.scss b.scss
-        run: for f in $FILES; do [echo f.name]; done
+      - name: test
+        run: |
+          echo ${{ matrix.scssfiles }}
+         
