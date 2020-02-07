@@ -12,7 +12,7 @@ jobs:
           exit 1
   job2:
     runs-on: [ubuntu-latest]
-    if: runner.os == linux
+    if: github.event_name == 'push'
     needs: job1
     steps:
       - name: test2
