@@ -7,6 +7,9 @@ jobs:
     steps:
       - name: test1
         run: echo test1
+      - name: fail step
+        run: |
+          exit 1
   job2:
     runs-on: [ubuntu-latest]
     if: always()
