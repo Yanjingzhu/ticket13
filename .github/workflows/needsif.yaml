@@ -12,7 +12,7 @@ jobs:
           exit 1
   job2:
     runs-on: [ubuntu-latest]
-    if: always()
+    if: runner.os == linux
     needs: job1
     steps:
       - name: test2
