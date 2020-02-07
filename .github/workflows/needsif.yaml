@@ -12,7 +12,7 @@ jobs:
           exit 1
   job2:
     runs-on: [ubuntu-latest]
-    if: github.event_name == 'push'
+    if: success()
     needs: job1
     steps:
       - name: test2
