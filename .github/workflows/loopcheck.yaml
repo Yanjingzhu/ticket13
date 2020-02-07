@@ -5,10 +5,16 @@ jobs:
   loopcheck:
     strategy:
       matrix:
-        scssfiles: [fileone.scss,file2.sass]
+        scssfiles: [fileone.scss,file2.scss]
     runs-on: [ubuntu-latest]
     steps:
       - name: test
         run: |
           echo ${{ matrix.scssfiles }}
+      - uses: actions/checkout@v1
+      - name: Compile .css from .scss
+        uses: gha-utilities/sass-build@v0.1.6
+        with:
+          source: _scss/${{ matrix.scssfiles }}
+          destination: css/${{ matrix.scssfiles }}_complied.css
          
