@@ -5,7 +5,9 @@ jobs:
   rubyinstall:
     runs-on: [ubuntu-latest]
     steps:
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.3.4
+    - name: Install Ruby
+      run: |
+        sudo snap install ruby --classic --channel=2.3/stable
+        sudo snap refresh
+        ruby --version
     - run: ruby -v
