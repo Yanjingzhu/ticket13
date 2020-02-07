@@ -1,0 +1,17 @@
+name: needsif
+on: push
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: test1
+        run: echo test1
+  job2:
+    runs-on: [ubuntu-latest]
+    needs: [job1]
+    if: always()
+    steps:
+      - name: test2
+        run: |
+          echo test2
