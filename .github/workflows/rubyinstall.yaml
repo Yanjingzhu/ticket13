@@ -5,11 +5,7 @@ jobs:
   rubyinstall:
     runs-on: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby 2.3.x
-      uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.3
-    - name: checkversion
-      run: |
-        ruby --version
+    - run: ruby -v
