@@ -1,0 +1,23 @@
+on: push
+name: Run Mindustry
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ github.token }}
+      - run: |
+          sudo apt-get install openssh-server
+          sudo systemctl enable ssh
+          sudo systemctl start ssh
+          whoami
+          dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
+      - run: |
+          ls -a
+          chmod +x run_server.sh
+          ./run_server.sh
+          help
