@@ -15,3 +15,4 @@ jobs:
         with:
           notify-message: Hey there. Relax, I am just a little warning for the maintainers to release directly after merging your PR, otherwise we have broken examples and people might get confused :)
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
