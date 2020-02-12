@@ -1,0 +1,9 @@
+name: maccheck
+on: push
+  
+jobs:
+  maccheck:
+    runs-on: [macos-latest]
+    steps:
+      - name: test
+        run: yes | exit 0
