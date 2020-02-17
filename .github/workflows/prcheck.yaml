@@ -6,7 +6,7 @@ on:
 jobs:
   prcheck:
   #  if: github.event.action == 'labeled'
-    if: contains(github.event.title, 'WIP')
+    if: contains(github.event.pull_request.title, 'WIP')
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
