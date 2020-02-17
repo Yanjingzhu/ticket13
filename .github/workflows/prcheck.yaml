@@ -20,8 +20,8 @@ on:
 
 jobs:
   prcheck:
-    if: github.event.action == 'labeled'
-  #  if: github.event.action == 'labeled' && github.label == 'runtest'
+  #  if: github.event.action == 'labeled'
+    if: github.event.action == 'labeled' && github.event.label == 'runtest'
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
