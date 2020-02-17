@@ -20,6 +20,7 @@ on:
 
 jobs:
   prcheck:
+    if: github.event.action == 'labeled' && github.label == runtest
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
