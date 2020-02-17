@@ -2,26 +2,11 @@ name: prcheck
 on:
   pull_request:
     types: 
-      - assigned
-      - unassigned
-      - labeled
-      - unlabeled
-      - opened
       - edited
-      - closed
-      - reopened
-      - synchronize
-      - ready_for_review
-      - locked
-      - unlocked
-      - review_requested
-      - review_request_removed
-
-
 jobs:
   prcheck:
   #  if: github.event.action == 'labeled'
-    if: github.event.action == 'labeled' && github.event.label.name == 'runtest'
+    if: contains(github.event.title, WIP)
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
