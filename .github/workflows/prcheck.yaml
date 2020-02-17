@@ -1,17 +1,31 @@
 name: prcheck
 on:
   pull_request:
+    types: 
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - opened
+      - edited
+      - closed
+      - reopened
+      - synchronize
+      - ready_for_review
+      - locked
+      - unlocked
+      - review_requested
+      - review_request_removed
 
 
 jobs:
   prcheck:
     runs-on: [ubuntu-latest]
     steps:
-      - name: checkout
-        uses: actions/checkout@v1
-      - name: step1
-        run: |
-          echo merged
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
  #     - name: Simple commit
  #       run: |
  #         git remote set-url origin https://test:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
