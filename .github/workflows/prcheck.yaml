@@ -1,5 +1,8 @@
 name: prcheck
-on: [issue_comment]
+on:
+  issue_comment:
+    types: [created, edited, deleted]
+    
 jobs:
   prcheck:
   #  if: github.event.action == 'labeled'
