@@ -20,9 +20,6 @@ jobs:
         shell: bash
         
       - name: Install ninja build
-        run: sudo py -m pip install ninja --quiet
+        run: install ninja --quiet
         shell: bash
 
-      - name: Install Conan Package Manager
-        run: sudo pip install conan --quiet
-        shell: bash
