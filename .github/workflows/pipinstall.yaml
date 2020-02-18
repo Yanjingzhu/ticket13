@@ -1,0 +1,17 @@
+name: pipinstall
+on: [push]
+  
+jobs:
+  pipinstall:
+    runs-on: [windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install ninja build
+        run: sudo pip install ninja --quiet
+        shell: bash
+
+      - name: Install Conan Package Manager
+        run: sudo pip install conan --quiet
+        shell: bash
