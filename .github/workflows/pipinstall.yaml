@@ -16,8 +16,8 @@ jobs:
         
       - name: checkpath
         run: |
-          path
-        shell: cmd 
+          echo $PATH
+        shell: bash
         
       - name: Install ninja build
         run: sudo pip install ninja --quiet
