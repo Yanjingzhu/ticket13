@@ -21,7 +21,7 @@ jobs:
 
      
       - name: Install ninja build
-        run: pip install ninja --quiet
+        uses: seanmiddleditch/gha-setup-ninja@master
 
       - name: ninjaloc
         run: |
