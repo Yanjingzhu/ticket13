@@ -18,8 +18,13 @@ jobs:
         run: |
           echo $PATH
         shell: bash
-        
+      
+      - name: sudoinstall
+        run: |
+          Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+          scoop install sudo
+     
       - name: Install ninja build
-        run: pip install ninja --quiet
+        run: sudo pip install ninja --quiet
         shell: bash
 
