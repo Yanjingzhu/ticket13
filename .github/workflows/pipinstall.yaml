@@ -20,6 +20,6 @@ jobs:
         shell: bash
         
       - name: Install ninja build
-        run: install ninja --quiet
+        run: pip install ninja --quiet
         shell: bash
 
