@@ -26,4 +26,5 @@ jobs:
      
       - name: Install ninja build
         run: sudo pip install ninja --quiet
+        shell: cmd
 
