@@ -11,7 +11,7 @@ jobs:
       - name: pipversion
         run: |
           pip --version
-          echo "::add-path::'c:\hostedtoolcache\windows\python\3.6.8\x64\lib\site-packages'"
+          echo "::add-path::c:\hostedtoolcache\windows\python\3.6.8\x64\lib\site-packages"
         shell: bash
         
       - name: checkpath
