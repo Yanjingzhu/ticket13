@@ -11,8 +11,10 @@ jobs:
       - name: pipversion
         run: |
           pip --version
-          echo "::add-path::'c:\hostedtoolcache\windows\python\3.6.8\x64\lib\site-packages\pip'"
-
+          echo "::add-path::'c:\hostedtoolcache\windows\python\3.6.8\x64\lib\site-packages\'"
+      - name: checkpath
+        run: |
+          path
       - name: Install ninja build
         run: sudo pip install ninja --quiet
         shell: bash
