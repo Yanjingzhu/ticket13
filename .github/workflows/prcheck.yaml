@@ -1,12 +1,8 @@
 name: prcheck
-on:
-  pull_request:
-    types: 
-      - edited
+on: [issue_comment]
 jobs:
   prcheck:
   #  if: github.event.action == 'labeled'
-    if: contains(github.event.pull_request.title, 'WIP')
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
