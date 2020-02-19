@@ -1,0 +1,13 @@
+name: Docker Image CI
+on: [push]
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out step
+        uses: actions/checkout@v1
+      - name: Container Action Step
+        uses: weide-zhou@ticket18@master
+        with:
+          who-to-greet: 'Weide'
