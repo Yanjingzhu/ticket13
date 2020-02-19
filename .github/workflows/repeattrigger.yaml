@@ -10,8 +10,7 @@ on:
       - "Cargo.toml"
   push:
     paths:
-      - "**/*.rs"
-      - "Cargo.toml"
+      - "*.md"
   
 jobs:
   projectcard:
