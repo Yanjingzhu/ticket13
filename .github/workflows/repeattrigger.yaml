@@ -1,17 +1,17 @@
-name: milestone
+name: repeattrigger
 on:
   release:
   push:
+    paths: 
+      - "*.md"
     tags:
       - "v*"
+    
   pull_request:
     paths:
       - "**/*.rs"
       - "Cargo.toml"
-  push:
-    paths:
-      - "*.md"
-  
+ 
 jobs:
   projectcard:
     runs-on: [ubuntu-latest]
