@@ -8,6 +8,6 @@ jobs:
       - name: Check out step
         uses: actions/checkout@v1
       - name: Container Action Step
-        uses: weide-zhou@ticket18@master
+        uses: weide-zhou/ticket18@master
         with:
           who-to-greet: 'Weide'
