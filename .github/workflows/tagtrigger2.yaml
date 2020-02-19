@@ -1,1 +1,13 @@
-
+name: tagtrigger2
+on:
+  push:
+    tags: 
+      - "v*"
+jobs:
+  tagtriger2:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
