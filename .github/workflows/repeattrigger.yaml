@@ -2,6 +2,8 @@ name: repeattrigger
 on:
   release:
   push:
+    branches: 
+      - B55
     paths: 
       - "*.md"
     
