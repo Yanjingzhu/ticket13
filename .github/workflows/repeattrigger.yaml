@@ -1,0 +1,23 @@
+name: milestone
+on:
+  release:
+  push:
+    tags:
+      - "v*"
+  pull_request:
+    paths:
+      - "**/*.rs"
+      - "Cargo.toml"
+  push:
+    paths:
+      - "**/*.rs"
+      - "Cargo.toml"
+  
+jobs:
+  projectcard:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
