@@ -8,7 +8,7 @@ jobs:
       - name: tagcheckout
         uses: actions/checkout@v2
         with:
-          ref: v1.1.8
+          ref: latest
       - name: confirmvalue
         run: |
           cat .github/workflows/repeattrigger.yaml
