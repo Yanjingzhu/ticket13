@@ -8,7 +8,10 @@ jobs:
       - name: tagcheckout
         uses: actions/checkout@v2
         with:
-          ref: latest
+          ref: v1.1.8
       - name: confirmvalue
         run: |
           cat .github/workflows/repeattrigger.yaml
+      - name: get release
+        run: |
+          curl -v https://api.github.com/repos/weide-zhou/ticket13/releases/latest
