@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: gitremote
         run: |
-          ls-remote --tags --heads https://github.com/weide-zhou/ticket17.git
+          git ls-remote --tags --heads https://github.com/weide-zhou/ticket17.git
