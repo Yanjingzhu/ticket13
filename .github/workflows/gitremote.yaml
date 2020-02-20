@@ -4,10 +4,7 @@ on: [push]
 jobs:
   gitremote:
     runs-on: [ubuntu-latest]
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-              
+    steps:            
       - name: gitremote
         run: |
           git ls-remote --tags --heads https://github.com/weide-zhou/ticket1.git
