@@ -1,0 +1,14 @@
+name: tagcheckout
+on: [push]
+  
+jobs:
+  tagcheckout:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: tagcheckout
+        uses: actions/checkout@v2
+        with:
+          ref: v1.1.8
+      - name: confirmvalue
+        run: |
+          cat .github/workflows/repeattrigger.yaml
