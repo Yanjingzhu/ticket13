@@ -5,6 +5,9 @@ jobs:
   gitremote:
     runs-on: [ubuntu-latest]
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
+              
       - name: gitremote
         run: |
           git ls-remote --tags --heads https://github.com/weide-zhou/ticket17.git
