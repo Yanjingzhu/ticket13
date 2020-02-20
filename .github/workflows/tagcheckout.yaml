@@ -9,6 +9,9 @@ jobs:
         id: latestrelease
         run: |
           echo "::set-output name=releasetag::$(curl -s https://api.github.com/repos/weide-zhou/ticket13/releases/latest | jq '.tag_name')"
+      - name: checkoutput
+        run: |
+          echo ${{ steps.latestrelease.outputs.releasetag }}
       - name: tagcheckout
         uses: actions/checkout@v2
         with:
