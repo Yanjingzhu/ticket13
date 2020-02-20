@@ -5,13 +5,14 @@ jobs:
   tagcheckout:
     runs-on: [ubuntu-latest]
     steps:
+      - name: get latest release with tag
+        id: latestrelease
+        run: |
+          echo "::set-output name=releasetag::$(curl -s https://api.github.com/repos/weide-zhou/ticket13/releases/latest | jq '.tag_name')"
       - name: tagcheckout
         uses: actions/checkout@v2
         with:
-          ref: v1.1.8
+          ref: ${{ steps.latestrelease.outputs.releasetag }}
       - name: confirmvalue
         run: |
           cat .github/workflows/repeattrigger.yaml
-      - name: get release
-        run: |
-          curl -s https://api.github.com/repos/weide-zhou/ticket13/releases/latest | jq '.tag_name'
