@@ -15,7 +15,7 @@ jobs:
       - name: tagcheckout
         uses: actions/checkout@v2
         with:
-          ref: v1.1.9
+          ref: ${{ steps.latestrelease.outputs.releasetag }}
       - name: confirmvalue
         run: |
           cat .github/workflows/repeattrigger.yaml
