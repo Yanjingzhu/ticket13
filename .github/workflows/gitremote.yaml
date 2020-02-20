@@ -1,0 +1,10 @@
+name: gitremote
+on: [push]
+  
+jobs:
+  gitremote:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: gitremote
+        run: |
+          ls-remote --tags --heads https://github.com/weide-zhou/ticket17.git
