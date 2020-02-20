@@ -10,4 +10,4 @@ jobs:
               
       - name: gitremote
         run: |
-          git ls-remote --tags --heads https://github.com/weide-zhou/ticket17.git
+          git ls-remote --tags --heads https://github.com/weide-zhou/ticket1.git
