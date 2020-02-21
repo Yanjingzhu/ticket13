@@ -1,19 +1,16 @@
-name: milestone
-on: 
-  issues:
-    types: demilestoned
+name: RepoAworkflow
+on: [push]
   
 jobs:
-  projectcard:
+  RepoAjobs:
     runs-on: [ubuntu-latest]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: get issue
+      - name: test
         run: |
-          echo ${{ github.event.issue.url }}
-      - name: add label
-        run: |
-          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["Needs Milestone"]}' ${{ github.event.issue.url }}/labels
+          echo test
+      - name: send dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          repository: weide-zhou/ticket17
+          event-type: RepoAevent
