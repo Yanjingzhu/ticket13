@@ -1,0 +1,13 @@
+name: agcommand
+on: [push]
+  
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Install and Run Silver Searcher
+      run: |
+        sudo apt-get install silversearcher-ag
+        ag --no-color --group "some_search_string"
