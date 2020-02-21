@@ -1,0 +1,14 @@
+name: exitcode
+on: [push]
+  
+jobs:
+  exitcode:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: test
+        run: |
+          echo test
+      - name: step2
+        if: success()
+        run: |
+          exit 1
