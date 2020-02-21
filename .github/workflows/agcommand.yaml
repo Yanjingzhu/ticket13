@@ -9,6 +9,9 @@ jobs:
     - name: Install Silver Searcher
       run: |
         sudo apt-get install silversearcher-ag
+    - name: run help
+      run: |
+        ag --help
     - name: Run Silver Searcher
       run: |
         ag --no-color --group "some_search_string"
