@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with: 
+          repository: ggreer/the_silver_searcher
       - name: Install Silver Searcher
         run: |
           sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
