@@ -15,6 +15,7 @@ jobs:
       - name: run help
         run: |
           ag -V
+          which ag
       - name: Run Silver Searcher
         run: |
           ag --no-color "test1" -D
