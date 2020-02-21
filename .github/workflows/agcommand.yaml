@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
-        uses: actions/checkout@v1
-        
       - name: Install Silver Searcher
         run: |
-          sudo apt-get install silversearcher-ag
+          apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+          ./build.sh
+          sudo make install
+  #        sudo apt-get install silversearcher-ag
       - name: run help
         run: |
           ag -V
