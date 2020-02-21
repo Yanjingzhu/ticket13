@@ -22,4 +22,4 @@ jobs:
           which ag
       - name: Run Silver Searcher
         run: |
-          ag "test1" -D
+          /usr/local/bin/ag "test1" -D
