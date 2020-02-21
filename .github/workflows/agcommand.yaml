@@ -17,4 +17,4 @@ jobs:
           ag -V
       - name: Run Silver Searcher
         run: |
-          ag --no-color "some_search_string" -D
+          ag --no-color "test1" -D
