@@ -14,7 +14,7 @@ jobs:
           sudo apt-get install silversearcher-ag
       - name: run help
         run: |
-          ag --help
+          ag -V
       - name: Run Silver Searcher
         run: |
           ag --no-color "some_search_string" -D
