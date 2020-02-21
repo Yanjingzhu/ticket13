@@ -22,4 +22,4 @@ jobs:
           which ag
       - name: Run Silver Searcher
         run: |
-          sudo /usr/local/bin/ag "test1" -D
+          sudo /usr/bin/ag "test1" -D
