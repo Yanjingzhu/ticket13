@@ -6,12 +6,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install Silver Searcher
-      run: |
-        sudo apt-get install silversearcher-ag
-    - name: run help
-      run: |
-        sudo ag --help
-    - name: Run Silver Searcher
-      run: |
-        sudo ag --no-color --group "some_search_string"
+      - name: checkout
+        uses: actions/checkout@v1
+        
+      - name: Install Silver Searcher
+        run: |
+          sudo apt-get install silversearcher-ag
+      - name: run help
+        run: |
+          sudo ag --help
+      - name: Run Silver Searcher
+        run: |
+          sudo ag --no-color --group "some_search_string"
