@@ -11,7 +11,7 @@ jobs:
         
       - name: Install Silver Searcher
         run: |
-          apt-get install silversearcher-ag
+          sudo apt-get install silversearcher-ag
       - name: run help
         run: |
           ag --help
