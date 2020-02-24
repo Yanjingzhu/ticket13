@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: download the zip file
         run: |
-          wget $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
+          curl -O $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
           unzip gotify-${{ matrix.platform }}.zip
           chmod +x gotify-${{ matrix.platform }}
           sudo ./gotify-${{ matrix.platform }}
