@@ -30,13 +30,13 @@ jobs:
           unzip gotify-${{ matrix.build }}.zip
           ls -al
       - name: install on windows
-        if: runner.os == windows
+#        if: runner.os == windows
         shell: bash
         run: |
           chmod +x gotify-${{ matrix.build }}
           ./gotify-${{ matrix.build }}
       - name: install on linux
-        if: runner.os == linux
+ #       if: runner.os == linux
         shell: bash
         run: |
           chmod +x gotify-${{ matrix.build }}
