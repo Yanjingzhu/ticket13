@@ -1,32 +1,23 @@
 name: change lfs exclude
-
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: check git config before checkout
+    - name: Set the lfs.fetchexclude
       run: |
-        sudo git config -l
+        git config lfs.fetchexclude "media/excessive"
     - uses: actions/checkout@v2
       with:
         lfs: true
     - name: check git config after checkout
       run: |
-        sudo git config -l
-    - name: Run a one-line script
-      run: |
-        sudo git config lfs.fetchexclude "media/excessive"
-#        git config --unset lfs.fetchexclude
-    - name: check git config
-      run: |
-        sudo git config -l
+        git config -l
     - name: unset
       run: |
-        sudo git config --unset lfs.fetchexclude
-    - name: check git config2
+        git config --unset lfs.fetchexclude
+    - name: check git config after unset
       run: |
-        sudo git config -l
+        git config -l
