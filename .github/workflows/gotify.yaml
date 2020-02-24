@@ -7,7 +7,8 @@ jobs:
   gotify:
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest]
+        os: [ubuntu-latest]
+ #       os: [windows-latest, ubuntu-latest]
         include:
           - os: windows-latest
             build: windows-amd64.exe
