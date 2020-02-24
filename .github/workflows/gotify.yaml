@@ -11,6 +11,7 @@ jobs:
     runs-on: [windows-latest]
     steps:
       - name: download the zip file
+        shell: bash
         run: |
           curl -O $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
 #          unzip gotify-${{ matrix.platform }}.zip
