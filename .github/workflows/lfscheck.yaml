@@ -18,3 +18,9 @@ jobs:
     - name: check git config
       run: |
         git config -l
+    - name: unset
+      run: |
+        git config --unset lfs.fetchexclude
+    - name: check git config2
+      run: |
+        git config -l
