@@ -1,0 +1,18 @@
+name: gotify
+on: [push]
+env:
+  gotifydownloadurl: https://github.com/gotify/server/releases/download/v2.0.14
+  
+jobs:
+  gotify:
+    strategy:
+      matrix:
+        platform: [windows-amd64.exe, linux-amd64]
+    runs-on: [windows-latest]
+    steps:
+      - name: download the zip file
+        run: |
+          wget $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
+          unzip gotify-${{ matrix.platform }}.zip
+          chmod +x gotify-${{ matrix.platform }}
+          sudo ./gotify-${{ matrix.platform }}
