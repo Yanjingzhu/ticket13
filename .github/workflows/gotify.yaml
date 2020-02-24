@@ -14,12 +14,12 @@ jobs:
         shell: bash
         run: |
           curl -O $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
-          ls
+          ls -al
       - name: unzip files
         shell: bash
         run: |
           unzip gotify-${{ matrix.platform }}.zip
-          ls
+          ls -al
       - name: install
         shell: bash
         run: |
