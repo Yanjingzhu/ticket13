@@ -13,7 +13,7 @@ jobs:
       - name: download the zip file
         shell: bash
         run: |
-          curl -O $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
+          curl -L -O $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
           ls -al
       - name: unzip files
         shell: bash
