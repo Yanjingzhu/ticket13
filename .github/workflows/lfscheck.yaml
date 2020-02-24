@@ -16,6 +16,10 @@ jobs:
     - name: Set the lfs.fetchexclude
       run: |
         git config lfs.fetchexclude "media/excessive"
+    - name: cat git config
+      run: |
+        cd .git
+        cat config
     - name: check git config after checkout
       run: |
         git config -l
