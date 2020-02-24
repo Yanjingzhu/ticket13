@@ -12,4 +12,6 @@ jobs:
       with:
         lfs: true
     - name: Run a one-line script
-      run: git config --unset lfs.fetchexclude
+      run: |
+        git config lfs.fetchexclude "media/excessive"
+#        git config --unset lfs.fetchexclude
