@@ -7,21 +7,33 @@ jobs:
   gotify:
     strategy:
       matrix:
-        platform: [windows-amd64.exe, linux-amd64]
-    runs-on: [windows-latest]
+        os: [windows-latest, ubuntu-latest]
+        include:
+          - os: windows-latest
+            build: windows-amd64.exe
+          - os: ubuntu-latest
+            build: linux-amd64
+    runs-on: ${{ matrix.os }}
     steps:
       - name: download the zip file
         shell: bash
         run: |
-          curl -L -O $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
+          curl -L -O $gotifydownloadurl/gotify-${{ matrix.build }}.zip
           ls -al
       - name: unzip files
         shell: bash
         run: |
-          unzip gotify-${{ matrix.platform }}.zip
+          unzip gotify-${{ matrix.build }}.zip
           ls -al
-      - name: install
+      - name: install on windows
+        if: runner.os == windows
         shell: bash
         run: |
-          chmod +x gotify-${{ matrix.platform }}
-          sudo ./gotify-${{ matrix.platform }}
+          chmod +x gotify-${{ matrix.build }}
+          ./gotify-${{ matrix.build }}
+      - name: install on linux
+        if: runner.os == linux
+        shell: bash
+        run: |
+          chmod +x gotify-${{ matrix.build }}
+          sudo ./gotify-${{ matrix.build }}
