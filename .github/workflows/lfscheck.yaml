@@ -8,9 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: check git config before checkout
+      run: |
+        git config -l
     - uses: actions/checkout@v1
       with:
         lfs: true
+    - name: check git config after checkout
+      run: |
+        git config -l
     - name: Run a one-line script
       run: |
         git config lfs.fetchexclude "media/excessive"
