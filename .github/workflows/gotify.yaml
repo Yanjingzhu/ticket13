@@ -15,10 +15,6 @@ jobs:
             build: linux-amd64
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
       - name: download the zip file
         shell: bash
         run: |
@@ -30,13 +26,13 @@ jobs:
           unzip gotify-${{ matrix.build }}.zip
           ls -al
       - name: install on windows
-#        if: runner.os == windows
+        if: runner.os == 'Windows'
         shell: bash
         run: |
           chmod +x gotify-${{ matrix.build }}
           ./gotify-${{ matrix.build }}
       - name: install on linux
- #       if: runner.os == linux
+        if: runner.os == 'Linux'
         shell: bash
         run: |
           chmod +x gotify-${{ matrix.build }}
