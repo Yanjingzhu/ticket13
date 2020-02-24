@@ -14,6 +14,6 @@ jobs:
         shell: bash
         run: |
           curl -O $gotifydownloadurl/gotify-${{ matrix.platform }}.zip
-#          unzip gotify-${{ matrix.platform }}.zip
-#          chmod +x gotify-${{ matrix.platform }}
-#          sudo ./gotify-${{ matrix.platform }}
+          unzip gotify-${{ matrix.platform }}.zip
+          chmod +x gotify-${{ matrix.platform }}
+          sudo ./gotify-${{ matrix.platform }}
