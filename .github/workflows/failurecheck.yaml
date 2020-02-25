@@ -5,12 +5,12 @@ jobs:
   failurecheck:
     runs-on: [ubuntu-latest]
     steps:
-      - name: test
-        run: |
-          echo test
       - name: failure step
         run: |
           exit 1
+      - name: test
+        run: |
+          echo test
       - name: iffailure
         if: failure()
         run: |
