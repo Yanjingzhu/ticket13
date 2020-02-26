@@ -9,4 +9,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-        
+      - name: check workflowname
+        run: |
+          echo ${{ github.workflow }} 
+      - name: check eventname
+        run: |
+          echo ${{ github.event_name }}   
