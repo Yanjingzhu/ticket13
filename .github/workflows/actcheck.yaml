@@ -6,7 +6,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: checkout
-        uses: actions/checkout@develop
+        uses: actions/checkout@v2
         with:
           repository: 'weide-zhou/ticket18'
       - name: install act
