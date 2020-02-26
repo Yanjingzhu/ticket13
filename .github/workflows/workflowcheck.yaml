@@ -1,6 +1,5 @@
 name: workflownamecheck
-on: [push]
-  
+on: [push] 
 jobs:
   job1:
     runs-on: [ubuntu-latest]
