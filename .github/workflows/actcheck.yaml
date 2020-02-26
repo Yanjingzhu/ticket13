@@ -1,0 +1,19 @@
+name: actcheck
+on: [push]
+  
+jobs:
+  actcheck:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'weide-zhou/ticket18'
+      - name: install act
+        run: |
+          brew install nektos/tap/act
+      - name: act
+        run: |
+          act -l
+          act pull_request
+          
