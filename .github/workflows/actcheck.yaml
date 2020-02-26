@@ -1,8 +1,8 @@
-name: actcheck
+name: actcheckworkflowname
 on: [push]
   
 jobs:
-  actcheck:
+  job1:
     runs-on: [ubuntu-latest]
     steps:
       - name: checkout
