@@ -12,8 +12,10 @@ jobs:
       - name: install act
         run: |
           curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
-      - name: act
+      - name: list actions
         run: |
           act -l
+      - name: act pr
+        run: |
           act pull_request
           
