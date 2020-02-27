@@ -1,5 +1,8 @@
 name: RepoAworkflow
-on: [release]
+on:
+  release:
+    types: 
+      - created
   
 jobs:
   RepoAjobs:
