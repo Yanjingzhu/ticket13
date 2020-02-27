@@ -1,0 +1,16 @@
+name: RepoAworkflow
+on: [push]
+  
+jobs:
+  RepoAjobs:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: test
+        run: |
+          echo test
+      - name: send dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          repository: weide-zhou/Notification
+          event-type: RepoAevent
