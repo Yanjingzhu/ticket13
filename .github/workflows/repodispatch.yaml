@@ -16,6 +16,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT }}
-          repository: weide-zhou/Notification
+          repository: weide-zhou/ticket19
           event-type: release
           client-payload: '{"new_version": "6.3.3"}'
