@@ -17,3 +17,4 @@ jobs:
           token: ${{ secrets.PAT }}
           repository: weide-zhou/Notification
           event-type: release
+          client-payload: '{"new_version": "1.0.1"}'
