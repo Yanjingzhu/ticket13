@@ -7,12 +7,15 @@ jobs:
     steps:
       - name: checkout 1st
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: checkout 2nd
         uses: actions/checkout@v2
         with:
           repository: weide-zhou/ticket17
           token: ${{ secrets.PAT }}
           path: ticket17
+          persist-credentials: false
       - name: touch file
         run: |
           touch filetest.txt
