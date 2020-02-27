@@ -1,5 +1,5 @@
 name: RepoAworkflow
-on: [push]
+on: [release]
   
 jobs:
   RepoAjobs:
@@ -13,4 +13,4 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           repository: weide-zhou/Notification
-          event-type: RepoAevent
+          event-type: release
