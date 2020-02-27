@@ -1,0 +1,31 @@
+name: tokenexpire
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkout 1st
+        uses: actions/checkout@v2
+      - name: checkout 2nd
+        uses: actions/checkout@v2
+        with:
+          repository: weide-zhou/ticket17
+          token: ${{ secrets.PAT }}
+          path: ticket17
+      - name: touch file
+        run: |
+          touch filetest.txt
+      - name: sleep 1hour
+        run: |
+          sleep 1h
+      - name: Commit newly trained model
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Action"
+          git commit -m "Model retraining" -a
+      - name: Push newly trained model
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          branch: B66
+          github_token: ${{ secrets.PAT }}
