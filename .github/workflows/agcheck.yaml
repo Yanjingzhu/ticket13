@@ -15,4 +15,4 @@ jobs:
     - name: Run Silver Searcher on howto's
       run: |
         cat test_search.txt
-        ag "hello" # this should not fail ("hello" found inside of "test_search.txt:)
+        ag "hello" | echo $
