@@ -20,3 +20,6 @@ jobs:
       - name: Run Silver Searcher on howto's
         run: |
           ag "hello" & exit 0
+      - name: Run Silver Searcher on howto's2
+        run: |
+          ag "hello2" & exit 0
