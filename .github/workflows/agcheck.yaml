@@ -19,4 +19,4 @@ jobs:
 
       - name: Run Silver Searcher on howto's
         run: |
-          ag "hello" | xargs
+          ag "hello" & exit 0
