@@ -14,4 +14,4 @@ jobs:
 
     - name: Run Silver Searcher on howto's
       run: |
-        echo $(ag "hello") 
+        ag "hello" | xargs
