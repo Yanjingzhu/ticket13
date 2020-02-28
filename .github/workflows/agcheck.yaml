@@ -14,7 +14,5 @@ jobs:
 
     - name: Run Silver Searcher on howto's
       run: |
-        ag "hello" | echo $?
-    - name: Run Silver Searcher on howto's2
-      run: |
-        ag "hello2" | echo $?
+        ag "hello" > agresult.txt
+        cat agresult.txt
