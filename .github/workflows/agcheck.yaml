@@ -4,12 +4,7 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          ref: B68  
-        
+    steps:        
       - name: Install Silver Searcher
         run: |
           sudo apt-get install silversearcher-ag
@@ -20,6 +15,3 @@ jobs:
       - name: Run Silver Searcher on howto's
         run: |
           ag "hello" & exit 0
-      - name: Run Silver Searcher on howto's2
-        run: |
-          ag "hello2" & exit 0
