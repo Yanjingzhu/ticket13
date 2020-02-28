@@ -5,16 +5,18 @@ jobs:
   job1:
     runs-on: [ubuntu-latest]
     steps:
-      - name: checkout 1st
-        uses: actions/checkout@v2
-
       - name: checkout 2nd
         uses: actions/checkout@v2
         with:
-          repository: weide-zhou/ticket17
+          repository: weide-zhou/ticket19
           token: ${{ secrets.PAT }}
-          path: ticket17
-
+          path: ticket19
+          persist-credentials: false
+      - name: checkout 1st
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          clean: false
       - name: touch file
         run: |
           touch filetest1.txt
