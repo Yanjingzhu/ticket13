@@ -18,7 +18,7 @@ jobs:
           persist-credentials: false
       - name: touch file
         run: |
-          touch filetest.txt
+          touch filetest1.txt
       - name: sleep 1hour
         run: |
           sleep 1h
