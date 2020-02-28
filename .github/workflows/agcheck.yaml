@@ -1,0 +1,21 @@
+name: agcheck
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Silver Searcher
+      run: |
+        sudo apt-get install silversearcher-ag
+
+    - name: Make test search file
+      run: echo "hello world" > test_search.txt
+
+    - name: Run Silver Searcher on howto's
+      run: |
+        ag "hello" # this should not fail ("hello" found inside of "test_search.txt:)
