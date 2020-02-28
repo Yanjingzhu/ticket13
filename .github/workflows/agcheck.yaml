@@ -1,9 +1,5 @@
 name: agcheck
-on:
-  push:
-    branches:
-      - master
-
+on: [push]
 jobs:
   test-job:
     runs-on: ubuntu-latest
