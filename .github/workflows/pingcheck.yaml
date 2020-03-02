@@ -1,0 +1,10 @@
+name: pingcheck
+on: [push]
+  
+jobs:
+  pingcheck:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: pingcheck
+        run: |
+          ping www.google.com
