@@ -3,7 +3,7 @@ on: [push]
   
 jobs:
   oascompare:
-    container: quen2404/openapi-diff:latest
+#    container: quen2404/openapi-diff:latest
     runs-on: [ubuntu-latest]
     steps:
       - name: checkout
