@@ -11,7 +11,7 @@ jobs:
           ref: B69
       - name: install diff tool
         run: |
-          npm install openapi-diff --save-dev
+          npm install -g @azure/oad
       - name: compare
         run: |
-          openapi-diff original-spec.yaml modified-spec.yaml
+          oad compare original-spec.yaml modified-spec.yaml
