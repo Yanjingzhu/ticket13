@@ -10,9 +10,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: B69
-      - uses: actions/setup-node@master
-        with:
-          node-version: '10.x' 
+ #     - uses: actions/setup-node@master
+  #      with:
+#          node-version: '10.x' 
 #      - name: install diff tool
 #        run: |
 #          npm install openapi-diff --save-dev
