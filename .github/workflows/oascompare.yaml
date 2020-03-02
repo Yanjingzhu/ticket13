@@ -1,0 +1,17 @@
+name: oascompare
+on: [push]
+  
+jobs:
+  oascompare:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: B69
+      - name: install diff tool
+        run: |
+          npm install openapi-diff --save-dev
+      - name: compare
+        run: |
+          openapi-diff original-spec.yaml modified-spec.yaml
