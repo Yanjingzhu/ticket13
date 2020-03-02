@@ -9,7 +9,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          ref: B69
+          repository: weide-zhou/modify Secret
+ #         ref: B69
+      - name: check files
+        run: |
+          ls -al
  #     - uses: actions/setup-node@master
   #      with:
 #          node-version: '10.x' 
