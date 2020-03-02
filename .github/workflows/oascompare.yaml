@@ -3,23 +3,19 @@ on: [push]
   
 jobs:
   oascompare:
-#    container: quen2404/openapi-diff
+    container: quen2404/openapi-diff:latest
     runs-on: [ubuntu-latest]
     steps:
       - name: checkout
         uses: actions/checkout@v2
         with:
           ref: B69
-      - name: compare
-        uses: docker://quen2404/openapi-diff:latest
+      - uses: actions/setup-node@master
         with:
-          args: openapi-diff original-spec.yaml modified-spec.yaml
- #     - uses: actions/setup-node@master
- #       with:
- #         node-version: '10.x' 
+          node-version: '10.x' 
 #      - name: install diff tool
 #        run: |
 #          npm install openapi-diff --save-dev
-#      - name: compare
-#        run: |
-#          openapi-diff original-spec.yaml modified-spec.yaml
+      - name: compare
+        run: |
+          openapi-diff original-spec.yaml modified-spec.yaml
