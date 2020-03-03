@@ -1,10 +1,12 @@
 name: my workflow
 on: push
+env:
+  MY_WORKFLOW_VAR: work
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Set env
-      run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-6)
+      run: echo ::set-env name=STEPVAR::${{ env.MY_WORKFLOW_VAR }}-somestep
     - name: Test
-      run: echo $GITHUB_SHA_SHORT
+      run: echo $STEPVAR
