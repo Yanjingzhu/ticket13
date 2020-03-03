@@ -26,6 +26,8 @@ jobs:
 
         # this works
         MY_OTHER_STEP_VAR: ${{ env.MY_WORKFLOW_VAR }}-somevalue01
+        MY_OTHER_STEP_VAR2: ${{ env.MY_STEP_VAR }}-somevalue01
+        MY_OTHER_STEP_VAR3: ${{ env.MY_JOB_VAR }}-somevalue01
       run: |
         # Env var concatenation
         echo $MY_WORKFLOW_VAR
