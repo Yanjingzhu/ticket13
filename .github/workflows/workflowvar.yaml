@@ -8,7 +8,7 @@ env:
 
   # this does NOT work
   MY_OTHER_WORKFLOW_VAR: ${{ secrets.workflowvar }}-value01
-
+  MY_OTHER_WORKFLOW_VAR2: ${{ secrets.workflowvar2 }}
 jobs:
   build:
     runs-on: [ubuntu-latest]    
@@ -20,20 +20,24 @@ jobs:
       MY_WORK_JOB_VAR: ${{ secrets.workflowvar }}-somejob01
 
     steps:
-    - name: Output event data
-      env:
-        MY_STEP_VAR: step
+      - name: multiple
+        run: |
+          $result = ${{ MY_OTHER_WORKFLOW_VAR2 }} * 3
+          echo $result
+      - name: Output event data
+        env:
+          MY_STEP_VAR: step
+    
+          # this works
+          MY_OTHER_STEP_VAR: ${{ env.MY_WORKFLOW_VAR }}-somevalue01
+          MY_OTHER_STEP_VAR2: ${{ env.MY_STEP_VAR }}-somevalue01
+          MY_OTHER_STEP_VAR3: ${{ env.MY_JOB_VAR }}-somevalue01
+        run: |
+          # Env var concatenation
+          echo $MY_WORKFLOW_VAR
+          if $MY_OTHER_WORKFLOW_VAR == 'workflowvar-value01'; then
+            echo true
+          elseif
+            echo false
+          fi
 
-        # this works
-        MY_OTHER_STEP_VAR: ${{ env.MY_WORKFLOW_VAR }}-somevalue01
-        MY_OTHER_STEP_VAR2: ${{ env.MY_STEP_VAR }}-somevalue01
-        MY_OTHER_STEP_VAR3: ${{ env.MY_JOB_VAR }}-somevalue01
-      run: |
-        # Env var concatenation
-        echo $MY_WORKFLOW_VAR
-        if $MY_OTHER_WORKFLOW_VAR == 'workflowvar-value01'; then
-          echo true
-        elseif
-          echo false
-        fi
-        
