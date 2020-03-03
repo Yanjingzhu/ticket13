@@ -1,43 +1,10 @@
-name: workflowvar
-
-on: [push]
-
-env:
-  # this works
-  MY_WORKFLOW_VAR: work
-
-  # this does NOT work
-  MY_OTHER_WORKFLOW_VAR: ${{ secrets.workflowvar }}-value01
-  MY_OTHER_WORKFLOW_VAR2: ${{ secrets.workflowvar2 }}
+name: my workflow
+on: push
 jobs:
   build:
-    runs-on: [ubuntu-latest]    
-    env:
-      # this works
-      MY_JOB_VAR: job
-
-      # this does NOT work
-      MY_WORK_JOB_VAR: ${{ secrets.workflowvar }}-somejob01
-
+    runs-on: ubuntu-latest
     steps:
-      - name: multiple
-        run: |
-          $result = $MY_OTHER_WORKFLOW_VAR2 * 3
-          echo $result
-      - name: Output event data
-        env:
-          MY_STEP_VAR: step
-    
-          # this works
-          MY_OTHER_STEP_VAR: ${{ env.MY_WORKFLOW_VAR }}-somevalue01
-          MY_OTHER_STEP_VAR2: ${{ env.MY_STEP_VAR }}-somevalue01
-          MY_OTHER_STEP_VAR3: ${{ env.MY_JOB_VAR }}-somevalue01
-        run: |
-          # Env var concatenation
-          echo $MY_WORKFLOW_VAR
-          if $MY_OTHER_WORKFLOW_VAR == 'workflowvar-value01'; then
-            echo true
-          elseif
-            echo false
-          fi
-
+    - name: Set env
+      run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-6)
+    - name: Test
+      run: echo $GITHUB_SHA_SHORT
