@@ -17,7 +17,7 @@ jobs:
       MY_JOB_VAR: job
 
       # this does NOT work
-      MY_WORK_JOB_VAR: ${{ secrets.workflowvar }}-somejob01
+      MY_WORK_JOB_VAR: ${{ env.MY_WORKFLOW_VAR }}-somejob01
 
     steps:
     - name: Output event data
