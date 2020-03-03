@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: multiple
         run: |
-          $result = ${{ MY_OTHER_WORKFLOW_VAR2 }} * 3
+          $result = $MY_OTHER_WORKFLOW_VAR2 * 3
           echo $result
       - name: Output event data
         env:
