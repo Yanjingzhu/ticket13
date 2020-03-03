@@ -29,7 +29,7 @@ jobs:
       run: |
         # Env var concatenation
         echo $MY_WORKFLOW_VAR
-        if [$MY_OTHER_WORKFLOW_VAR == 'workflowvar-value01']; then
+        if $MY_OTHER_WORKFLOW_VAR == 'workflowvar-value01'; then
           echo true
         elseif
           echo false
