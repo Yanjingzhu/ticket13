@@ -12,4 +12,3 @@ jobs:
       - name: npmversion
         run: |
           npm version
-          node version
