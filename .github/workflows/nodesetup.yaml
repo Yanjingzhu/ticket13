@@ -6,7 +6,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: nodesetup
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1.4
         with:
           node-version: 13
       - name: npmversion
