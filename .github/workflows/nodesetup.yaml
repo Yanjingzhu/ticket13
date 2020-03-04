@@ -8,7 +8,8 @@ jobs:
       - name: nodesetup
         uses: actions/setup-node@v1
         with:
-          node-version: 12.15.0
+          node-version: 13
       - name: npmversion
         run: |
           npm version
+          node version
