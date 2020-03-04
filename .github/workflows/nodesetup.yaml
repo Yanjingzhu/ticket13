@@ -1,0 +1,11 @@
+name: nodesetup
+on: [push]
+  
+jobs:
+  nodesetup:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: nodesetup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.15.0
