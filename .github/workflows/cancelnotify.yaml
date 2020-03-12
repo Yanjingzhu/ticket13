@@ -1,0 +1,13 @@
+name: cancelnotify
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: sleep 
+        run: |
+          sleep 60
+      - name: test
+        run: |
+          echo test
