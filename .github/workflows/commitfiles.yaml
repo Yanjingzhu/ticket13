@@ -11,11 +11,11 @@ jobs:
  #         persist-credential: false
       - name: Modify value
         run: |
-          echo 'Add value' >> testfile.txt
+          echo 'Add value2' >> testfile.txt
       - name: move to dir
         run: |
           mkdir -p output
-          cp testfile.txt ./output/
+          yes| cp -rf testfile.txt ./output/
       - name: Commit files
         run: |
           git config --local user.email "test@github.com"
