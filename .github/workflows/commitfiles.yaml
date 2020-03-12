@@ -1,0 +1,27 @@
+name: commitfiles
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Modify value
+        run: |
+          echo 'Add value' >> testfile.txt
+      - name: move to dir
+        run: |
+          mkdir -p output
+          cp testfile.txt ./output/
+      - name: Commit files
+        run: |
+          git config --local user.email "test@github.com"
+          git config --local user.name "GitHub Action test"
+          git add. .\output
+          git commit -m "Add changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
