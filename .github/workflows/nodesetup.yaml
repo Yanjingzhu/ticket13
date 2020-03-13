@@ -12,3 +12,13 @@ jobs:
       - name: npmversion
         run: |
           npm version
+  job4:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: set output
+        run: echo ::set-output name=ifpublish::'did_not_publish'
+        id: check
+      - name: skip did not publish commits
+        if: steps.check.outputs.ifpublish != 'did_not_publish'
+        run: |
+          echo test  
