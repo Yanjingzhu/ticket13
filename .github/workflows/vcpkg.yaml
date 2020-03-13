@@ -12,14 +12,14 @@ jobs:
   job2:
     runs-on: [ubuntu-18.04]
     steps:
-      - name: path for windows
+      - name: path for ubuntu18.04
         shell: bash
         run: |
           env | grep vcpkg  
   job3:
     runs-on: [macos-latest]
     steps:
-      - name: path for windows
+      - name: path for macOS
         shell: bash
         run: |
           env | grep vcpkg
