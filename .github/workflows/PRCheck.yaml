@@ -11,8 +11,16 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: checkout
         uses: actions/checkout@v2
-      - name: git diff
-        run: |
-          git branch -r
-          git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs
+   #   - name: git diff
+   #     run: |
+   #       git branch -r
+   #       git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs
    #       git diff --name-only HEAD origin/master
+      - name: get changed files
+        id: getfile
+        run: |
+          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
+
+      - name: echo output
+        run: |
+          echo ${{ steps.getfile.outputs.files }}
