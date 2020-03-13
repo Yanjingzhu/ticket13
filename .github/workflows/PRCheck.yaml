@@ -16,11 +16,7 @@ jobs:
    #       git branch -r
    #       git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs
    #       git diff --name-only HEAD origin/master
-      - name: get changed files
-        id: getfile
+      - name: check pr files
         run: |
-          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
-
-      - name: echo output
-        run: |
-          echo ${{ steps.getfile.outputs.files }}
+          $URL=https://api.github.com/repos/${{github.repository}}/pulls/25/files
+          curl -s -X GET -G $URL | jq -r '.[] | .filename'
