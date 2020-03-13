@@ -13,8 +13,12 @@ jobs:
         shell: bash
         run: |
           which vcpkg
-          whereis vcpkg
       - name: test
         shell: bash
         run: |
-          echo %VCPKG_ROOT%
+          env
+      - name: test2
+        shell: bash
+        run: |
+          env | grep vcpkg
+  
