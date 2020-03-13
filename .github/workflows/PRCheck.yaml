@@ -1,6 +1,7 @@
 name: PRCheck
 on: 
   pull_request:
+    types: opened
     paths: 
       - '**folder1**'
   
