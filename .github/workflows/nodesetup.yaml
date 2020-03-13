@@ -19,6 +19,6 @@ jobs:
         run: echo ::set-output name=ifpublish::'did_not_publish'
         id: check
       - name: skip did not publish commits
-        if: steps.check.outputs.ifpublish != 'did_not_publish'
+        if: steps.check.outputs.ifpublish == 'did_not_publish'
         run: |
           echo test  
