@@ -3,15 +3,18 @@ on: [push]
   
 jobs:
   job1:
-    runs-on: [ubuntu-latest]
+    runs-on: [windows-latest]
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: check path
+        shell: bash
         run: |
           which vcpkg
-      - name: check2
-        run: |
           whereis vcpkg
+      - name: test
+        shell: bash
+        run: |
+          echo %VCPKG_ROOT%
