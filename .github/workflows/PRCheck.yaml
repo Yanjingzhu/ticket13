@@ -1,5 +1,9 @@
 name: PRCheck
-on: [pull_request]
+on: 
+  pull_request:
+    types: opened
+    paths: 
+      - '**folder1**'
   
 jobs:
   job1:
@@ -11,11 +15,6 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: checkout
         uses: actions/checkout@v2
-   #   - name: git diff
-   #     run: |
-   #       git branch -r
-   #       git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs
-   #       git diff --name-only HEAD origin/master
       - name: check pr files
         run: |
           URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
