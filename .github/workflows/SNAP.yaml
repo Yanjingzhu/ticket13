@@ -8,6 +8,8 @@ jobs:
       matrix:
         OS: [windows-latest, ubuntu-latest]
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: get metadata1
         run: |
           curl -O metadata1 https://oss.sonatype.org/content/groups/public/de/saxsys/mvvmfx-validation/1.9.0-SNAPSHOT/maven-metadata.xml
