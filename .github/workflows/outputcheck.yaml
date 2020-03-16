@@ -19,7 +19,7 @@ jobs:
           echo "::set-output name=tag::$(sh dockerbuild.sh)"
       - name: check the value
         run: |
-          echo ${{ steps.getimage.outputs.tag }}
+          echo ${{ steps.getimage.outputs.tag }} | xargs
       - name: check env
         run: |
           env | grep GA_DOCKER_IMAGE
