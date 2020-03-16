@@ -11,8 +11,16 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Docker build
-        run: ./dockerbuild.sh
+#      - name: Docker build
+#        run: ./dockerbuild.sh
+      - name: get output value
+        id: getimage
+        run: |
+          echo "::set-output name=tag::$(sh dockerbuild.sh)"
+      - name: check the value
+        run: |
+          echo ${{ steps.getimage.outputs.tag }}
+        
 #      - name: Render ECS task definition
 #        uses: aws-actions/amazon-ecs-render-task-definition@v1
 #          with:
