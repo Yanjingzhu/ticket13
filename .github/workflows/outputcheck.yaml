@@ -16,7 +16,7 @@ jobs:
       - name: get output value
         id: getimage
         run: |
-          echo "::set-output name=tag::$(sh dockerbuild.sh)"
+          echo "::set-output name=tag::$(sh dockerbuild.sh | xargs)"
       - name: check the value
         run: |
           echo ${{ steps.getimage.outputs.tag }}
@@ -24,7 +24,6 @@ jobs:
         run: |
           env | grep GA_DOCKER_IMAGE
           echo $GA_DOCKER_IMAGE
-        
         
 #      - name: Render ECS task definition
 #        uses: aws-actions/amazon-ecs-render-task-definition@v1
