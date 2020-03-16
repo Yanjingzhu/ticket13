@@ -3,7 +3,10 @@ on: [push]
   
 jobs:
   job1:
-    runs-on: [ubuntu-latest]
+    runs-on: ${{ matrix.OS }}
+    strategy:
+      matrix:
+        OS: [windows-latest, ubunut-latest, macos-latest]
     steps:
       - name: get metadata1
         run: |
