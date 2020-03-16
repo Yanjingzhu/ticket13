@@ -1,5 +1,5 @@
 name: outputcheck
-on: [pull_request]
+on: [push]
   
 jobs:
   job1:
