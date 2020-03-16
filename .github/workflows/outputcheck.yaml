@@ -23,6 +23,7 @@ jobs:
       - name: check env
         run: |
           env | grep GA_DOCKER_IMAGE
+          echo $GA_DOCKER_IMAGE
         
         
 #      - name: Render ECS task definition
