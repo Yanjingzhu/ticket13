@@ -18,3 +18,4 @@ jobs:
           ls -al
           cd ./gradlefolder
           cat test.txt
+
