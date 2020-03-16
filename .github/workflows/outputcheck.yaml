@@ -1,0 +1,21 @@
+name: outputcheck
+on: [pull_request]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Docker build
+        run: ./dockerbuild.sh
+#      - name: Render ECS task definition
+#        uses: aws-actions/amazon-ecs-render-task-definition@v1
+#          with:
+#            task-definition: task-definition.json
+#            container-name: stage-web
+#            image: <a value from the output of ./dockerbuild.sh here>
