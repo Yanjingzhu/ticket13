@@ -16,4 +16,4 @@ jobs:
       - name: check files
         run: |
           ls -al
-          cat Readme.md
+          cat README.md
