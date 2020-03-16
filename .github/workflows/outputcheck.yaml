@@ -20,7 +20,7 @@ jobs:
       - name: check the value
         run: |
           echo ${{ steps.getimage.outputs.tag }}
-          echo ${${{ steps.getimage.outputs.tag }}#*=}
+          echo ${${{ steps.getimage.outputs.tag }}}
       - name: check env
         run: |
           env | grep GA_DOCKER_IMAGE
