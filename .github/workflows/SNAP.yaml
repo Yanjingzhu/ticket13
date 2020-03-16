@@ -1,0 +1,13 @@
+name: snap
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: get metadata1
+        run: |
+          curl -O metadata1 https://oss.sonatype.org/content/groups/public/de/saxsys/mvvmfx-validation/1.9.0-SNAPSHOT/maven-metadata.xml
+      - name: get metadata2
+        run: |
+          curl -O metadata2 https://oss.sonatype.org/content/groups/public/de/undercouch/citeproc-java/2.1.0-SNAPSHOT/maven-metadata.xml       
