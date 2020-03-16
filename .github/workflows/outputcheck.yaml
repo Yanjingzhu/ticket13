@@ -16,7 +16,7 @@ jobs:
       - name: get output value
         id: getimage
         run: |
-          echo "::set-output name=tag::$((sh dockerbuild.sh) | xargs)"
+          echo "::set-output name=tag::$(sh dockerbuild.sh)"
       - name: check the value
         run: |
           echo ${{ steps.getimage.outputs.tag }}
