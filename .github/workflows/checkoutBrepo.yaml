@@ -18,4 +18,6 @@ jobs:
           ls -al
           cd ./gradlefolder
           cat test.txt
-
+      - uses: eskatos/gradle-command-action@v1
+        with:
+          build-root-directory: ./gradlefolder
