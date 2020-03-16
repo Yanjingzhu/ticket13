@@ -6,7 +6,7 @@ jobs:
     runs-on: ${{ matrix.OS }}
     strategy:
       matrix:
-        OS: [windows-latest, ubunut-latest, macos-latest]
+        OS: [windows-latest, ubuntu-latest, macos-latest]
     steps:
       - name: get metadata1
         run: |
