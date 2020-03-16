@@ -12,15 +12,13 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          repository: 'weide-zhou/ticket17'
-      - name: check files
-        run: |
-          ls -al
-          cd gradlefolder
-          cat test.txt
+          repository: 'HaVonTe1/de.dkutzer.demo.microservices'
       - uses: actions/setup-java@v1
         with:
           java-version: 11 
       - uses: eskatos/gradle-command-action@v1
         with:
-          build-root-directory: gradlefolder
+          build-root-directory: developer-spring
+          wrapper-directory: developer-spring
+          gradle-version: 5.6.2
+          arguments: build
