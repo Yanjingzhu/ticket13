@@ -9,10 +9,10 @@ jobs:
         uses: actions/checkout@v2
       - name: get metadata1
         run: |
-          curl -O metadata1 https://oss.sonatype.org/content/groups/public/de/saxsys/mvvmfx-validation/1.9.0-SNAPSHOT/maven-metadata.xml
+          curl -L metadata1 https://oss.sonatype.org/content/groups/public/de/saxsys/mvvmfx-validation/1.9.0-SNAPSHOT/maven-metadata.xml
       - name: get metadata2
         run: |
-          curl -O metadata2 https://oss.sonatype.org/content/groups/public/de/undercouch/citeproc-java/2.1.0-SNAPSHOT/maven-metadata.xml       
+          curl -L metadata2 https://oss.sonatype.org/content/groups/public/de/undercouch/citeproc-java/2.1.0-SNAPSHOT/maven-metadata.xml       
   job2:
     runs-on: [macos-latest]
     steps:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
       - name: get metadata1
         run: |
-          curl -O -L metadata1 https://oss.sonatype.org/content/groups/public/de/saxsys/mvvmfx-validation/1.9.0-SNAPSHOT/maven-metadata.xml
+          curl -L metadata1 https://oss.sonatype.org/content/groups/public/de/saxsys/mvvmfx-validation/1.9.0-SNAPSHOT/maven-metadata.xml
       - name: get metadata2
         run: |
-          curl -O -L metadata2 https://oss.sonatype.org/content/groups/public/de/undercouch/citeproc-java/2.1.0-SNAPSHOT/maven-metadata.xml       
+          curl -L metadata2 https://oss.sonatype.org/content/groups/public/de/undercouch/citeproc-java/2.1.0-SNAPSHOT/maven-metadata.xml       
