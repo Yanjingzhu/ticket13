@@ -3,10 +3,7 @@ on: [push]
   
 jobs:
   job1:
-    runs-on: ${{ matrix.OS }}
-    strategy:
-      matrix:
-        OS: [windows-latest, ubuntu-latest]
+    runs-on: [ubuntu-latest]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -16,3 +13,14 @@ jobs:
       - name: get metadata2
         run: |
           curl -O metadata2 https://oss.sonatype.org/content/groups/public/de/undercouch/citeproc-java/2.1.0-SNAPSHOT/maven-metadata.xml       
+  job2:
+    runs-on: [macos-latest]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: get metadata1
+        run: |
+          curl -L metadata1 https://oss.sonatype.org/content/groups/public/de/saxsys/mvvmfx-validation/1.9.0-SNAPSHOT/maven-metadata.xml
+      - name: get metadata2
+        run: |
+          curl -L metadata2 https://oss.sonatype.org/content/groups/public/de/undercouch/citeproc-java/2.1.0-SNAPSHOT/maven-metadata.xml       
