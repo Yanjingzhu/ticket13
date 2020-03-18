@@ -1,0 +1,14 @@
+name: ifcondition
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: hashfiles
+        run: |
+          echo ${{ hashFiles('testfolder1/**') }}
