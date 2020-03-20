@@ -12,6 +12,7 @@ jobs:
           echo test >> test2.txt
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git config --global user.signingkey 4BF1386BD1556DD1DE9564DD0259A64A38EF130D
       - name: git config check
         run: |
           git config -l
