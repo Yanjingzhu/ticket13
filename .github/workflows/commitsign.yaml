@@ -12,5 +12,12 @@ jobs:
           echo test >> test2.txt
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+      - name: git config check
+        run: |
+          git config -l
+  #        gpg --list-keys
+
+      - name: git sign
+        run: |
           git add .
           git commit -S -m "Update CHANGELOG" -a
