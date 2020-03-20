@@ -18,7 +18,8 @@ jobs:
           git config -l
       - name: check keys
         run: |
-          gpg --list-keys
+          gpg --list-secret-keys --keyid-format LONG
+     #     gpg --list-keys
 
       - name: git sign
         run: |
