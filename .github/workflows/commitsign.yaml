@@ -14,7 +14,7 @@ jobs:
           git config --local user.name "GitHub Action"
       - name: git config check
         run: |
-          git config -l | grep sign
+          git config -l
   #        gpg --list-keys
 
       - name: git sign
