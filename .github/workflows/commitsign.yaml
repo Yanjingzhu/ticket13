@@ -16,6 +16,8 @@ jobs:
       - name: git config check
         run: |
           git config -l
+      - name: check keys
+        run: |
           gpg --list-keys
 
       - name: git sign
