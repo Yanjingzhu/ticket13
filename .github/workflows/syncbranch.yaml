@@ -17,16 +17,6 @@ jobs:
         run: |
           ls -al
           rm -rf *
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Add changes" -a
-      - name: Push changes and clean master branch
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: B90
       - name: checkout dev branch
         uses: actions/checkout@v2
       - name: run npm build
@@ -34,11 +24,9 @@ jobs:
           echo test1 >> test.txt
       - name: Commit files for change
         run: |
-          git add .
-          git commit -m "Add changes"
-#          git config --local user.email "action@github.com"
-#          git config --local user.name "GitHub Action"
-          
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add changes" -a
       - name: Push changes and clean master branch
         uses: ad-m/github-push-action@master
         with:
