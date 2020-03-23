@@ -12,6 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: B90
+          persist-credentials: false
       - name: remove all files
         run: |
           ls -al
