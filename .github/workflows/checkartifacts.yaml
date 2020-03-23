@@ -11,7 +11,7 @@ jobs:
           ids=$(curl -u admin:${{ secrets.GITHUB_TOKEN }} $URL |jq '.artifacts[].id')
       - name: find lasted id
         run: |
-          max=$ids[0]
+          max=${ids[0]}
           for id in $ids
           do
             if [ $max -lt $id ]
