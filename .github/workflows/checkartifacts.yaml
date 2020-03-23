@@ -1,0 +1,11 @@
+name: checkartifacts
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkartifacts
+        run: |
+          URL= "https://api.github.com/repos/weide-zhou/ticket13/actions/artifacts"
+          curl -X GET $URL
