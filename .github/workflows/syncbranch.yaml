@@ -1,0 +1,41 @@
+name: syncbranch
+on: 
+  push:
+    branches: 
+      - B91
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: remove all files
+        run: |
+          rm -rf .
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add changes" -a
+      - name: Push changes and clean master branch
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: checkout dev branch
+        uses: actions/checkout@v2
+      - name: run npm build
+        run: |
+          echo test1 >> test.txt
+      - name: Commit files for change
+        run: |
+          git commit -m "Add changes" -a
+#          git config --local user.email "action@github.com"
+#          git config --local user.name "GitHub Action"
+          
+      - name: Push changes and clean master branch
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
