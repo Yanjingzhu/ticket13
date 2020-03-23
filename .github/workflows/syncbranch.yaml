@@ -23,17 +23,18 @@ jobs:
           persist-credentials: false
       - name: run npm build
         run: |
-          mkdir dist
-          echo test1 >> dist/test.txt
+          mkdir dist2
+          echo test1 >> dist2/test.txt
       - name: Commit files for change
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add ./dist
+          git add ./dist2
           git commit -m "Add changes"
       - name: Push changes and clean master branch
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          directory: dist2
           branch: B90
           force: true
