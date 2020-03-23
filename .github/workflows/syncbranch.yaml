@@ -28,6 +28,8 @@ jobs:
           mkdir dist2
           echo test1 >> dist2/test.txt
           echo test2 >> test2.txt
+      - name: move files
+        run: |
           mv temp/dist2/* ./
           rm -rf temp
       - name: Commit files for change
