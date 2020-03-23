@@ -1,0 +1,28 @@
+name: Build iOS
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Switch XCode Version
+        run: sudo xcode-select -s /Applications/Xcode_11.2.app
+
+      - name: Get dependencies
+        run: source .github/ios/build.sh && get_dependencies
+
+      - name: Decrypt secrets
+        run: source .github/ios/build.sh && decrypt_secrets ${{ secrets.PAT2 }}
+        env:
+          SECRET_KEY: ${{ secrets.PAT2 }}
+
+      - name: Set up code signing
+        run: source .github/ios/build.sh && setup_code_signing
+
+      - name: Build app
+        run: source .github/ios/build.sh && build_app
+
+      - name: Upload artifacts
+        run: source .github/ios/build.sh && upload_artifacts
