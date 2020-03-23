@@ -19,6 +19,8 @@ jobs:
           rm -rf *
       - name: checkout dev branch
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: run npm build
         run: |
           echo test1 >> test.txt
