@@ -11,7 +11,7 @@ jobs:
       - name: checkout master branch
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: B90
       - name: remove all files
         run: |
           ls -al
@@ -25,6 +25,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: B90
       - name: checkout dev branch
         uses: actions/checkout@v2
       - name: run npm build
