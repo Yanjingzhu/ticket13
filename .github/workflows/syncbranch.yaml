@@ -8,15 +8,6 @@ jobs:
   job1:
     runs-on: [ubuntu-latest]
     steps:
-      - name: checkout master branch
-        uses: actions/checkout@v2
-        with:
-          ref: B90
-          persist-credentials: false
-      - name: remove all files
-        run: |
-          ls -al
-          rm -rf *
       - name: checkout dev branch
         uses: actions/checkout@v2
         with:
