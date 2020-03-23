@@ -14,7 +14,8 @@ jobs:
           ref: master
       - name: remove all files
         run: |
-          rm -rf ./
+          ls -al
+          rm -rf *
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
