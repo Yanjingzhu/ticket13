@@ -8,4 +8,4 @@ jobs:
       - name: checkartifacts
         run: |
           URL="https://api.github.com/repos/weide-zhou/ticket13/actions/artifacts"
-          curl -u admin:${{ secrets.GITHUB_TOKEN }} $URL
+          curl -u admin:${{ secrets.GITHUB_TOKEN }} $URL |jq -r '.[] | .id'
