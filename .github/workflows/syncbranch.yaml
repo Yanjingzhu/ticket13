@@ -20,14 +20,15 @@ jobs:
       - name: checkout dev branch
         uses: actions/checkout@v2
         with:
+          path: temp
           persist-credentials: false
       - name: run npm build
         run: |
-          mkdir dist2 temp
+          cd temp
+          mkdir dist2
           echo test1 >> dist2/test.txt
           echo test2 >> test2.txt
-          mv * temp
-          mv temp/dist2 ./
+          mv temp/dist2/* ./
           rm -rf temp
       - name: Commit files for change
         run: |
