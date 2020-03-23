@@ -7,5 +7,5 @@ jobs:
     steps:
       - name: checkartifacts
         run: |
-          URL= "https://api.github.com/repos/weide-zhou/ticket13/actions/artifacts"
+          URL="https://api.github.com/repos/weide-zhou/ticket13/actions/artifacts"
           curl -u admin:${{ secrets.GITHUB_TOKEN }} $URL
