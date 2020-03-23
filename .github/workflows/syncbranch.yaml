@@ -25,6 +25,7 @@ jobs:
         run: |
           mkdir dist2
           echo test1 >> dist2/test.txt
+          echo test2 >> test2.txt
       - name: Commit files for change
         run: |
           git config --local user.email "action@github.com"
@@ -35,6 +36,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          directory: dist2
           branch: B90
- #         force: true
+          force: true
