@@ -7,21 +7,26 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set git username and email
+      - name: Commit changes
         run: |
-          echo test >> test2.txt
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git config --global user.signingkey 4BF1386BD1556DD1DE9564DD0259A64A38EF130D
-      - name: git config check
-        run: |
-          git config -l
-      - name: check keys
-        run: |
-          gpg --list-secret-keys --keyid-format LONG
+          git commit -S -m "Commit stuff" -a     
+#      - name: Set git username and email
+#        run: |
+#          echo test >> test2.txt
+#          git config --local user.email "action@github.com"
+#          git config --local user.name "GitHub Action"
+#          git config --global user.signingkey 4BF1386BD1556DD1DE9564DD0259A64A38EF130D
+#      - name: git config check
+#        run: |
+#          git config -l
+#      - name: check keys
+#        run: |
+#          gpg --list-secret-keys --keyid-format LONG
      #     gpg --list-keys
 
-      - name: git sign
-        run: |
-          git add .
-          git commit -S -m "Update CHANGELOG" -a
+#      - name: git sign
+#        run: |
+#          git add .
+#          git commit -S -m "Update CHANGELOG" -a
