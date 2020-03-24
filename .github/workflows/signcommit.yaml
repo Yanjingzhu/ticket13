@@ -10,6 +10,8 @@ jobs:
           echo test
       - name: checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: checkstatus
         run: |
           git show --name-status 407a5e88ba80157ecdb6ed6ad464fdc4739c702e
