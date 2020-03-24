@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: updatestatus
         run: |
-          curl -X POST -H 'Content-Type: application/json' --data '{"state": "pending", "target_url": "https://locahost"}' https://${{ secrets.GITHUB_TOKEN}}:x-oauth-basic@api.github.com/repos/${{ github.repository }}/statuses/cf2452fa62dbab943475273482c9a38baac5e180
+          curl -X POST -H 'Content-Type: application/json' --data '{"state": "pending", "target_url": "https://locahost"}' https://${{ secrets.PAT3}}:x-oauth-basic@api.github.com/repos/${{ github.repository }}/statuses/cf2452fa62dbab943475273482c9a38baac5e180
