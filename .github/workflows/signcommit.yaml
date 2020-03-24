@@ -1,0 +1,13 @@
+name: signcommit
+on: 
+  pull_request:
+    types: 
+      - opened
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: test
+        run: |
+          echo test
