@@ -7,9 +7,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2    
-      - name: generate GPG key
-        run: |
-          gpg --full-generate-key
+ #     - name: generate GPG key
+ #       run: |
+ #         gpg --full-generate-key
       - name: Set git username and email
         run: |
           echo test >> test2.txt
