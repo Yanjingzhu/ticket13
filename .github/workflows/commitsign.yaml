@@ -6,29 +6,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Commit changes
+      - uses: actions/checkout@v2    
+      - name: generate GPG key
         run: |
-          echo test >> test3.txt
-          git add .
+          gpg --full-generate-key
+      - name: Set git username and email
+        run: |
+          echo test >> test2.txt
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -S -m "Commit stuff" -a     
-#      - name: Set git username and email
-#        run: |
-#          echo test >> test2.txt
-#          git config --local user.email "action@github.com"
-#          git config --local user.name "GitHub Action"
-#          git config --global user.signingkey 4BF1386BD1556DD1DE9564DD0259A64A38EF130D
-#      - name: git config check
-#        run: |
-#          git config -l
-#      - name: check keys
-#        run: |
-#          gpg --list-secret-keys --keyid-format LONG
+          git config --global user.signingkey 59593856525B3F6DE59D1C51F0303EE65074C22C
+      - name: git config check
+        run: |
+          git config -l
+      - name: check keys
+        run: |
+          gpg --list-secret-keys --keyid-format LONG
      #     gpg --list-keys
 
-#      - name: git sign
-#        run: |
-#          git add .
-#          git commit -S -m "Update CHANGELOG" -a
+      - name: git sign
+        run: |
+          git add .
+          git commit -S -m "Update CHANGELOG" -a
