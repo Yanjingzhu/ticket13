@@ -1,0 +1,23 @@
+name: matrixcontext
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    strategy:
+      matrix:
+        node: [6, 8, 10]
+    steps:
+      # Configures the node version used on GitHub-hosted runners
+      - uses: actions/setup-node@v1
+        with:
+          # The Node.js version to configure
+          node-version: ${{ matrix.node }}
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
