@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: echo test
         run: |
-          echo $SAPI
+          echo ${{ $SAPI }}
         env:
           APP_TITLE: "My app"
           BRANCH: ${GITHUB_REF##*/}
