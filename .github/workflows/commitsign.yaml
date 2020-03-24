@@ -9,6 +9,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Commit changes
         run: |
+          echo test >> test3.txt
+          git add .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -S -m "Commit stuff" -a     
