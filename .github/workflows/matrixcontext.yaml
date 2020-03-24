@@ -7,6 +7,7 @@ jobs:
     strategy:
       matrix:
         node: [6, 8, 10]
+    name: testname_${{ matrix.node }}
     steps:
       # Configures the node version used on GitHub-hosted runners
       - uses: actions/setup-node@v1
