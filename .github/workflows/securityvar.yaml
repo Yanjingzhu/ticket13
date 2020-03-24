@@ -1,0 +1,15 @@
+name: securityvar
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: echo test
+        run: |
+          echo $SAPI
+        env:
+          APP_TITLE: "My app"
+          BRANCH: ${GITHUB_REF##*/}
+          SAPI: secrets.SITE_${GITHUB_REF##*/}   # attempt
+          API_URL:  ${{ secrets.SITE_prod }}    # here I want to change according to branch
