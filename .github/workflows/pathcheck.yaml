@@ -14,3 +14,6 @@ jobs:
       - name: set pythonpath
         run: |
           export PYTHONPATH=$PYTHONPATH:/home/runner/work/ticket13
+      - name: check
+        run: |
+          env | grep PYTHONPATH
