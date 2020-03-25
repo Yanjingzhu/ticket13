@@ -16,6 +16,13 @@ jobs:
         run: |
           mkdir -p output
           yes| cp -rf testfile.txt ./output/
+      - name: add key
+        run: |
+          gpg --import public.key
+          gpg --allow-secret-key-import --import private.key
+      - name: checkkey
+        run: |
+          gpg --list-secret-keys --keyid-format LONG
       - name: Commit files
         run: |
           git config --global user.email "weide-zhou@outlook.com"
