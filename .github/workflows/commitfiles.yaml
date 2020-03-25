@@ -11,15 +11,15 @@ jobs:
  #         persist-credential: false
       - name: Modify value
         run: |
-          echo 'Add value4' >> testfile.txt
+          echo 'Add value5' >> testfile.txt
       - name: move to dir
         run: |
           mkdir -p output
           yes| cp -rf testfile.txt ./output/
       - name: Commit files
         run: |
-          git config --local user.email "test@github.com"
-          git config --local user.name "GitHub Action test"
+          git config --local user.email "weide-zhou@outlook.com"
+          git config --local user.name "weide-zhou"
           git add ./output
           git commit -m "Signcheck5"
       - name: Push changes
