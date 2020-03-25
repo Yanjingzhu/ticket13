@@ -11,7 +11,7 @@ jobs:
           token: ${{ secrets.PAT3 }}
       - name: Modify value
         run: |
-          echo 'Add value7' >> testfile.txt
+          echo 'Add value8' >> testfile.txt
       - name: move to dir
         run: |
           mkdir -p output
@@ -27,7 +27,6 @@ jobs:
       - name: uid
         run: |
           gpg --import-ownertrust file.txt
- #         yes save | yes |yes 5 | yes trust | gpg --edit-key weide-zhou@outlook.com
       - name: checkkey
         shell: bash
         run: |
@@ -44,7 +43,7 @@ jobs:
         shell: bash
         run: |
           git add ./output
-          git commit -m "Signcheck6"
+          git commit -S -m "Signcheck7"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
