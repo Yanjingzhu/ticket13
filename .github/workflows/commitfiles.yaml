@@ -13,19 +13,24 @@ jobs:
         run: |
           echo 'Add value6' >> testfile.txt
       - name: move to dir
+        shell: bash
         run: |
           mkdir -p output
           yes| cp -rf testfile.txt ./output/
       - name: add public key
+        shell: bash
         run: |
           gpg --import public.key
       - name: add private key
+        shell: bash
         run: |
           gpg --import private.key
       - name: checkkey
+        shell: bash
         run: |
           gpg --list-secret-keys --keyid-format LONG
       - name: Commit files
+        shell: bash
         run: |
           git config --global user.email "weide-zhou@outlook.com"
           git config --global user.name "weide-zhou"
