@@ -24,3 +24,13 @@ jobs:
       - name: check2
         run: |
           echo $PATH
+      - name: set pythonpath2
+        run: |
+          echo "::set-env name=pythonpath2::/home/runner/work/ticket13_2"
+      - name: check2
+        run: |
+          echo $pythonpath2
+      - name: check3
+        run: |
+          env | grep python
+          
