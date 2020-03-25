@@ -16,4 +16,4 @@ jobs:
           export PYTHONPATH=$PYTHONPATH:/home/runner/work/ticket13
       - name: check
         run: |
-          env | grep PYTHONPATH
+          env | grep PYTHON
