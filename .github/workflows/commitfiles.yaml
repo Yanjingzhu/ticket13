@@ -8,7 +8,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          persist-credential: false
+          token: ${{ secrets.PAT3 }}
       - name: Modify value
         run: |
           echo 'Add value7' >> testfile.txt
