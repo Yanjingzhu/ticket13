@@ -14,8 +14,6 @@ jobs:
       - name: set pythonpath
         run: |
           export PYTHONPATH=$PYTHONPATH:/home/runner/work/ticket13
-      - name: check1
-        run: |
           echo $PATH | grep PYTHON
 #      - name: add path
 #        run: |
