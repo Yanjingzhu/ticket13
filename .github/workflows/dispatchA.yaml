@@ -11,7 +11,7 @@ jobs:
       - name: send dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT4 }}
           repository: weide-zhou/ticket17
           event-type: RepoAevent
           client-payload: '{"platform": "ubuntu-18.04", "env": "test1"}'
