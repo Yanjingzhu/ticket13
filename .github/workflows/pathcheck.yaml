@@ -18,7 +18,9 @@ jobs:
       - name: check path
         run: |
           echo $PYTHONPATH
-#      - name: add path
-#        run: |
-#          echo "::add-path::/home/runner/work/ticket13"
-#          pwd
+      - name: add path
+        run: |
+          echo "::add-path::/home/runner/work/ticket13"
+      - name: check2
+        run: |
+          echo $PATH
