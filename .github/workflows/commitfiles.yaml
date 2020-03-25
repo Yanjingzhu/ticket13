@@ -11,7 +11,7 @@ jobs:
  #         persist-credential: false
       - name: Modify value
         run: |
-          echo 'Add value2' >> testfile.txt
+          echo 'Add value3' >> testfile.txt
       - name: move to dir
         run: |
           mkdir -p output
