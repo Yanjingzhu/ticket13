@@ -20,15 +20,15 @@ jobs:
         shell: bash
         run: |
           git config --global gpg.program gpg2
-          gpg2 --import public.key
+          gpg --import public.key
       - name: add private key
         shell: bash
         run: |
-          gpg2 --import private.key
+          gpg --import private.key
       - name: checkkey
         shell: bash
         run: |
-          gpg2 --list-secret-keys --keyid-format LONG
+          gpg --list-secret-keys --keyid-format LONG
       - name: Commit files
         shell: bash
         run: |
