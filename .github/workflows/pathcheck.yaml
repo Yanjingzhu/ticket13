@@ -17,6 +17,4 @@ jobs:
       - name: add path
         run: |
           echo "::add-path::/home/runner/work/ticket13"
-      - name: check
-        run: |
           pwd
