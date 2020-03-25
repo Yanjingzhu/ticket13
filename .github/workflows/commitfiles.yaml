@@ -7,8 +7,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
- #       with:
- #         persist-credential: false
+        with:
+          persist-credential: false
       - name: Modify value
         run: |
           echo 'Add value7' >> testfile.txt
