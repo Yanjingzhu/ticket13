@@ -21,10 +21,9 @@ jobs:
         run: |
           git config --global gpg.program gpg2
           gpg --import public.key
-      - name: add private key
-        shell: bash
-        run: |
-          gpg --import private.key
+#      - name: add private key
+#        run: |
+#          gpg --import private.key
       - name: checkkey
         shell: bash
         run: |
