@@ -11,7 +11,7 @@ jobs:
  #         persist-credential: false
       - name: Modify value
         run: |
-          echo 'Add value3' >> testfile.txt
+          echo 'Add value4' >> testfile.txt
       - name: move to dir
         run: |
           mkdir -p output
@@ -28,3 +28,7 @@ jobs:
           branch: B77
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
