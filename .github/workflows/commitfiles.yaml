@@ -21,9 +21,9 @@ jobs:
         run: |
           gpg --version
           gpg --import public.key
-      - name: add private key
-        run: |
-          gpg --import private.key
+#      - name: add private key
+#        run: |
+#          gpg --import private.key
       - name: checkkey
         shell: bash
         run: |
