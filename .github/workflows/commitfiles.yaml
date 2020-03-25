@@ -24,9 +24,9 @@ jobs:
       - name: add private key
         run: |
           gpg --import --no-tty --batch --yes private.key
-      - name: uid
-        run: |
-          yes save | yes |yes 5 | yes trust | gpg --edit-key weide-zhou@outlook.com
+ #     - name: uid
+ #       run: |
+ #         yes save | yes |yes 5 | yes trust | gpg --edit-key weide-zhou@outlook.com
       - name: checkkey
         shell: bash
         run: |
