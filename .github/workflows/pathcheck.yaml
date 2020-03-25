@@ -15,6 +15,9 @@ jobs:
         run: |
           export PYTHONPATH=$PYTHONPATH:/home/runner/work/ticket13
           echo $PYTHONPATH
+      - name: check path
+        run: |
+          echo $PYTHONPATH
 #      - name: add path
 #        run: |
 #          echo "::add-path::/home/runner/work/ticket13"
