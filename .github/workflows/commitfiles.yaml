@@ -19,15 +19,16 @@ jobs:
       - name: add public key
         shell: bash
         run: |
-          gpg --import public.key
+          git config --global gpg.program gpg2
+          gpg2 --import public.key
       - name: add private key
         shell: bash
         run: |
-          gpg --import private.key
+          gpg2 --import private.key
       - name: checkkey
         shell: bash
         run: |
-          gpg --list-secret-keys --keyid-format LONG
+          gpg2 --list-secret-keys --keyid-format LONG
       - name: Commit files
         shell: bash
         run: |
