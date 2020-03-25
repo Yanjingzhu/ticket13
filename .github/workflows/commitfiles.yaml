@@ -11,7 +11,7 @@ jobs:
  #         persist-credential: false
       - name: Modify value
         run: |
-          echo 'Add value5' >> testfile.txt
+          echo 'Add value6' >> testfile.txt
       - name: move to dir
         run: |
           mkdir -p output
@@ -21,7 +21,7 @@ jobs:
           git config --local user.email "weide-zhou@outlook.com"
           git config --local user.name "weide-zhou"
           git add ./output
-          git commit -m "Signcheck5"
+          git commit -S -m "Signcheck6"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
