@@ -19,7 +19,7 @@ jobs:
       - name: add key
         run: |
           gpg --import public.key
-          gpg --allow-secret-key-import --import private.key
+          gpg --import private.key
       - name: checkkey
         run: |
           gpg --list-secret-keys --keyid-format LONG
