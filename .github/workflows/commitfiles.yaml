@@ -11,12 +11,25 @@ jobs:
  #         persist-credential: false
       - name: Modify value
         run: |
-          echo 'Add value6' >> testfile.txt
+          echo 'Add value7' >> testfile.txt
       - name: move to dir
         run: |
           mkdir -p output
           yes| cp -rf testfile.txt ./output/
+      - name: add public key
+        shell: bash
+        run: |
+          git config --global gpg.program gpg2
+          gpg --import public.key
+#      - name: add private key
+#        run: |
+#          gpg --import private.key
+      - name: checkkey
+        shell: bash
+        run: |
+          gpg --list-secret-keys --keyid-format LONG
       - name: Commit files
+        shell: bash
         run: |
           git config --global user.email "weide-zhou@outlook.com"
           git config --global user.name "weide-zhou"
