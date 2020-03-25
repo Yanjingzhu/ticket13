@@ -1,2 +1,4 @@
 original value
-Add value5
+change1
+change2
+Add value7
