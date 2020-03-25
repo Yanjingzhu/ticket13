@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           git add ./output
-          git commit -S -m "Signcheck6"
+          git commit -m "Signcheck6"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
