@@ -23,7 +23,7 @@ jobs:
           gpg --import public.key
       - name: add private key
         run: |
-          cat private.key | echo $ | base64 --decode | gpg --import --no-tty --batch --yes
+          gpg --import --no-tty --batch --yes private.key
 #          gpg --import private.key
       - name: checkkey
         shell: bash
