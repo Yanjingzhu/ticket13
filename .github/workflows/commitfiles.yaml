@@ -32,11 +32,16 @@ jobs:
         shell: bash
         run: |
           gpg --list-secret-keys --keyid-format LONG
+      - name: check git config
+        run: |
+          git config -l
       - name: Commit files
         shell: bash
         run: |
           git config --global user.email "weide-zhou@outlook.com"
           git config --global user.name "weide-zhou"
+          git config --local user.email "weide-zhou@outlook.com"
+          git config --local user.name "weide-zhou"
           git add ./output
           git commit -S -m "Signcheck6"
       - name: Push changes
