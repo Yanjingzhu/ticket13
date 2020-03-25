@@ -16,9 +16,11 @@ jobs:
         run: |
           mkdir -p output
           yes| cp -rf testfile.txt ./output/
-      - name: add key
+      - name: add public key
         run: |
           gpg --import public.key
+      - name: add private key
+        run: |
           gpg --import private.key
       - name: checkkey
         run: |
