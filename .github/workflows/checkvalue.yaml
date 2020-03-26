@@ -24,21 +24,19 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: get tag version
-        shell: bash
         run: |
-          version=1.0.1   # get the tag version
-          echo $version
+          echo "::set-env name=version::1.0.1"
+   #       version=1.0.1   # get the tag version
+
       - name: set artifact&asset name for ubuntu
         if: runner.os=='linux'
         run: |
-          version=1.0.1
           echo "::set-env name=artifactname::book-package-app_${version}_amd64.deb"
           echo "::set-env name=assetname::book-package-app_${version}_amd64.deb"
       - name: set artifact&asset name for windows
         shell: bash
         if: runner.os=='windows'
         run: |
-          version=1.0.1
           echo "::set-env name=artifactname::book-package-app Setup ${version}.exe"
           echo "::set-env name=assetname::book-package-app Setup ${version}.exe"        
       - name: checkvalue
