@@ -24,6 +24,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: get tag version
+        shell: bash
         run: |
           version=1.0.1   # get the tag version
           echo $version
