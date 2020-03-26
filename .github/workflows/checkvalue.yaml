@@ -29,13 +29,13 @@ jobs:
       - name: set artifact&asset name for ubuntu
         if: runner.os=='linux'
         run: |
-          echo "::set-env name=artifactname::book-package-app_$version_amd64.deb"
-          echo "::set-env name=assetname::book-package-app_$version_amd64.deb"
+          echo "::set-env name=artifactname::book-package-app_${version}_amd64.deb"
+          echo "::set-env name=assetname::book-package-app_${version}_amd64.deb"
       - name: set artifact&asset name for windows
         if: runner.os=='windows'
         run: |
-          echo "::set-env name=artifactname::book-package-app Setup $version.exe"
-          echo "::set-env name=assetname::book-package-app Setup $version.exe"        
+          echo "::set-env name=artifactname::book-package-app Setup ${version}.exe"
+          echo "::set-env name=assetname::book-package-app Setup {$version}.exe"        
       - name: checkvalue
         run: |
           echo $artifactname
