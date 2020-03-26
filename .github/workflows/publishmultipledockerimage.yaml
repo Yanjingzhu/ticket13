@@ -25,5 +25,5 @@ jobs:
           files={1,2,3,4,5}
           for i in $files
           do
-          echo $i
+          echo $i \n
           done
