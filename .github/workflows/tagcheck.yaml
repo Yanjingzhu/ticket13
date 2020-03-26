@@ -30,4 +30,4 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: check tag version
         run: |
-          echo ${github.ref##*v}
+          echo ${github.ref##*/}
