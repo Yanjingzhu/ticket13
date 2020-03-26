@@ -26,9 +26,11 @@ jobs:
       - name: get tag version
         run: |
           version=1.0.1   # get the tag version
+          echo $version
       - name: set artifact&asset name for ubuntu
         if: runner.os=='linux'
         run: |
+          version=1.0.1
           echo "::set-env name=artifactname::book-package-app_${version}_amd64.deb"
           echo "::set-env name=assetname::book-package-app_${version}_amd64.deb"
       - name: set artifact&asset name for windows
