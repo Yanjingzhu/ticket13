@@ -27,7 +27,7 @@ jobs:
 
       - name: echo output
         run: |
-          for i in ${ steps.getfile.outputs.files }
+          for i in {${{ steps.getfile.outputs.files }}}
           do
               echo $i
           done
