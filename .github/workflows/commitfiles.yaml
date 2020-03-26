@@ -43,7 +43,9 @@ jobs:
         shell: bash
         run: |
           git add ./output
-          GIT_TRACE=1 git commit -S -m "Signcheck7"
+          git commit -S -m "Signcheck7"
+        env:
+          GIT_TRACE: 1
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
