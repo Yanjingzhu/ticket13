@@ -18,7 +18,7 @@ jobs:
       - name: get changed files
         id: getfile
         run: |
-          echo "::set-env name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
+          echo "::set-env name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
 
       - name: echo output
         run: |
