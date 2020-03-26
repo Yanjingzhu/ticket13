@@ -38,8 +38,9 @@ jobs:
         shell: bash
         if: runner.os=='windows'
         run: |
+          version=1.0.1
           echo "::set-env name=artifactname::book-package-app Setup ${version}.exe"
-          echo "::set-env name=assetname::book-package-app Setup {$version}.exe"        
+          echo "::set-env name=assetname::book-package-app Setup ${version}.exe"        
       - name: checkvalue
         run: |
           echo $artifactname
