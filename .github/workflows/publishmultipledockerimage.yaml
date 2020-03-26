@@ -18,11 +18,15 @@ jobs:
       - name: get changed files
         id: getfile
         run: |
-          echo "::set-env name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
+          echo "::set-env name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs | sed 's/[ ][ ]*/,/g')"
 
       - name: echo output
         run: |
-          for i in $files
-          do
-              echo I like $i
-          done
+          echo ${{ steps.getfile.outputs.files }}
+
+#      - name: echo output
+#        run: |
+#          for i in $files
+#          do
+#              echo I like $i
+#          done
