@@ -35,6 +35,7 @@ jobs:
           echo "::set-env name=artifactname::book-package-app_${version}_amd64.deb"
           echo "::set-env name=assetname::book-package-app_${version}_amd64.deb"
       - name: set artifact&asset name for windows
+        shell: bash
         if: runner.os=='windows'
         run: |
           echo "::set-env name=artifactname::book-package-app Setup ${version}.exe"
