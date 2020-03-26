@@ -28,3 +28,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: check tag version
+        run: |
+          echo ${github.ref##*v}
