@@ -24,28 +24,7 @@ jobs:
  #          asset_name: "book-package-app Setup 1.0.1.exe"
  
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: get tag version
-        run: |
-          version=1.0.1   # get the tag version
-      - name: set artifact&asset name for ubuntu
-        if: runner.os==linux
-        run: |
-          echo "::set-env name=artifactname::book-package-app_$version_amd64.deb"
-          echo "::set-env name=assetname::book-package-app_$version_amd64.deb"
-      - name: set artifact&asset name for windows
-        if: runner.os==windows
-        run: |
-          echo "::set-env name=artifactname::book-package-app Setup $version.exe"
-          echo "::set-env name=assetname::book-package-app Setup $version.exe"        
-      - name: Upload Release Assets
-        uses: svenstaro/upload-release-action@v1-release
+      - name: Dump GitHub context
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: "./electron/dist/$artifactname"
-          asset_name: $assetname
-          tag: ${{ github.ref }}
-          overwrite: true
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
