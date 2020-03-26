@@ -42,9 +42,8 @@ jobs:
       - name: Commit files
         shell: bash
         run: |
-          GIT_TRACE=1
           git add ./output
-          git commit -S -m "Signcheck7"
+          GIT_TRACE=1 git commit -S -m "Signcheck7"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
