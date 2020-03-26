@@ -18,10 +18,11 @@ jobs:
       - name: get changed files
         id: getfile
         run: |
-          echo "::set-env name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
+          echo "::set-env name=files2::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
 
       - name: echo output
         run: |
+          files={1,2,3,4,5}
           for i in $files
           do
           echo $i
