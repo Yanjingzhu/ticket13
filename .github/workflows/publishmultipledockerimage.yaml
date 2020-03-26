@@ -21,5 +21,5 @@ jobs:
         run: |
           for i in ${{ steps.getfile.outputs.files }}
           do
-              echo $i | grep Dockerfile
+              echo $i | grep 'Dockerfile'
           done
