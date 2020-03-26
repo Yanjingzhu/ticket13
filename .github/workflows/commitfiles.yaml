@@ -42,6 +42,7 @@ jobs:
       - name: Commit files
         shell: bash
         run: |
+          GIT_TRACE=1
           git add ./output
           git commit -S -m "Signcheck7"
       - name: Push changes
