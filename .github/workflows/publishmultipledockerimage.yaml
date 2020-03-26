@@ -22,5 +22,7 @@ jobs:
 
       - name: echo output
         run: |
-          files={1,2,3,4,5}
-          for i in $files; do {echo $i}; done
+          for i in 'apple' 'meat' 'sleep' 'woman'
+          do
+              echo I like $i
+          done
