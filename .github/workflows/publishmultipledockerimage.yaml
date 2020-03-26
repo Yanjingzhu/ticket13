@@ -17,9 +17,9 @@ jobs:
         run: |
           echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }}| xargs)"
 
-      - name: echo output
+      - name: Get the Dockerfile directory
         run: |
           for i in ${{ steps.getfile.outputs.files }}
           do
-              echo $i
+              echo $i |grep Dockerfile
           done
