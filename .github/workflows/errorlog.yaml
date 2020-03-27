@@ -21,9 +21,9 @@ jobs:
           description="this is line one\n
                       this is line two\n
                       this is line three"
-          description="{description//'%'/'%25'}"
-          description="{description//$'\n'/'%0A'}"
-          description="{description//$'\r'/'%0D'}"
+          description="${description//'%'/'%25'}"
+          description="${description//$'\n'/'%0A'}"
+          description="${description//$'\r'/'%0D'}"
           echo $description
           echo "::set-output name=description1::$description"
       - name: check
