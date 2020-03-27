@@ -11,4 +11,4 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: error log
         run: |
-          echo "::error file=app.js,line=10,col=15::Something went wrong"
+          echo "::error file=app.js,line=10,col=15::Something went wrong /n wrong log2"
