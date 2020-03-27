@@ -11,8 +11,11 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: error log
         run: |
-          errormessage="Something went wrong \n wrong log2"
+          errormessage="Something went wrong \n
+                        This is error2"
           echo $errormessage
           errormessage="${errormessage//$'\n'/'%0A'}"
+          errormessage="${errormessage//'%'/'%25'}"
+          errormessage="${errormessage//$'\r'/'%0D'}"
           echo $errormessage
           echo "::error file=app.js,line=10,col=15::$errormessage"
