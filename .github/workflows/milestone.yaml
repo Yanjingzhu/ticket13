@@ -1,19 +1,11 @@
-name: milestone
-on: 
-  issues:
-    types: demilestoned
+name: checkaction
+on: [push]
   
 jobs:
-  projectcard:
+  job1:
     runs-on: [ubuntu-latest]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: get issue
-        run: |
-          echo ${{ github.event.issue.url }}
-      - name: add label
-        run: |
-          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["Needs Milestone"]}' ${{ github.event.issue.url }}/labels
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: action
+        uses: maharishi1/DC-vs-Marvel@gii
