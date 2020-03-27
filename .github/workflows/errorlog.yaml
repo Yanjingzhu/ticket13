@@ -7,8 +7,8 @@ jobs:
     steps:
       - name: error log
         run: |
-          errormessage="This is error1\nThis is error2"
-          errormessage="${errormessage//$'\n'/'%0A'}"
+          txt="This is error1\nThis is error2"
+          errormessage="${txt//$'\n'/'%0A'}"
           echo $errormessage
           echo "::error file=app.js,line=10,col=15::$errormessage"
       - name: checkforoutput
