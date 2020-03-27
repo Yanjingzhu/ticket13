@@ -18,9 +18,9 @@ jobs:
       - name: checkforoutput
         id: check1
         run: |
-          description=" this is line one\n
-                        this is line two\n
-                        this is line three"
+          description="this is line one\n
+                      this is line two\n
+                      this is line three"
           description="{description//'%'/'%25'}"
           description="{description//$'\n'/'%0A'}"
           description="{description//$'\r'/'%0D'}"
