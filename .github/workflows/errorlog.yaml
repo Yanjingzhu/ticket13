@@ -13,6 +13,7 @@ jobs:
           errormessage="${errormessage//'%'/'%25'}"
           errormessage="${errormessage//$'\r'/'%0D'}"
           echo $errormessage
+          errormessage="Something went wrong%0A This is error2"
           echo "::error file=app.js,line=10,col=15::$errormessage"
       - name: checkforoutput
         id: check1
