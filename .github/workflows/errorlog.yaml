@@ -1,0 +1,14 @@
+name: errorlog
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: error log
+        run: |
+          echo "::error file=app.js,line=10,col=15::Something went wrong"
