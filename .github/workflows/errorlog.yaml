@@ -8,7 +8,7 @@ jobs:
       - name: error log
         run: |
           errormessage="Something went wrong
-                        This is error2"
+                       This is error2"
           echo $errormessage
           errormessage="${errormessage//$'\n'/'%0A'}"
           errormessage="${errormessage//'%'/'%25'}"
