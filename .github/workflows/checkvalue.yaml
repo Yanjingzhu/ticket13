@@ -43,3 +43,13 @@ jobs:
         run: |
           echo $artifactname
           echo $assetname
+      - name: Upload Release Assets
+        uses: svenstaro/upload-release-action@v1-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: "electron/dist/$artifactname"
+          asset_name: $assetname
+          tag: ${{ github.ref }}
+          overwrite: true
