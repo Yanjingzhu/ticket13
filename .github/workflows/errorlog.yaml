@@ -7,13 +7,9 @@ jobs:
     steps:
       - name: error log
         run: |
-          errormessage="Something went wrong\nThis is error2"
-          echo $errormessage
+          errormessage="This is error1\nThis is error2"
           errormessage="${errormessage//$'\n'/'%0A'}"
-          errormessage="${errormessage//'%'/'%25'}"
-          errormessage="${errormessage//$'\r'/'%0D'}"
           echo $errormessage
-          errormessage="Something went wrong%0A This is error2"
           echo "::error file=app.js,line=10,col=15::$errormessage"
       - name: checkforoutput
         id: check1
