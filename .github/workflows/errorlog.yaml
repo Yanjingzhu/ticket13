@@ -8,9 +8,7 @@ jobs:
       - name: error log
         run: |
           text="This is error1\nThis is error2"
-          text="${text//'%'/'%25'}"
           text="${text//'\n'/'%0A'}"
-          text="${text//$'\r'/'%0D'}"
           echo $text
           echo "::error file=app.js,line=10,col=15::$text"
       - name: checkforoutput
