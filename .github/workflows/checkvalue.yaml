@@ -49,7 +49,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: electron/dist/${{ env.artifactname }}
-          asset_name: $assetname
+          file: "./electron/dist/${{ env.artifactname }}"
+          asset_name: ${{ env.assetname }}
           tag: ${{ github.ref }}
           overwrite: true
