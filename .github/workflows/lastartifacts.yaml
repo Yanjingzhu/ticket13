@@ -29,5 +29,6 @@ jobs:
       - shell: bash
         run: |
           value=`cat homework/math-homework.txt`
+          echo $value
 
 
