@@ -11,11 +11,14 @@ jobs:
         run: |
           expr 6 + 1 > test-homework.txt
           expr 3 + 7 > math-homework.txt
+          mkdir src
+          mv math-homework.txt ./src
+          mv test-homework.txt ./src
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v1
         with:
           name: homework
-          path: .
+          path: ./src
 
   job_2:
     name: Multiply by 9
