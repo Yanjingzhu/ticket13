@@ -7,5 +7,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: action
-        uses: maharishi1/DC-vs-Marvel@gii
+      - name: setup python
+        uses: actions/setup-python@v1
+      - name: checkversion
+        run: |
+          python -V
