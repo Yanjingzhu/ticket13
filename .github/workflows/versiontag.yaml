@@ -1,10 +1,11 @@
 name: versiontag
 on:
     push:
+        tags: 
+            - 'v*'
         branches: 
           - 'B105'
-        tags-ignore: 
-            - '*'
+    
   
 jobs:
   job1:
