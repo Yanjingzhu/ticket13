@@ -1,0 +1,19 @@
+name: versiontag
+on:
+    push:
+        branches: 
+          - 'B105'
+        tags-ignore: 
+            - '*'
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: test
+        run: |
+          echo test
