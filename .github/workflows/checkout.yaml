@@ -11,4 +11,7 @@ jobs:
       - name: check
         run: |
           git branch
+      
+      - name: check2
+        run: |
           git tag
