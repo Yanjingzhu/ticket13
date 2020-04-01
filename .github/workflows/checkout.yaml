@@ -14,4 +14,5 @@ jobs:
       
       - name: check2
         run: |
-          git fetch --prune --tags
+          git fetch --prune --unshallow --tags
+          echo "REF: ${{ github.ref }}"
