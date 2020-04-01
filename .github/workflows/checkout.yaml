@@ -8,11 +8,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       
-      - name: check
-        run: |
-          git branch
       
       - name: check2
         run: |
-          git fetch --prune --unshallow --tags
-          echo "REF: ${{ github.ref }}"
+          git tag
+  #        git fetch --prune --unshallow --tags
+  #        echo "REF: ${{ github.ref }}"
