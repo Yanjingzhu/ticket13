@@ -14,4 +14,4 @@ jobs:
       
       - name: check2
         run: |
-          git tag
+          git fetch --prune --tags
