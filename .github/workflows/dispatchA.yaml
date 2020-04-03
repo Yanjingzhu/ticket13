@@ -14,4 +14,5 @@ jobs:
           token: ${{ secrets.PAT5 }}
           repository: weide-zhou/ticket17
           event-type: RepoAevent
-          client-payload: '{"node": [ "6", "8" ] }'
+          client-payload: '{"images": [ "ubuntu-latest", "windows-latest" ] }'
+   #       client-payload: '{"node": [ "6", "8" ] }'
