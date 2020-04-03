@@ -19,3 +19,4 @@ jobs:
       - name: check files
         run: |
           ls -al
+          cat README.md
