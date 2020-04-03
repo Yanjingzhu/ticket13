@@ -5,6 +5,7 @@ on:
       - opened
       - synchronize
       - edited
+      - reopened
 
 jobs:
   job1:
