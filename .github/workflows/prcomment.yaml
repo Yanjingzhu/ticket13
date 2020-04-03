@@ -1,0 +1,22 @@
+name: PRcomment
+
+on: 
+  issue_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]   
+
+jobs:
+  functest:    
+             
+    # Only run this if the user asked us to
+    if:  github.event.comment.body == 'run functest'
+    
+    runs-on: ubuntu-latest        
+    container:
+      image: python:3.7-buster                        
+    
+    steps:          
+    - name: test 
+      run: |
+        echo test
