@@ -15,9 +15,14 @@ jobs:
           --url https://api.github.com/repos/${{ github.repository }}/pulls/34 \
           --header 'authorization: Bearer ${{ secrets.PAT3 }}' \
           --data '{"state": "closed"}'
-      - name: reopen the pull request
+      - name: recreate a pull request
         run: |
-          curl --request PATCH \
-          --url https://api.github.com/repos/${{ github.repository }}/pulls/34 \
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/pulls \
           --header 'authorization: Bearer ${{ secrets.PAT3 }}' \
-          --data '{"state": "open"}'
+          --data '{
+            "title": "New Pull request",
+            "body": "Please pull these awesome changes in!",
+            "head": "B108",
+            "base": "master"
+          }'
