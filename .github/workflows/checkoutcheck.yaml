@@ -24,6 +24,9 @@ jobs:
     - name: check the file list
       run: |
         ls -al
+    - name: check the config
+      run: |
+        git config -l
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
