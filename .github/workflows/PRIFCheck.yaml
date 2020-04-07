@@ -1,0 +1,17 @@
+name: PRIFCheck
+on: [pull_request]
+  
+jobs:
+  job1:
+    if: runner.os= 'Windows'
+    runs-on: ubuntu-latest
+    steps: 
+    - name: test
+      run: |
+        echo job1
+  job2:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: test
+      run: |
+        echo job2
