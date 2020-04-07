@@ -3,7 +3,7 @@ on: [pull_request]
   
 jobs:
   job1:
-    if: runner.os='windows'
+    if: failure()
     runs-on: ubuntu-latest
     steps: 
     - name: test
