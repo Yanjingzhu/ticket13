@@ -17,4 +17,3 @@ jobs:
         run: |
           chmod +x setup.sh
           ./setup.sh
-          pyenv
