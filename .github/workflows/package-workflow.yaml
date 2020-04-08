@@ -1,7 +1,7 @@
 name: tagcheck
 on:
   push:
-    paths:
+    paths: 
       - packages/packagename/**
       - .github/workflows/package-workflow.yml
   
