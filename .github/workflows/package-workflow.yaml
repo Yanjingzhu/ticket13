@@ -4,8 +4,7 @@ on:
     paths:
       - packages/packagename/**
       - .github/workflows/package-workflow.yaml
-    tags-ignore:
-      - v*
+
   
 jobs:
   projectcard:
