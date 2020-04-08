@@ -15,5 +15,5 @@ jobs:
           ls -adl .pyenv
       - name: setting
         run: |
-          sh ./setup.sh
+          ./setup.sh
           pyenv
