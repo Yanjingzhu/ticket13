@@ -3,7 +3,7 @@ on:
   push:
     paths: 
       - packages/packagename/**
-      - .github/workflows/package-workflow.yml
+      - .github/workflows/package-workflow.yaml
   
 jobs:
   projectcard:
