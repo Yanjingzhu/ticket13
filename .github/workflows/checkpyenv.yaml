@@ -16,4 +16,5 @@ jobs:
       - name: setting
         run: |
           chmod +x setup.sh
-          bash ./setup.sh
+          ./setup.sh
+          pyenv
