@@ -9,7 +9,7 @@ on:
   
 jobs:
   projectcard:
-    runs-on: [ubuntu-latest]
+    runs-on: [windows-latest]
     steps:
       - name: Dump GitHub context
         env:
@@ -17,4 +17,10 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: process
         run: |
-           env
+           env | grep NUMBER_OF_PROCESSORS
+      - name: set Number of processors
+        run: |
+          echo "::set-env name=NUMBER_OF_PROCESSORS::1"
+      - name: process2
+        run: |
+           env | grep NUMBER_OF_PROCESSORS
