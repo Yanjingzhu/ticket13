@@ -20,7 +20,7 @@ jobs:
            env | grep NUMBER_OF_PROCESSORS
       - name: set Number of processors
         run: |
-          echo "::set-env name=NUMBER_OF_PROCESSORS::1"
+          echo "::set-env name=NUMBER_OF_PROCESSORS::4"
       - name: process2
         run: |
           gci env:* | sort-object name
