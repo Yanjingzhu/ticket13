@@ -13,7 +13,7 @@ jobs:
         echo $PATH
     - name: add path
       run: 
-        echo "::add-path::"/opt/hostedtoolcache/pyenv_root/1.2.17/x64/shims:/opt/hostedtoolcache/pyenv_root/1.2.17/x64/bin:""
+        echo "::add-path::"/opt/hostedtoolcache/pyenv_root/1.2.17/x64/shims:/opt/hostedtoolcache/pyenv_root/1.2.17/x64/bin""
         echo $PATH
     - name: check path2
       run: |
