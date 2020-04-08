@@ -1,20 +1,25 @@
-name: Checkpyenv.yaml
+name: Using
 on: [push]
 
 jobs:
-  build:
+  my_python_job:
+    name: "Python"
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: get pyenv
-        run: |
-          git clone https://github.com/pyenv/pyenv.git .pyenv
-      - name: check
-        run: |
-          ls -adl .pyenv
-      - name: setting
-        run: |
-          chmod +x setup.sh
-          ./setup.sh
-          pyenv
+    - uses: actions/checkout@v2
+    - name: Install python version
+      uses: gabrielfalcao/pyenv-action@v5
+      with:
+        default: 3.7.3
+    - name: List python versions
+      run: pyenv versions
+    - name: check env
+      run: |
+        env
+    - name: check path
+      run: |
+        echo $PATH
+    - name: cat 
+      run: |
+        cat ~/.bashrc
