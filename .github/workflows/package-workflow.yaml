@@ -15,4 +15,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-
+      - name: process
+        run: |
+           gci env:* | sort-object name | grep NUMBER_OF_PROCESSORS
