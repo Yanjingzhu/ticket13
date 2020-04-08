@@ -1,9 +1,10 @@
 name: tagcheck
 on:
   push:
-    paths: 
-      - packages/packagename/**
-      - .github/workflows/package-workflow.yaml
+    branches: 
+      - B115
+    tags:
+      - v*
   
 jobs:
   projectcard:
