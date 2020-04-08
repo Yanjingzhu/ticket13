@@ -21,7 +21,4 @@ jobs:
           cat ~/.bashrc
           source ~/.bashrc
           exec $SHELL
-      - name: command
-        run: |
-          
           pyenv
