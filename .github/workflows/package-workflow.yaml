@@ -1,0 +1,15 @@
+name: tagcheck
+on:
+  push:
+    paths:
+      - packages/packagename/**
+      - .github/workflows/package-workflow.yml
+  
+jobs:
+  projectcard:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
