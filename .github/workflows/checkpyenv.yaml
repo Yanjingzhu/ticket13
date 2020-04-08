@@ -11,7 +11,7 @@ jobs:
     - name: Install python version
       uses: gabrielfalcao/pyenv-action@v5
       with:
-        default: 3.7.3
+        default: 3.8.2
     - name: List python versions
       run: pyenv versions
     - name: check env
