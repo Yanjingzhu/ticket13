@@ -1,4 +1,4 @@
-name: Using
+name: Using2
 on: [push]
 
 jobs:
@@ -8,18 +8,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install python version
-      uses: gabrielfalcao/pyenv-action@v5
-      with:
-        default: 3.7.3
-    - name: List python versions
-      run: pyenv versions
-    - name: check env
-      run: |
-        env
     - name: check path
       run: |
         echo $PATH
-    - name: cat 
+    - name: add path
+      run: 
+        echo "::add-path::"/opt/hostedtoolcache/pyenv_root/1.2.17/x64/shims:/opt/hostedtoolcache/pyenv_root/1.2.17/x64/bin:""
+    - name: check path2
       run: |
-        cat ~/.bashrc
+        echo $PATH
