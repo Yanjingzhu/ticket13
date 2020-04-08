@@ -16,4 +16,4 @@ jobs:
       - name: setting
         run: |
           chmod +x setup.sh
-          ./setup.sh
+          bash ./setup.sh
