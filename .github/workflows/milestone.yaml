@@ -1,19 +1,15 @@
 name: milestone
-on: 
-  issues:
-    types: demilestoned
+on: [push]
   
 jobs:
-  projectcard:
-    runs-on: [ubuntu-latest]
+  job1:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04]
+        node: [6, 8, 10]
+
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: get issue
-        run: |
-          echo ${{ github.event.issue.url }}
-      - name: add label
-        run: |
-          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["Needs Milestone"]}' ${{ github.event.issue.url }}/labels
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
