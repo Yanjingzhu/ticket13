@@ -1,19 +1,18 @@
-name: milestone
-on: 
-  issues:
-    types: demilestoned
-  
+name: tsc
+on:
+  push:
+
 jobs:
-  projectcard:
-    runs-on: [ubuntu-latest]
+  tsc:
+    name: tsc
+    runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: get issue
-        run: |
-          echo ${{ github.event.issue.url }}
-      - name: add label
-        run: |
-          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["Needs Milestone"]}' ${{ github.event.issue.url }}/labels
+    - uses: actions/checkout@v1
+    - name: install node v12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: yarn install
+      run: yarn install
+    - name: tsc
+      uses: icrawl/action-tsc@v1
