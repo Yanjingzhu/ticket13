@@ -1,13 +1,21 @@
-name: tsc
-on:
-  push:
-
+name: test
+on: [push]
 jobs:
-  tsc:
-    name: tsc
-    runs-on: ubuntu-latest
+  job1:
+    name: test
+    runs-on: ubuntu-latest 
+    if: github.ref=='master'
     steps:
-    - uses: actions/checkout@v1
+      - run: echo test
+    
+    
+
+#jobs:
+#  tsc:
+#    name: tsc
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v1
 #    - name: install node v12
 #      uses: actions/setup-node@v1
 #      with:
