@@ -24,7 +24,7 @@ jobs:
 #      run: yarn install
 #    - name: tsc
 #      uses: icrawl/action-tsc@v1
-    - name: delete declaration files
-      if: failure() || success()
-      run: |
-        echo test
+#    - name: delete declaration files
+#      if: failure() || success()
+#      run: |
+#        echo test
