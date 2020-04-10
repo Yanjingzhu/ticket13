@@ -41,8 +41,3 @@ jobs:
         run: |
           jobstatus=$(curl -X GET -s -u "admin:${{ secrets.PAT3 }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs | jq ".jobs[] | {job_status: .conclusion, matrix: .name}")
           echo $jobstatus
-          echo "::set-env name=JOBSTATUS:$jobstatus"
-      - name: fail status
-        if: contains(env.JOBSTATUS, 'failure')
-        run: |
-          echo job failed
