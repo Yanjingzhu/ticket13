@@ -1,5 +1,7 @@
 name: PRCheck2 from zwdgg1985
-on: [pull_request]
+on: 
+  pull_request:
+    types: [closed]
 jobs:
   job1:
     runs-on: [ubuntu-latest]
