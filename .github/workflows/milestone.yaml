@@ -4,6 +4,7 @@ on: [pull_request]
 jobs:
   job1:
     runs-on: ${{ matrix.os }}
+    if: github.event.pull_request.merged == true
     strategy:
       fail-fast: false
       matrix:
@@ -11,6 +12,10 @@ jobs:
         node: [6, 8, 10]
 
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - if: matrix.os=='ubuntu-16.04'
         name: sleep
         run: |
