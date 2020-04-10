@@ -5,8 +5,7 @@ on:
     - opened
     - reopened
     - synchronize
-    branches:
-    - B120
+
 jobs:
   job1:
     runs-on: [ubuntu-latest]
