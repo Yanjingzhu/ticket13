@@ -1,5 +1,7 @@
-name: PRCheck2
-on: [pull_request]
+name: PRCheck2 from zwdgg1985
+on: 
+  pull_request:
+    types: [closed]
 jobs:
   job1:
     runs-on: [ubuntu-latest]
@@ -14,3 +16,4 @@ jobs:
         run: |
           ls -al
           cat README.md
+
