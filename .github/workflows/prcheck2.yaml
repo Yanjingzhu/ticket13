@@ -1,12 +1,5 @@
 name: PRCheck2
-on: 
-  pull_request:
-    types: 
-      - opened
-      - synchronize
-      - edited
-      - reopened
-
+on: [pull_request]
 jobs:
   job1:
     runs-on: [ubuntu-latest]
