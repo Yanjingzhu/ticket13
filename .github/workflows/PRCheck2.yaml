@@ -8,7 +8,7 @@ on:
 
 jobs:
   job1:
-    if: contains(github.head_ref, 'feature/**')
+    if: contains(github.head_ref, 'feature')
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
