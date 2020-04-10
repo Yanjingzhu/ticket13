@@ -57,4 +57,4 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: check the jobs
         run: |
-          curl -x GET https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs
+          curl -x GET -u admin:${{ github.token}} https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs
