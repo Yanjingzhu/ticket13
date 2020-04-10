@@ -1,4 +1,4 @@
-name: PRCheck2
+name: PRCheck2 from zwdgg1985
 on: [pull_request]
 jobs:
   job1:
