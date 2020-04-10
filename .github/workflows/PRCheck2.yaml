@@ -1,7 +1,12 @@
-name: PRCheck2
-on: 
+name: something
+on:
   pull_request:
-    types: [closed]
+    types:
+    - opened
+    - reopened
+    - synchronize
+    branches:
+    - B120
 jobs:
   job1:
     if: github.event.pull_request.merged == true
