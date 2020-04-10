@@ -41,3 +41,7 @@ jobs:
         run: |
           jobstatus=$(curl -X GET -s -u "admin:${{ secrets.PAT3 }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs | jq ".jobs[] | {job_status: .conclusion, matrix: .name}")
           echo $jobstatus
+      - name: fail status
+        if: contains($jobstaus, 'failure')
+        run: |
+          echo job failed
