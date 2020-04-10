@@ -11,6 +11,10 @@ jobs:
         node: [6, 8, 10]
 
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
