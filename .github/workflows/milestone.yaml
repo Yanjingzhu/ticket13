@@ -39,5 +39,5 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: check the jobs
         run: |
-          jobstatus=$(curl -X GET -u "admin:${{ secrets.PAT3 }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs | jq -r '.[] | .conclusion' | xargs)
+          jobstatus=$(curl -X GET -s -u "admin:${{ secrets.PAT3 }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs | jq '.job[].conclusion' | xargs)
           echo $jobstatus
