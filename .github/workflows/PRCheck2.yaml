@@ -6,7 +6,7 @@ on:
     - reopened
     - synchronize
     branches:
-    - B120
+    - B121
 jobs:
   job1:
     if: github.event.pull_request.merged == true
