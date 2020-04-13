@@ -1,0 +1,22 @@
+name: SSHClone
+on: [push]
+  
+jobs:
+  SSHClone:
+    runs-on: [ubuntu-latest]
+    steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Use Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+                  registry-url: https://npm.pkg.github.com/
+                  scope: "@my-org"
+            - name: Add SSH Private Key for Private Repo Installation
+              uses: webfactory/ssh-agent@v0.2.0
+              with:
+                  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+            - name: check key
+              run: |
+                ssh-add -L
