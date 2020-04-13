@@ -10,13 +10,19 @@ on:
 
 jobs:
   job1:
+    if: "! contains(github.head_ref, 'feature/')"
     runs-on: [ubuntu-latest]
     steps:
       - name: check
-        if: "! contains(github.head_ref, 'feature/')"
         run: |
           echo test
-        
+  job2:
+    if: contains(github.head_ref, 'feature/')
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: check
+        run: |
+          echo test    
 #      - name: Dump GitHub context
 #        env:
 #          GITHUB_CONTEXT: ${{ toJson(github) }}
