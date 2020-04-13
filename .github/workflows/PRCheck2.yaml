@@ -6,10 +6,11 @@ on:
     - reopened
     - synchronize
     branches:
-    - B120
+     - B121
+
 jobs:
   job1:
-    if: github.event.pull_request.merged == true
+    if: contains(github.head_ref, 'feature')
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
