@@ -1,0 +1,12 @@
+name: dockermanifest
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Check
+        run: |      
+          docker pull hello-world00000:latest &
+          last_pid=$!
+          echo "$last_pid"
