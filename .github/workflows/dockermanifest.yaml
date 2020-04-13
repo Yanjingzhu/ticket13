@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Check
         run: |      
-          docker pull hello-world00000:latest &
+          docker pull crazymax/ddns-route53:latest &
           last_pid=$!
           echo "$last_pid"
