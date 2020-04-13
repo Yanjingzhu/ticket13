@@ -10,3 +10,6 @@ jobs:
           docker pull crazymax/ddns-route53:latest &
           last_pid=$!
           echo "$last_pid"
+      - name: check2
+        run: |
+          docker images
