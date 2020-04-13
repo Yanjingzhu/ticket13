@@ -10,7 +10,7 @@ on:
 
 jobs:
   job1:
-    if: contains(toJSON(github.head_ref), 'feature/') 
+    if: ! contains(toJSON(github.head_ref), 'feature/') 
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
