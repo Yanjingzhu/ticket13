@@ -5,8 +5,7 @@ on:
     - opened
     - reopened
     - synchronize
-    branches:
-     - B121
+
 
 jobs:
   job1:
