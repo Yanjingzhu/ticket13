@@ -13,7 +13,7 @@ jobs:
         with:
           token: ${{ secrets.PAT3 }}
           repository: weide-zhou/videos.learnchinese.club
-          event-type: rebuild
+          event-type: rebuildtest
   #       client-payload: '{"images": [ "ubuntu-latest", "windows-latest" ] }'
    #       client-payload: '{"node": [ "6", "8" ] }'
 
