@@ -16,4 +16,3 @@ jobs:
           event-type: rebuildtest
   #       client-payload: '{"images": [ "ubuntu-latest", "windows-latest" ] }'
    #       client-payload: '{"node": [ "6", "8" ] }'
-
