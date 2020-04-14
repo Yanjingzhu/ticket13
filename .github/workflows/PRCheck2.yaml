@@ -13,7 +13,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
-        if: "!contains(github.head_ref, 'feature')"
+        if: contains(github.head_ref, 'feature')
         run: echo test
  #       env:
  #         GITHUB_CONTEXT: ${{ toJson(github) }}
