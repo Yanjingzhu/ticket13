@@ -11,7 +11,7 @@ jobs:
       - name: send dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.PAT5 }}
+          token: ${{ secrets.PAT3 }}
           repository: weide-zhou/videos.learnchinese.club
           event-type: rebuild
   #       client-payload: '{"images": [ "ubuntu-latest", "windows-latest" ] }'
