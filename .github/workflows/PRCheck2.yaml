@@ -10,17 +10,18 @@ on:
 
 jobs:
   job1:
-    if: contains(github.head_ref, 'feature')
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: check files
-        run: |
-          ls -al
-          cat README.md
+        if: "!contains(github.head_ref, 'feature')"
+        run: echo test
+ #       env:
+ #         GITHUB_CONTEXT: ${{ toJson(github) }}
+ #       run: echo "$GITHUB_CONTEXT"
+#      - name: checkout
+#        uses: actions/checkout@v2
+#      - name: check files
+#        run: |
+#          ls -al
+#          cat README.md
 
