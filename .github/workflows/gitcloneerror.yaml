@@ -13,9 +13,9 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: check env
-        run: |
-          echo $git_email
+        run: |    
           echo $git_username
+        # echo $git_email
       - name: check
         run: |
           git config --global user.email $git_email
