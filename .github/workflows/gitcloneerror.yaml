@@ -17,6 +17,9 @@ jobs:
           git config --global user.email $git_email
           git config --global user.name $git_username
           git config --global user.password $git_password
-          git clone https://github.com/weide-zhou/ticket22.git
+          git config -l
         env:
           git_password: ${{ secrets.PAT3 }}
+      - name: clone
+        run: |
+           git clone https://github.com/weide-zhou/ticket22.git
