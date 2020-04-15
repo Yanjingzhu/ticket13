@@ -22,7 +22,7 @@ jobs:
           git config --global user.name $git_username
           git config --global user.password $git_password
         env:
-          git_password: ${{ secrets.PAT3 }}
+          git_password: ${{ secrets.PASSWD }}
       - name: clone
         run: |
           git config -l
