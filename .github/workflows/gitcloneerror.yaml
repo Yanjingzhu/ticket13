@@ -1,0 +1,22 @@
+name: gitcloneerror
+on: [push]
+
+jobs:
+  job1:
+    env:
+      git_eamil: weide-zhou@outlook.com
+      git_username: weide-zhou
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: check
+        run: |
+          git config --global user.email $git_email
+          git config --global user.name $git_username
+          git config --global user.password $git_password
+          git clone https://github.com/weide-zhou/ticket22.git
+        env:
+          git_password: ${{ secrets.PAT3 }}
