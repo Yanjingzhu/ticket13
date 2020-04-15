@@ -3,8 +3,8 @@ on:
   push:
     paths:
       - '**/pathtag.yaml'
-    tags-ignore:
-      - v*
+#    tags-ignore:
+#      - v*
   
 jobs:
   job1:
