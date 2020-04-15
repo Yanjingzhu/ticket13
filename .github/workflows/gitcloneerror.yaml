@@ -14,8 +14,8 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: check env
         run: |    
-          echo $git_username
-        # echo $git_email
+          echo $git_email
+       #   echo $git_username
       - name: check
         run: |
           git config --global user.email $git_email
