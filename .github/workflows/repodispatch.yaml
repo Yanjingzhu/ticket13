@@ -1,12 +1,8 @@
-name: RepoAworkflow
-on:
-  release:
-    types: 
-      - created
-      - edited
+name: Repo1workflow
+on: [push]
   
 jobs:
-  RepoAjobs:
+  job1:
     runs-on: [ubuntu-latest]
     steps:
       - name: test
@@ -15,7 +11,6 @@ jobs:
       - name: send dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.PAT }}
-          repository: weide-zhou/Notification
-          event-type: release
-          client-payload: '{"new_version": "6.3.7"}'
+          token: ${{ secrets.PATHOOK }}
+          repository: weide-zhou/ticket16
+          event-type: check
