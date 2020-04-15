@@ -26,4 +26,6 @@ jobs:
       - name: clone
         run: |
           git config -l
-          git clone https://github.com/weide-zhou/ticket4.git
+          git clone https://weide-zhou:$git_password@github.com/weide-zhou/ticket4.git
+          ls -al
+#          git clone https://github.com/weide-zhou/ticket4.git
