@@ -28,4 +28,6 @@ jobs:
           git config -l
           git clone https://weide-zhou:$git_password@github.com/weide-zhou/ticket4.git
           ls -al
+        env:
+          git_password: ${{ secrets.PAT3 }}
 #          git clone https://github.com/weide-zhou/ticket4.git
