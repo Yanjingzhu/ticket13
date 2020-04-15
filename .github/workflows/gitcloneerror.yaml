@@ -4,8 +4,8 @@ on: [push]
 jobs:
   job1:
     env:
-      git_eamil: 'weide-zhou/@outlook.com'
-      git_username: 'weide-zhou'
+      git_eamil: "weide-zhou@outlook.com"
+      git_username: "weide-zhou"
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
