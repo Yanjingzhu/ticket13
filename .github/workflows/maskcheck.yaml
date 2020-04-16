@@ -14,12 +14,11 @@ jobs:
       - name: check value
         run: |
           echo ${{ steps.faketoken.outputs.PAT }} 
-#      - name: mask
-#        run: |
-#          echo "::add-mask::${{ steps.faketoken.outputs.PAT }}"
-      - name: mask
-        run: |
-          sh test.sh
+      - name: stop
+        run: 
+          echo "::stop-commands::pause-logging"
+          echo "::add-mask::${{ steps.faketoken.outputs.PAT }}"
+          echo "::pause-logging::"
       - name: check value again
         run: |
           echo ${{ steps.faketoken.outputs.PAT }}       
