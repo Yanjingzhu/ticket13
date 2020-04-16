@@ -1,8 +1,8 @@
 name: pathtag
 on:
   push:
-    paths:
-      - '**/pathtag.yaml'
+#    paths:
+#      - '**/pathtag.yaml'
     tags-ignore:
       - v*
   
