@@ -1,6 +1,8 @@
 name: pathtag
 on:
   push:
+    branches: 
+      - B127
 #    paths:
 #      - '**/pathtag.yaml'
     tags-ignore:
