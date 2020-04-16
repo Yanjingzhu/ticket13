@@ -5,6 +5,8 @@ jobs:
   job1:
     runs-on: [ubuntu-latest]
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: setoutput
         id: faketoken
         run: |
