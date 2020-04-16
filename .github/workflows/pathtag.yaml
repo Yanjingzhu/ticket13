@@ -6,7 +6,7 @@ on:
   
 jobs:
   job1:
-    if: "!contains(github.ref, 'v')"
+#    if: "!contains(github.ref, 'v')"
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
