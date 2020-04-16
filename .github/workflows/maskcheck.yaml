@@ -17,5 +17,5 @@ jobs:
           echo ${{ steps.faketoken.outputs.PAT }} 
       - name: script
         run: |
-          sh test.sh
+          bash -c test.sh
           echo $jobcount
