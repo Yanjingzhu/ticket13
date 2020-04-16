@@ -15,18 +15,7 @@ jobs:
       - name: check value
         run: |
           echo ${{ steps.faketoken.outputs.PAT }} 
-      - name: mask
+      - name: script
         run: |
-          echo "::add-mask::${{ steps.faketoken.outputs.PAT }}"
-
-      - name: check value again
-        run: |
-          echo ${{ steps.faketoken.outputs.PAT }}       
-        
-      - name: set env
-        run: |
-          echo "::set-env name=action_state::$(curl -X GET https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs | jq .total_count)"
-        
-      - name: check env
-        run: |
-          echo $action_state
+          sh test.sh
+          echo $jobcount
