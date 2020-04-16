@@ -1,0 +1,17 @@
+name: mask check
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: setoutput
+        id: faketoken
+        run: |
+          echo "::set-output name=PAT::123456"
+      - name: check value
+        run: |
+          echo ${{ steps.faketoken.outputs.PAT }} 
+      - name: mask
+        run: |
+          echo "::add-mask::${{ steps.faketoken.outputs.PAT }}"
