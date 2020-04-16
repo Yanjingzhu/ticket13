@@ -14,7 +14,8 @@ jobs:
           echo ${{ steps.faketoken.outputs.PAT }} 
       - name: mask
         run: |
-          echo "::add-mask::$PATvalue"
-          echo $PATvalue
-        env:
-          PATvalue: ${{ steps.faketoken.outputs.PAT }} 
+          echo "::add-mask::${{ steps.faketoken.outputs.PAT }}"
+      - name: check value again
+        run: |
+          echo ${{ steps.faketoken.outputs.PAT }}       
+          
