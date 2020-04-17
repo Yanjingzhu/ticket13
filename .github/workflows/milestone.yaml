@@ -19,3 +19,6 @@ jobs:
       - name: check files
         run: |
           ls -al
+      - name: ping 
+        run: |
+          ping vsaspnetmvcapp.scm.azurewebsites.net
