@@ -15,7 +15,7 @@ jobs:
       - name: copy
         shell: bash
         run: |
-          cp C:\Program Files\Git\bin\sh.exe C:\Program Files\Git\mingw64\bin
+          cp "C:\Program Files\Git\bin\sh.exe" "C:\Program Files\Git\mingw64\bin"
       - name: step3
         shell: bash
 #        shell: C:\Program Files\Git\mingw64\bin\bash.exe -command ". '{0}'"
