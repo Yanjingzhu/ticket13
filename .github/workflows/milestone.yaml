@@ -5,26 +5,27 @@ jobs:
   job1:
     runs-on: [windows-latest]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: execute
-        shell: bash
-        run: |
-          sh gitssh.sh
-        env:
-          token: ${{ secrets.PAT3 }}
-      - name: check files
-        shell: bash
-        run: |
-          ls -al
+ #     - name: Dump GitHub context
+ #       env:
+ #         GITHUB_CONTEXT: ${{ toJson(github) }}
+ #       run: echo "$GITHUB_CONTEXT"
+ #     - name: checkout
+ #       uses: actions/checkout@v2
+ #     - name: execute
+ #       shell: bash
+ #       run: |
+ #         sh gitssh.sh
+ #       env:
+ #         token: ${{ secrets.PAT3 }}
+ #     - name: check files
+ #       shell: bash
+ #       run: |
+ #         ls -al
       - name: ping 1
         shell: cmd
         run: |
-          ping www.google.com
+          ipconfig
+          ping github.com
 
       - name: ping 2
         shell: cmd
