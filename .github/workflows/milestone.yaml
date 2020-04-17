@@ -21,4 +21,4 @@ jobs:
           ls -al
       - name: ping 
         run: |
-          ping -n 5 vsaspnetmvcapp.scm.azurewebsites.net
+          ping vsaspnetmvcapp.scm.azurewebsites.net -n 5
