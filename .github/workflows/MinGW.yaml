@@ -22,3 +22,7 @@ jobs:
         run: |
           cd "C:\Program Files\Git\mingw64\bin"
           ls | grep sh.exe
+      - name: step3
+        shell: C:\Program Files\Git\mingw64\bin\sh.exe -command ". '{0}'"
+        run: |
+            ls 
