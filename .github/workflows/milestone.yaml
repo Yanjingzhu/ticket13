@@ -25,7 +25,7 @@ jobs:
         shell: cmd
         run: |
           ipconfig
-          ping www.google.com
+  #        ping www.google.com
 
       - name: ping 2
         shell: cmd
