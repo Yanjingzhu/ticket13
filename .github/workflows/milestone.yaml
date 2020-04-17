@@ -19,6 +19,10 @@ jobs:
       - name: check files
         run: |
           ls -al
-      - name: ping 
+      - name: ping 1
+        run: |
+          ping -c 5 github.com
+
+      - name: ping 2
         run: |
           ping -c 5 vsaspnetmvcapp.scm.azurewebsites.net
