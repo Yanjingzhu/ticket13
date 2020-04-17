@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2
       - name: login
         run: |
-          cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u weide-zhou --password-stdin
+          docker login docker.pkg.github.com -u publisher -p "${{ secrets.PAT6 }}"
       - name: docker pull
         run: |
           docker pull alpine:3.11
