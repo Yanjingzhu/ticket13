@@ -15,5 +15,5 @@ jobs:
       - name: step3
         shell: C:\Program Files\Git\mingw64\bin\bash.exe -command ". '{0}'"
         run: |
-          cd C:\Program Files\Git\mingw64\bin\
+          cd "C:\Program Files\Git\mingw64\bin"
           ls 
