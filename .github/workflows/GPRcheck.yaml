@@ -1,0 +1,24 @@
+name: GPRcheck
+on: [pull_request]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: login
+        run: |
+          cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u weide-zhou --password-stdin
+      - name: docker pull
+        run: |
+          docker pull alpine:3.11
+      - name: docker tag
+        run: |
+          docker tag alpine:3.11 docker.pkg.github.com/weide-zhou/ticket13/alpine:3.11
+      - name: docker images
+        run: |
+          docker images
+      - name: docker push
+        run: |
+          docker push docker.pkg.github.com/weide-zhou/ticket13/alpine:3.11
