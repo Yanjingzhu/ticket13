@@ -3,7 +3,7 @@ on: [push]
   
 jobs:
   job1:
-    runs-on: [ubuntu-latest]
+    runs-on: [windows-latest]
     steps:
       - name: Dump GitHub context
         env:
@@ -12,17 +12,21 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: execute
+        shell: bash
         run: |
           sh gitssh.sh
         env:
           token: ${{ secrets.PAT3 }}
       - name: check files
+        shell: bash
         run: |
           ls -al
       - name: ping 1
+        shell: cmd
         run: |
-          ping -c 5 github.com
+          ping github.com
 
       - name: ping 2
+        shell: cmd
         run: |
-          ping -c 5 vsaspnetmvcapp.scm.azurewebsites.net
+          ping vsaspnetmvcapp.scm.azurewebsites.net
