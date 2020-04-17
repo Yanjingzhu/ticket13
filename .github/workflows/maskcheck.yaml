@@ -9,7 +9,9 @@ jobs:
         uses: actions/checkout@v2
       - name: set mask
         run: |
-          echo "::add-mask::${{ steps.faketoken.outputs.PAT }}"
+          echo "::add-mask::$value"
+        env:
+          value: ${{ steps.faketoken.outputs.PAT }}
       - name: setoutput
         id: faketoken
         run: |
