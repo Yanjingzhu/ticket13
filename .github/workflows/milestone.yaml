@@ -24,7 +24,7 @@ jobs:
       - name: ping 1
         shell: cmd
         run: |
-          ping github.com
+          ping www.google.com
 
       - name: ping 2
         shell: cmd
