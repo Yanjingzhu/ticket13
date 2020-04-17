@@ -12,3 +12,7 @@ jobs:
       - name: step2
         run: |
           env | grep -i MingW
+      - name: step3
+        run: |
+          cd C:\Program Files\Git\mingw64\bin\
+          ls -al | grep bash
