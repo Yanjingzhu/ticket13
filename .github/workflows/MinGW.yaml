@@ -13,7 +13,8 @@ jobs:
         run: |
           env | grep -i MingW
       - name: step3
-        shell: C:\Program Files\Git\mingw64\bin\bash.exe -command ". '{0}'"
+        shell: bash
+#        shell: C:\Program Files\Git\mingw64\bin\bash.exe -command ". '{0}'"
         run: |
           cd "C:\Program Files\Git\mingw64\bin"
-          ls 
+          ls | grep -i bash
