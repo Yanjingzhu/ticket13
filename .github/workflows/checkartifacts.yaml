@@ -7,7 +7,8 @@ jobs:
     steps:
       - name: checkartifactsid
         run: |
-          URL="https://api.github.com/repos/weide-zhou/ticket13/actions/artifacts"
+          URL="https://api.github.com/repos/${{ github.repository }}/actions/artifacts"
+          curl -s -u admin:${{ secrets.GITHUB_TOKEN }} $URL |jq '.artifacts[].id'
           ids=$(curl -s -u admin:${{ secrets.GITHUB_TOKEN }} $URL |jq '.artifacts[].id')
       - name: find lasted id
         run: |
