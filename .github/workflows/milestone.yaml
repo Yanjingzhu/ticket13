@@ -15,8 +15,9 @@ jobs:
       - name: Nightly Merge
         uses: robotology/gh-action-nightly-merge@v1.2.0
         with:
-          stable_branch: 'B136'
-          development_branch: 'B135'
+          stable_branch: 'B137'
+          development_branch: 'B136'
           allow_ff: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo 137
