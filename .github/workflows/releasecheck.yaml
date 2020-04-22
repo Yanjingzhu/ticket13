@@ -1,5 +1,5 @@
 name: releasecheck
-#on: 
+on: pull_request
 #  release:
 #    types:
 #      - prereleased
