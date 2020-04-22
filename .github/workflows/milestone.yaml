@@ -19,5 +19,5 @@ jobs:
           development_branch: 'B136'
           allow_ff: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT3 }}
       - run: echo 137
