@@ -1,8 +1,8 @@
 name: releasecheck
-on: pull_request
-#  release:
-#    types:
-#      - prereleased
+on: 
+  release:
+    types:
+      - prereleased
 
 jobs:
   job1:
