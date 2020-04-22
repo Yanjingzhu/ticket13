@@ -1,7 +1,10 @@
 name: releasecheck
 on: 
   release:
-    types: [published, edited]
+    action:
+      - published
+      - edited
+      - released
 
 jobs:
   job1:
