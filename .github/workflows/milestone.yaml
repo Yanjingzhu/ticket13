@@ -1,7 +1,5 @@
 name: milestone
-on: 
-  issues:
-    types: demilestoned
+on: [push]
   
 jobs:
   projectcard:
@@ -11,9 +9,14 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: get issue
-        run: |
-          echo ${{ github.event.issue.url }}
-      - name: add label
-        run: |
-          curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["Needs Milestone"]}' ${{ github.event.issue.url }}/labels
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Nightly Merge
+        uses: robotology/gh-action-nightly-merge@v1.2.0
+        with:
+          stable_branch: 'B136'
+          development_branch: 'B135'
+          allow_ff: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
