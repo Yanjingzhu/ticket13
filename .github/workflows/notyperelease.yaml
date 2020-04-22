@@ -1,6 +1,6 @@
 name: notyperelease
-on: 
-  release:
+on: [release]
+
 
 jobs:
   job1:
