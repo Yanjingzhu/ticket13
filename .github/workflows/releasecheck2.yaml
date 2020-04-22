@@ -5,6 +5,7 @@ on:
 
 jobs:
   job1:
+    if: "!github.event.release.prerelease"
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
