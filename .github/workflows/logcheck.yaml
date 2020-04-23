@@ -8,4 +8,4 @@ jobs:
       - name: test
         run: echo test
       - name: action
-        uses: actions/checkout1@v5
+        uses: ./actions
