@@ -1,0 +1,11 @@
+name: logcheck
+on: [push]
+  
+jobs:
+  projectcard:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: test
+        run: echo test
+      - name: action
+        uses: actions/checkout2
