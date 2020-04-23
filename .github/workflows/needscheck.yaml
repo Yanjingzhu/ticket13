@@ -3,15 +3,14 @@ on: [push]
   
 jobs:
   job-1:
-    runs-on: [ubuntu-latest]
+    runs-on: [macos-latest]
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-  job2:
-    needs: [job-*]
-    runs-on: [ubuntu-latest]
+      - run: hostname
+  job-2:
+    runs-on: [macos-latest]
     steps:
-      - name: test
-        run: echo test
+      - run: hostname    
