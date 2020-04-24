@@ -1,11 +1,19 @@
 name: logcheck
-on: [push]
-  
+on:
+
+  push:
+
+    paths-ignore:
+
+      - '.github/project.yaml'
+
+      - 'README.md'
+
+      -  LICENSE
+
 jobs:
   projectcard:
     runs-on: [ubuntu-latest]
     steps:
       - name: test
         run: echo test
-      - name: action
-        uses: ./actions
