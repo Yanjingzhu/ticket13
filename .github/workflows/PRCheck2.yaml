@@ -5,12 +5,12 @@ on:
     - opened
     - reopened
     - synchronize
-    branches:
-     - B121
 
 jobs:
   job1:
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
-        run: echo test
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
