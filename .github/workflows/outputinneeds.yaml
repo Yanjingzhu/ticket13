@@ -29,3 +29,6 @@ jobs:
       - name: checkneedsoutput
         run: |
           echo ${{ needs.job1.outputs.job1outputs }}
+      - name: checkneedsoutput2
+        run: |
+          echo ${{ needs.job1.outputs }}
