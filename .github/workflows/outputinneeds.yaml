@@ -23,3 +23,7 @@ jobs:
       - name: checkoutput
         run: |
           echo ${{ steps.job1output.outputs.action_fruit }}
+          
+      - name: checkneedsoutput
+        run: |
+          echo ${{ needs.job1.outputs.action_fruit }}
