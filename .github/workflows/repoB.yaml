@@ -19,7 +19,7 @@ jobs:
       - name: get artifacts_id
         id: getartid
         run: |
-          URL="https://api.github.com/repos/${{ github.repository }}/actions/runs/88857090/artifacts"
+          URL="https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.client_payload.checkrunid }}/artifacts"
           artifacts_id=$(curl -s -u admin:${{ secrets.GITHUB_TOKEN }} $URL | jq '.artifacts[].id')
           echo $artifacts_id
           echo "::set-output name=artid::$artifacts_id"
