@@ -3,6 +3,8 @@ on: [push]
   
 jobs:
   job1:
+    outputs: 
+      job1outputs: ${{ steps.job1output.outputs.action_fruit }}
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
@@ -26,4 +28,4 @@ jobs:
           
       - name: checkneedsoutput
         run: |
-          echo ${{ needs.job1.outputs.action_fruit }}
+          echo ${{ needs.job1.outputs.job1outputs }}
