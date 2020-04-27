@@ -1,0 +1,22 @@
+name: outputneeds
+on: [push]
+  
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: setoutput
+        id: job1output
+        run: |
+          echo "::set-output name=action_fruit::strawberry"
+  job2:
+    needs: [job1]
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: checkoutput
+        run: |
+          echo ${{ steps.job1output.outputs.action_fruit }}
