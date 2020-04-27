@@ -13,6 +13,9 @@ jobs:
         id: job1output
         run: |
           echo "::set-output name=action_fruit::strawberry"
+      - name: checkoutput
+        run: |
+          echo ${{ steps.job1output.outputs.action_fruit }}
   job2:
     needs: [job1]
     runs-on: [ubuntu-latest]
