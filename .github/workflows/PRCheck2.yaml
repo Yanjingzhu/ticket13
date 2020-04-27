@@ -9,8 +9,8 @@ on:
      - B121
 
 jobs:
+  job1:
     runs-on: [ubuntu-latest]
     steps:
       - name: Dump GitHub context
-        if: "!contains(github.head_ref, 'feature')"
         run: echo test
