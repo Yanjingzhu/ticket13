@@ -5,7 +5,11 @@ on:
     branches: 
       - B142
   pull_request:
-
+    types: 
+      - opened
+      - edited
+      - synchronize
+      - closed
 jobs:
 
   build:
