@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches-ignore: 
+      - B142 
+  pull_request:
+
+jobs:
+
+  build:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Step 1
+      run: |
+        echo " Step 1"
+
+    - name: Step 2
+      if: github.event.pull_request.merged == true
+      run: |
+        echo " Step 2"
