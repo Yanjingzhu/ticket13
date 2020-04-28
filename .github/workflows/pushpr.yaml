@@ -2,8 +2,8 @@ name: Test
 
 on:
   push:
-    branches-ignore: 
-      - B142 
+    branches: 
+      - B142
   pull_request:
 
 jobs:
